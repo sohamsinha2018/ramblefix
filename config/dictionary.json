@@ -1,0 +1,27 @@
+{
+  "version": "2026-06-12.seed",
+  "terms": [
+    {"canonical": "BCom", "aliases": ["bcom"]},
+    {"canonical": "BPD", "aliases": ["bpd"]},
+    {"canonical": "Codex", "aliases": ["codex"]},
+    {"canonical": "Cursor", "aliases": ["cursor"]},
+    {"canonical": "Fee Admin", "aliases": ["fee admin", "fiatman"]},
+    {"canonical": "Partner Center", "aliases": ["partner center"]},
+    {"canonical": "PCI", "aliases": ["pci"]},
+    {"canonical": "PII", "aliases": ["pii"]},
+    {"canonical": "PRD", "aliases": ["prd"]},
+    {"canonical": "Riskified", "aliases": ["riskified", "riscfied", "risk ified"]},
+    {"canonical": "SDK", "aliases": ["sdk"]},
+    {"canonical": "SOC2", "aliases": ["soc2", "soc 2", "soc two", "sock two"]},
+    {"canonical": "SOX", "aliases": ["sox"]},
+    {"canonical": "API", "aliases": ["api"]},
+    {"canonical": "ASR", "aliases": ["asr"]},
+    {"canonical": "MCP", "aliases": ["mcp"]},
+    {"canonical": "LLM", "aliases": ["llm"]},
+    {"canonical": "STT", "aliases": ["stt"]},
+    {"canonical": "UI", "aliases": ["ui"]},
+    {"canonical": "UX", "aliases": ["ux"]},
+    {"canonical": "wedge", "aliases": ["wedge"]},
+    {"canonical": "RambleFix", "aliases": ["ramble fix", "rumble fix", "ramblefix"]}
+  ]
+}

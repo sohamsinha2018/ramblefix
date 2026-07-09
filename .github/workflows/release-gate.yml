@@ -1,0 +1,25 @@
+name: release-gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  mac-v0:
+    name: Mac V0 release gate
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit public source surface
+        run: script/audit_public_source_surface.sh
+      - name: Audit benchmark claims
+        run: python3 scripts/audit_benchmark_claims.py
+      - name: Validate V0 public scope
+        run: script/validate_v0_release_scope.sh
+      - name: Native hotkey regression
+        run: script/regression_ramblefix_hotkey.sh
+      - name: Build native hotkey package
+        run: swift build --package-path native/RambleFixHotkey
+      - name: Compile Python sources
+        run: python3 -m compileall -q src app.py scripts

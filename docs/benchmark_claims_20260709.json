@@ -1,0 +1,219 @@
+{
+  "version": "2026-07-09.launch_claims_v1",
+  "claim_boundary": {
+    "allowed": [
+      "same-WAV local benchmark",
+      "English at-par with the best measured local path",
+      "Hindi+English materially ahead of measured local baselines",
+      "small actual-user Wispr Flow comparison is directional only"
+    ],
+    "forbidden": [
+      "beats Wispr Flow",
+      "better than Wispr Flow",
+      "long English is solved",
+      "hundreds of audio clips"
+    ]
+  },
+  "claim_cards": [
+    {
+      "id": "expanded_real_use_overall",
+      "label": "Expanded real-use check",
+      "source_file": "eval_runs/final-launch-eval-20260709-195158/resident_server_expanded/scorecard.json",
+      "source_section": "summary",
+      "selector": {
+        "backend": "resident_server_first_paste"
+      },
+      "metrics": {
+        "useful": {
+          "source_key": "avg_useful_score",
+          "expected": 0.872,
+          "display": "0.872 useful"
+        },
+        "meaning": {
+          "source_key": "avg_coverage",
+          "expected": 0.931,
+          "display": "meaning 0.931"
+        }
+      },
+      "site_must_contain": [
+        "Expanded real-use check",
+        "0.872 useful",
+        "Current resident product path stayed ahead"
+      ]
+    },
+    {
+      "id": "expanded_real_use_hindi_english",
+      "label": "Hindi+English under 60s",
+      "source_file": "eval_runs/final-launch-eval-20260709-195158/resident_server_expanded/summary_by_category.json",
+      "source_section": "by_category",
+      "selector": {
+        "backend": "resident_server_first_paste",
+        "category": "real_use_hindi_hinglish_probe"
+      },
+      "metrics": {
+        "useful": {
+          "source_key": "avg_meaning_score",
+          "expected": 0.906,
+          "display": "0.906 useful"
+        },
+        "meaning": {
+          "source_key": "avg_meaning_coverage",
+          "expected": 0.932,
+          "display": "Meaning 0.932"
+        },
+        "terms": {
+          "source_key": "avg_term_coverage",
+          "expected": 0.986,
+          "display": "terms 0.986"
+        }
+      },
+      "site_must_contain": [
+        "Hindi+English under 60s",
+        "0.906 useful",
+        "terms 0.986"
+      ]
+    },
+    {
+      "id": "structure_safety_latest_gate",
+      "label": "Structure safety",
+      "source_file": "eval_runs/final-launch-eval-20260709-195158/quality_gate/quality_gate_summary.json",
+      "source_section": "$",
+      "selector": {},
+      "metrics": {
+        "unsafe_accepted": {
+          "source_key": "structure_unsafe_accepted_rows",
+          "expected": 0,
+          "display": "0 unsafe"
+        },
+        "accepted": {
+          "source_key": "structure_accepted_rows",
+          "expected": 86,
+          "display": "86 accepted"
+        }
+      },
+      "site_must_contain": [
+        "Structure safety",
+        "0 unsafe",
+        "86 accepted structure updates"
+      ]
+    },
+    {
+      "id": "short_clean_english",
+      "label": "English, public clips under 60s",
+      "source_file": "eval_runs/current-product-structure-20260709/public95_summary.json",
+      "source_section": "by_pool_bucket",
+      "selector": {
+        "backend": "ramblefix_current_structured_if_unchanged",
+        "pool_bucket": "english_public"
+      },
+      "metrics": {
+        "useful": {
+          "source_key": "avg_meaning_score",
+          "expected": 0.935,
+          "display": "0.935 useful"
+        },
+        "p95_seconds": {
+          "source_key": "p95_seconds",
+          "expected": 0.767,
+          "display": "p95 0.767s"
+        }
+      },
+      "site_must_contain": [
+        "English, public clips under 60s",
+        "0.935 useful",
+        "p95 0.767s",
+        "at-par quality"
+      ]
+    },
+    {
+      "id": "short_hindi_english",
+      "label": "Hindi+English, public clips under 60s",
+      "source_file": "eval_runs/current-product-structure-20260709/public95_summary.json",
+      "source_section": "by_pool_bucket",
+      "selector": {
+        "backend": "ramblefix_current_structured_if_unchanged",
+        "pool_bucket": "hinglish_code_switch"
+      },
+      "metrics": {
+        "useful": {
+          "source_key": "avg_meaning_score",
+          "expected": 0.674,
+          "display": "0.674 useful"
+        },
+        "terms": {
+          "source_key": "avg_term_coverage",
+          "expected": 0.772,
+          "display": "terms 0.772"
+        },
+        "p95_seconds": {
+          "source_key": "p95_seconds",
+          "expected": 0.705,
+          "display": "p95 0.705s"
+        }
+      },
+      "site_must_contain": [
+        "Hindi+English, public clips under 60s",
+        "0.674 useful",
+        "p95 0.705s",
+        "materially ahead"
+      ]
+    },
+    {
+      "id": "long_hindi_english",
+      "label": "Hindi+English, 60-120s stress clips",
+      "source_file": "eval_runs/current-product-structure-20260709/public_long_summary.json",
+      "source_section": "by_category",
+      "selector": {
+        "backend": "ramblefix_current_structured_if_unchanged",
+        "category": "openslr104_hinglish"
+      },
+      "metrics": {
+        "useful": {
+          "source_key": "avg_meaning_score",
+          "expected": 0.641,
+          "display": "0.641 useful"
+        },
+        "terms": {
+          "source_key": "avg_term_coverage",
+          "expected": 0.783,
+          "display": "terms 0.783"
+        },
+        "p95_seconds": {
+          "source_key": "p95_seconds",
+          "expected": 3.666,
+          "display": "p95 3.666s"
+        }
+      },
+      "site_must_contain": [
+        "Hindi+English, 60-120s stress clips",
+        "0.641 useful",
+        "p95 3.666s",
+        "not claimed as solved"
+      ]
+    }
+  ],
+  "evidence_files": [
+    "docs/current_regression_readout_20260709.md",
+    "eval_runs/final-launch-eval-20260709-195158/resident_server_expanded/scorecard.json",
+    "eval_runs/final-launch-eval-20260709-195158/resident_server_expanded/summary_by_category.json",
+    "eval_runs/final-launch-eval-20260709-195158/quality_gate/quality_gate_summary.json",
+    "eval_runs/current-product-structure-20260709/public95_summary.json",
+    "eval_runs/current-product-structure-20260709/public_long_summary.json",
+    "eval_runs/current-product-structure-20260709/actual_existing6_variant_score/variant_scorecard.json",
+    "eval_runs/regression-quality-20260709-023240-focus-fix/quality_gate_summary.json"
+  ],
+  "site_must_contain": [
+    "Same-WAV local benchmark",
+    "small actual-user directional Wispr Flow comparison",
+    "Long English is not a launch claim yet"
+  ],
+  "release_notes_must_contain": [
+    "Do not claim long English as best-in-class",
+    "Wispr Flow comparison is directional"
+  ],
+  "readout_must_contain": [
+    "Do not market long English as beaten",
+    "Wispr directional",
+    "Structure safety: 86 accepted structure updates, 0 unsafe accepted rows"
+  ]
+}

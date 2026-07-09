@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DictaHue - free local dictation for Mac</title>
+    <meta
+      name="description"
+      content="DictaHue is a free local Mac dictation app built for fast English, Indian English, work terms, and light Hinglish."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2312141a'/%3E%3Cpath d='M14 34c6-22 12 22 18 0s12 22 18 0' fill='none' stroke='%2325dff4' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M14 30c6-18 12 18 18 0s12 18 18 0' fill='none' stroke='%23b6ff58' stroke-width='4' stroke-linecap='round' opacity='.85'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <a class="brand" href="#top" aria-label="DictaHue home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>DictaHue</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#privacy">Privacy</a>
+        <a href="#benchmarks">Benchmarks</a>
+        <a href="#feedback">Feedback</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Free local dictation for Mac</p>
+          <h1>DictaHue</h1>
+          <p class="lede">
+            Hold the hotkey, speak, release. DictaHue pastes fast local text into the app
+            you are already using, with Indian English, work terms, and light Hinglish in mind.
+          </p>
+          <div class="actions" id="download">
+            <a class="button primary" href="https://github.com/sohamsinha2018/dictahue/releases/latest/download/DictaHue-0.1.0.dmg" aria-label="Download DictaHue DMG">Download for Mac</a>
+            <a class="button ghost" href="https://github.com/sohamsinha2018/dictahue" aria-label="DictaHue GitHub repository">Star on GitHub</a>
+          </div>
+          <p class="fine-print">No signup. No cloud product path. No screen recording permission in V0.</p>
+        </div>
+
+        <div class="product-shot" aria-label="DictaHue floating dictation UI mockup">
+          <div class="desktop-line"></div>
+          <div class="glass-pill listening">
+            <span class="wave wave-a"></span>
+            <span class="wave wave-b"></span>
+            <span class="wave wave-c"></span>
+            <span class="wave wave-d"></span>
+            <span class="wave wave-e"></span>
+          </div>
+          <div class="glass-pill processing">
+            <span class="rail"></span>
+            <span class="thinking"></span>
+            <span class="thinking offset"></span>
+          </div>
+          <div class="glass-toast">
+            <span>Cursor not focused</span>
+            <button type="button">Copy</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="strip" aria-label="Launch promise">
+        <div>
+          <strong>Local first</strong>
+          <span>Audio and transcripts stay on device by default.</span>
+        </div>
+        <div>
+          <strong>Low friction</strong>
+          <span>Works where your cursor already is.</span>
+        </div>
+        <div>
+          <strong>Work speech</strong>
+          <span>Acronyms, product names, and Hinglish get better over time.</span>
+        </div>
+      </section>
+
+      <section class="section two-col" id="privacy">
+        <div>
+          <p class="eyebrow">Privacy model</p>
+          <h2>Built for people who cannot send work audio to the cloud.</h2>
+        </div>
+        <div class="plain-list">
+          <p>Dictation runs locally on your Mac. The app asks for Microphone and Accessibility/Input Monitoring because every serious dictation app needs to listen and paste.</p>
+          <p>V0 does not ask for Screen Recording, Calendar, Contacts, or Files access. Diagnostics are local unless you choose to share them.</p>
+        </div>
+      </section>
+
+      <section class="section" id="benchmarks">
+        <div class="section-head">
+          <p class="eyebrow">Same-WAV local benchmark</p>
+          <h2>Measured against local engines, not vibes.</h2>
+        </div>
+        <div class="proof-panel">
+          <div>
+            <span>Expanded real-use check</span>
+            <strong>0.872 useful</strong>
+            <p>19 real saved clips covering recent English, Hindi+English probes, and 60-120s stress clips. Current resident product path stayed ahead of MLX tiny, MLX translate, raw MLX turbo, and Parakeet on aggregate useful score.</p>
+          </div>
+          <div>
+            <span>Hindi+English under 60s</span>
+            <strong>0.906 useful</strong>
+            <p>Meaning 0.932, terms 0.986 on the real-use probe slice. Parakeet is promising, but still needs guarded routing before it can replace the product path.</p>
+          </div>
+          <div>
+            <span>Structure safety</span>
+            <strong>0 unsafe</strong>
+            <p>86 accepted structure updates in the latest gate, with no unsafe accepted rows and no protected-term drops.</p>
+          </div>
+        </div>
+        <div class="bench-grid">
+          <article>
+            <span>English, public clips under 60s</span>
+            <strong>0.935 useful</strong>
+            <p>p95 0.767s on clean English; at-par quality with the best measured local Whisper path.</p>
+          </article>
+          <article>
+            <span>Hindi+English, public clips under 60s</span>
+            <strong>0.674 useful</strong>
+            <p>p95 0.705s; materially ahead of measured OpenWhispr small/base on meaning and terms.</p>
+          </article>
+          <article>
+            <span>Hindi+English, 60-120s stress clips</span>
+            <strong>0.641 useful</strong>
+            <p>p95 3.666s; stronger than measured local baselines, still not claimed as solved.</p>
+          </article>
+        </div>
+        <p class="fine-print">Current claim boundary: same-WAV local benchmark plus small actual-user directional Wispr Flow comparison. Long English is not a launch claim yet. Wispr Flow remains directional until a clean loopback same-WAV benchmark exists.</p>
+      </section>
+
+      <section class="section two-col" id="feedback">
+        <div>
+          <p class="eyebrow">Feedback loop</p>
+          <h2>Use it, break it, tell us what it missed.</h2>
+        </div>
+        <div class="feedback-card">
+          <p>
+            Best launch setup: GitHub Releases for downloads and stars, GitHub Discussions
+            for public issues, plus Discord for low-friction user feedback.
+          </p>
+          <div class="actions compact">
+            <a class="button primary" href="https://github.com/sohamsinha2018/dictahue/discussions">Open GitHub Discussions</a>
+            <a class="button ghost" href="https://github.com/sohamsinha2018/dictahue/discussions">Ask on GitHub</a>
+          </div>
+          <p class="fine-print">Public feedback is tracked through GitHub Discussions.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

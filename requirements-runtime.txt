@@ -1,0 +1,5 @@
+# V0 packaged runtime only.
+# Keep this smaller than requirements.txt: no Streamlit, cloud eval clients, meeting lab, or Chinese lab deps.
+mlx-whisper==0.4.3
+requests==2.33.1
+soundfile==0.13.1
