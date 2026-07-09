@@ -4,6 +4,7 @@ from __future__ import annotations
 import contextlib
 import json
 import os
+import sys
 import tempfile
 import threading
 import wave
@@ -11,6 +12,11 @@ from pathlib import Path
 from typing import Any
 
 import requests
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
 
 import ramblefix.asr as asr_module
 from ramblefix.asr import Transcript
@@ -42,6 +48,8 @@ def main() -> None:
                 files={"file": (wav_path.name, audio_file, "audio/wav")},
                 timeout=5,
             )
+        if response.status_code >= 400:
+            raise AssertionError(f"Srota inference failed status={response.status_code} body={response.text}")
         response.raise_for_status()
         payload = response.json()
         assert payload["text"] == "Why is the end-to-end safe replacement failing?", payload

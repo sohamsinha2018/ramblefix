@@ -344,30 +344,48 @@ class SrotaHandler(BaseHTTPRequestHandler):
     def _read_audio_request(self) -> tuple[Path, bool]:
         content_type = self.headers.get("Content-Type", "")
         if content_type.startswith("multipart/form-data"):
-            import cgi
-
-            form = cgi.FieldStorage(
-                fp=self.rfile,
-                headers=self.headers,
-                environ={
-                    "REQUEST_METHOD": "POST",
-                    "CONTENT_TYPE": content_type,
-                    "CONTENT_LENGTH": self.headers.get("Content-Length", "0"),
-                },
-            )
-            file_item = form["file"] if "file" in form else None
-            if file_item is None or not getattr(file_item, "file", None):
-                raise ValueError("multipart request missing file field")
-            suffix = Path(str(getattr(file_item, "filename", "") or "audio.wav")).suffix or ".wav"
-            with tempfile.NamedTemporaryFile(prefix="ramblefix-srota-inference-", suffix=suffix, delete=False) as tmp:
-                tmp.write(file_item.file.read())
-                return Path(tmp.name), True
+            return self._read_multipart_file(content_type)
 
         payload = self._read_json()
         audio_path = Path(str(payload.get("audio_path", ""))).expanduser().resolve()
         if not audio_path.exists():
             raise FileNotFoundError(f"missing audio_path: {audio_path}")
         return audio_path, False
+
+    def _read_multipart_file(self, content_type: str) -> tuple[Path, bool]:
+        from email.parser import BytesParser
+        from email.policy import default
+
+        length = int(self.headers.get("Content-Length") or "0")
+        body = self.rfile.read(length)
+        if not body:
+            raise ValueError("multipart request body is empty")
+
+        raw_message = (
+            f"Content-Type: {content_type}\r\n"
+            "MIME-Version: 1.0\r\n"
+            "\r\n"
+        ).encode("utf-8") + body
+        message = BytesParser(policy=default).parsebytes(raw_message)
+        if not message.is_multipart():
+            raise ValueError("multipart request did not parse as multipart")
+
+        for part in message.iter_parts():
+            disposition = part.get_content_disposition()
+            if disposition != "form-data":
+                continue
+            params = dict(part.get_params(header="content-disposition") or [])
+            if params.get("name") != "file":
+                continue
+            data = part.get_payload(decode=True)
+            if not data:
+                raise ValueError("multipart file field is empty")
+            suffix = Path(part.get_filename() or "audio.wav").suffix or ".wav"
+            with tempfile.NamedTemporaryFile(prefix="ramblefix-srota-inference-", suffix=suffix, delete=False) as tmp:
+                tmp.write(data)
+                return Path(tmp.name), True
+
+        raise ValueError("multipart request missing file field")
 
     def _send_json(self, payload: dict[str, Any], *, status: HTTPStatus = HTTPStatus.OK) -> None:
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
