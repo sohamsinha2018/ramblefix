@@ -41,13 +41,18 @@ for text in \
   "0.906 useful" \
   "0 unsafe" \
   "Long English is not a launch claim yet." \
-  "Download for Mac" \
   "Star on GitHub"; do
   if ! grep -Fq "$text" /tmp/dictahue-site-smoke.html; then
     echo "site visual smoke failed: missing text: $text" >&2
     exit 1
   fi
 done
+
+if ! grep -Fq "Download for Mac" /tmp/dictahue-site-smoke.html && \
+   ! grep -Fq "Download after signed build" /tmp/dictahue-site-smoke.html; then
+  echo "site visual smoke failed: missing download CTA state" >&2
+  exit 1
+fi
 
 npx --yes playwright screenshot --browser=chromium --viewport-size=1440,1000 "$URL" "$OUT_DIR/dictahue-site-desktop.png" >/dev/null
 npx --yes playwright screenshot --browser=chromium --viewport-size=1024,768 "$URL" "$OUT_DIR/dictahue-site-tablet.png" >/dev/null

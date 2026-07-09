@@ -157,6 +157,12 @@ h2 {
   backdrop-filter: blur(16px);
 }
 
+.button.disabled {
+  cursor: default;
+  opacity: 0.62;
+  pointer-events: none;
+}
+
 .fine-print {
   margin: 18px 0 0;
   color: #6d7480;

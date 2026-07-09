@@ -33,6 +33,8 @@ feedback_label = "Join Discord" if os.environ["DICTAHUE_DISCORD_URL"] else "Ask 
 replacements = {
     '<a class="button primary" href="#" aria-label="Download DictaHue DMG placeholder">Download for Mac</a>':
         f'<a class="button primary" href="{os.environ["DICTAHUE_DOWNLOAD_URL"]}" aria-label="Download DictaHue DMG">Download for Mac</a>',
+    '<span class="button ghost disabled" data-download-pending="true" aria-disabled="true">Download after signed build</span>':
+        f'<a class="button primary" href="{os.environ["DICTAHUE_DOWNLOAD_URL"]}" aria-label="Download DictaHue DMG">Download for Mac</a>',
     '<a class="button ghost" href="#" aria-label="GitHub repository placeholder">Star on GitHub</a>':
         f'<a class="button ghost" href="{os.environ["DICTAHUE_GITHUB_URL"]}" aria-label="DictaHue GitHub repository">Star on GitHub</a>',
     '<a class="button primary" href="#">Open GitHub Discussions</a>':
@@ -43,12 +45,14 @@ replacements = {
         '<p class="fine-print">Public feedback is tracked through GitHub Discussions.</p>',
 }
 
-missing = [needle for needle in replacements if needle not in html]
-if missing:
-    raise SystemExit("site link placeholders not found or already configured")
-
+changed = 0
 for needle, replacement in replacements.items():
-    html = html.replace(needle, replacement)
+    if needle in html:
+        html = html.replace(needle, replacement)
+        changed += 1
+
+if changed == 0:
+    raise SystemExit("site link placeholders not found or already configured")
 
 path.write_text(html, encoding="utf-8")
 PY
