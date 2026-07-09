@@ -20,6 +20,7 @@ if [[ -z "$PYTHON" ]]; then
     PYTHON="python3"
   fi
 fi
+export PYTHONPATH="$ROOT/src${PYTHONPATH:+:$PYTHONPATH}"
 
 POLICY_OUTPUT="$POLICY_OUTPUT" "$PYTHON" - <<'PY'
 import json
