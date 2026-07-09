@@ -15,6 +15,7 @@ jobs:
   analyze:
     name: Analyze
     runs-on: macos-15
+    timeout-minutes: 20
     permissions:
       security-events: write
       packages: read
@@ -23,15 +24,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["python", "swift"]
+        include:
+          - language: python
+            build-mode: none
+          - language: swift
+            build-mode: manual
     steps:
       - uses: actions/checkout@v4
-      - uses: github/codeql-action/init@v3
+      - uses: github/codeql-action/init@v4
         with:
           languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
       - name: Build Swift package
         if: matrix.language == 'swift'
         run: swift build --package-path native/RambleFixHotkey
-      - uses: github/codeql-action/analyze@v3
+      - uses: github/codeql-action/analyze@v4
         with:
           category: "/language:${{ matrix.language }}"
