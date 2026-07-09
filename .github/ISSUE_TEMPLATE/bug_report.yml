@@ -1,0 +1,63 @@
+name: Bug report
+description: Report a DictaHue app, install, paste, or transcription issue.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting this. Do not attach private audio, transcripts, or logs unless you have reviewed them and are comfortable sharing them publicly.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe what you expected and what happened instead.
+      placeholder: "Example: I held Control, spoke, released, and no text appeared."
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Install/signing
+        - Microphone capture
+        - Hotkey/listening HUD
+        - Paste/copy fallback
+        - English transcription
+        - Hindi+English transcription
+        - Structure update
+        - Performance/latency
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac model
+      placeholder: "Example: macOS 15.5, M2 MacBook Air"
+    validations:
+      required: true
+  - type: checkboxes
+    id: permissions
+    attributes:
+      label: Permissions checked
+      options:
+        - label: Microphone permission is enabled.
+        - label: Accessibility permission is enabled.
+        - label: Input Monitoring permission is enabled, if macOS asked for it.
+  - type: textarea
+    id: local-evidence
+    attributes:
+      label: Local evidence, if you can safely share it
+      description: Paste non-private error text, timing rows, or a short redacted description. Avoid sharing sensitive audio/transcripts.
+      placeholder: "Example: release_to_paste was 6.2s; route was fast_server_native."
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Hold ...
+        3. Speak ...
+        4. Release ...
