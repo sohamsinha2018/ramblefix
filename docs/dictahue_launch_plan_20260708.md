@@ -72,8 +72,7 @@ Current state:
 - Public repo: `https://github.com/sohamsinha2018/dictahue`
 - GitHub Pages: `https://sohamsinha2018.github.io/dictahue/`
 - GitHub Discussions: `https://github.com/sohamsinha2018/dictahue/discussions`
-- Custom domain configured in GitHub Pages: `dictahue.app`
-- DNS still needs to move from GoDaddy parking/site builder to GitHub Pages.
+- Custom domain: pending. Keep `dictahue.app` off GitHub Pages until DNS moves from GoDaddy parking/site builder to GitHub Pages.
 
 If links need to be regenerated, use:
 
@@ -95,6 +94,8 @@ CNAME www   sohamsinha2018.github.io
 ```
 
 GitHub's custom-domain docs say DNS changes can take up to 24 hours to propagate.
+
+After DNS resolves to GitHub Pages, set the custom domain in GitHub Pages to `dictahue.app`.
 
 Recommended launch proof:
 

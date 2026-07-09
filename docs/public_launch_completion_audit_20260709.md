@@ -21,7 +21,7 @@
 - GitHub Discussions is enabled for feedback.
 - GitHub Pages workflow deploys the static site successfully.
 - GitHub Pages URL is live: `https://sohamsinha2018.github.io/dictahue/`.
-- GitHub Pages custom domain is set to `dictahue.app`.
+- GitHub Pages custom domain is not active yet because `dictahue.app` DNS still points to GoDaddy.
 - Public benchmark claim numbers are machine-checked against scorecard JSON.
 - Latency-sensitive evals now refuse dirty machine state unless explicitly overridden.
 - Current structure-only safety rerun passed: 187 rows, 86 accepted updates, 0 unsafe accepted rows.
@@ -50,7 +50,7 @@ gh api repos/sohamsinha2018/dictahue/pages
 - Notary profile is not configured.
 - The DMG is not notarized/stapled.
 - GitHub release asset is not published yet because the DMG still needs Developer ID signing and notarization.
-- `dictahue.app` DNS still points to GoDaddy, not GitHub Pages. Update DNS before using the custom domain:
+- `dictahue.app` DNS still points to GoDaddy, not GitHub Pages. Update DNS, then add the custom domain back in GitHub Pages:
   - `A @ 185.199.108.153`
   - `A @ 185.199.109.153`
   - `A @ 185.199.110.153`
@@ -62,4 +62,4 @@ gh api repos/sohamsinha2018/dictahue/pages
 
 Local smoke build: acceptable.
 
-Public launch: not ready until Developer ID signing, notarization, checksum-published GitHub release, DNS cutover, and a strict clean-machine latency eval are done.
+Public launch: not ready until Developer ID signing, notarization, checksum-published GitHub release, DNS cutover, custom-domain re-enable, and a strict clean-machine latency eval are done.
