@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DictaHue security review notes</title>
+    <meta
+      name="description"
+      content="Security review notes for DictaHue: local audio, standard permissions, open-source code, and signed release requirements."
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260717a" />
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="brand" href="./" aria-label="DictaHue home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>DictaHue</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="./#how">How it works</a>
+        <a href="./#privacy">Privacy</a>
+        <a href="./#benchmarks">Benchmarks</a>
+        <a href="./#feedback">Feedback</a>
+      </nav>
+      <a class="nav-download" href="https://github.com/sohamsinha2018/dictahue">View source</a>
+    </header>
+
+    <main class="method-page">
+      <section class="section">
+        <p class="eyebrow">Security review notes</p>
+        <h1>Built to be easy to review before work use.</h1>
+        <p class="lede">
+          DictaHue is designed as a local dictation app: voice capture, transcription, logs, and light structure stay
+          on the Mac unless the user explicitly exports diagnostics.
+        </p>
+
+        <div class="method-grid">
+          <article>
+            <h3>Permissions</h3>
+            <p>Microphone for voice. Accessibility/Input Monitoring for hotkey and paste. No Screen Recording in V0.</p>
+          </article>
+          <article>
+            <h3>Network model</h3>
+            <p>No cloud transcription in the shipped product path. Local servers bind to loopback only.</p>
+          </article>
+          <article>
+            <h3>Diagnostics</h3>
+            <p>Local by default. Raw audio and transcripts are excluded unless the user chooses to include them.</p>
+          </article>
+          <article>
+            <h3>Release integrity</h3>
+            <p>Public builds must be Developer ID signed, notarized, stapled, and published with SHA-256 checksums.</p>
+          </article>
+        </div>
+
+        <div class="benchmark-note">
+          <p>
+            Before public release, DictaHue also needs the signed DMG, notary profile, embedded runtime audit,
+            dependency/SBOM review, third-party model notices, and a clean-machine install test.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

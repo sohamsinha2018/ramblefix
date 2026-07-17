@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DictaHue benchmark method</title>
+    <meta
+      name="description"
+      content="How DictaHue measures local dictation quality and speed on saved same-WAV recordings."
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260717a" />
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="brand" href="./" aria-label="DictaHue home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>DictaHue</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="./#how">How it works</a>
+        <a href="./#privacy">Privacy</a>
+        <a href="./#benchmarks">Benchmarks</a>
+        <a href="./#feedback">Feedback</a>
+      </nav>
+      <a class="nav-download" href="https://github.com/sohamsinha2018/dictahue">View source</a>
+    </header>
+
+    <main class="method-page">
+      <section class="section">
+        <p class="eyebrow">Benchmark method</p>
+        <h1>Same audio, local engines, honest caveats.</h1>
+        <p class="lede">
+          DictaHue benchmarks replay saved WAV recordings through local engines and compare outputs against
+          Gemini-cross-checked gold transcripts. Cloud models are used only to confirm gold labels, not in the product path.
+        </p>
+
+        <div class="method-grid">
+          <article>
+            <h3>English</h3>
+            <p>45 saved dictations. Current result: meaning 0.897, terms 0.900.</p>
+          </article>
+          <article>
+            <h3>Long rambles</h3>
+            <p>Longer work-style dictations. Current result: meaning 0.928, terms 0.919.</p>
+          </article>
+          <article>
+            <h3>Hindi+English beta</h3>
+            <p>13 mixed-language clips. DictaHue meaning 0.885 vs 0.661-0.702 for tested local general engines.</p>
+          </article>
+          <article>
+            <h3>Claim boundary</h3>
+            <p>Wispr Flow comparisons remain directional until a clean same-WAV loopback benchmark exists.</p>
+          </article>
+        </div>
+
+        <div class="benchmark-note">
+          <p>
+            This page is the public summary. The internal regression harness also checks blank/no-speech guards,
+            structure safety, protected terms, local-only runtime rules, and release-to-paste timing before a public build.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

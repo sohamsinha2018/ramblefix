@@ -6,146 +6,529 @@
     <title>DictaHue - free local dictation for Mac</title>
     <meta
       name="description"
-      content="DictaHue is a free local Mac dictation app built for fast English, Indian English, work terms, and light Hinglish."
+      content="DictaHue is a free open-source local dictation app for Mac: fast English, private by default, work terms, and Hindi+English support for bilingual builders."
     />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2312141a'/%3E%3Cpath d='M14 34c6-22 12 22 18 0s12 22 18 0' fill='none' stroke='%2325dff4' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M14 30c6-18 12 18 18 0s12 18 18 0' fill='none' stroke='%23b6ff58' stroke-width='4' stroke-linecap='round' opacity='.85'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="./styles.css" />
+    <meta property="og:title" content="DictaHue - free local dictation for Mac" />
+    <meta property="og:description" content="Wispr-style dictation for work machines where cloud voice tools are hard to approve. Audio stays on your Mac." />
+    <meta property="og:image" content="https://sohamsinha2018.github.io/dictahue/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101214'/%3E%3Cpath d='M12 34c5-18 10 18 15 0s10 18 15 0 10 18 15 0' fill='none' stroke='%2325dff4' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M12 28c5-13 10 13 15 0s10 13 15 0 10 13 15 0' fill='none' stroke='%23b6ff58' stroke-width='4' stroke-linecap='round' opacity='.88'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css?v=20260717a" />
   </head>
   <body>
-    <header class="nav">
+    <header class="site-nav">
       <a class="brand" href="#top" aria-label="DictaHue home">
         <span class="brand-mark" aria-hidden="true"></span>
         <span>DictaHue</span>
       </a>
       <nav aria-label="Main navigation">
+        <a href="#how">How it works</a>
         <a href="#privacy">Privacy</a>
         <a href="#benchmarks">Benchmarks</a>
         <a href="#feedback">Feedback</a>
       </nav>
+      <a class="nav-download" href="https://github.com/sohamsinha2018/dictahue">View source</a>
     </header>
 
     <main id="top">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Free local dictation for Mac</p>
-          <h1>DictaHue</h1>
+          <p class="eyebrow">Free and open-source local dictation for Mac</p>
+          <h1>Fast private dictation, free on your Mac.</h1>
           <p class="lede">
-            Hold the hotkey, speak, release. DictaHue pastes fast local text into the app
-            you are already using, with Indian English, work terms, and light Hinglish in mind.
+            Hold a key, speak, release - clean text lands in whatever app you are using. Built for work machines where cloud dictation is hard to approve: your voice stays on your Mac, with only standard dictation permissions.
           </p>
-          <div class="actions" id="download">
-            <a class="button primary" href="https://github.com/sohamsinha2018/dictahue" aria-label="DictaHue GitHub repository">Star on GitHub</a>
-            <span class="button ghost disabled" data-download-pending="true" aria-disabled="true">Download after signed build</span>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/sohamsinha2018/dictahue">View the source</a>
+            <span class="button secondary disabled" data-download-pending="true" aria-disabled="true">Signed Mac build coming soon</span>
+            <a class="button secondary" href="./security-review.html">Security notes</a>
           </div>
-          <p class="fine-print">No signup. No cloud product path. No screen recording permission in V0.</p>
+          <p class="install-note">Public download opens after Developer ID signing, notarization, checksum, and release gates pass.</p>
+          <div class="trust-row" aria-label="Launch promises">
+            <span>Audio stays local</span>
+            <span>No screen recording</span>
+            <span>MIT licensed source</span>
+            <span>Hindi+English beta</span>
+          </div>
         </div>
 
-        <div class="product-shot" aria-label="DictaHue floating dictation UI mockup">
-          <div class="desktop-line"></div>
-          <div class="glass-pill listening">
-            <span class="wave wave-a"></span>
-            <span class="wave wave-b"></span>
-            <span class="wave wave-c"></span>
-            <span class="wave wave-d"></span>
-            <span class="wave wave-e"></span>
+        <div class="hero-visual" aria-label="DictaHue dictation demo">
+          <div class="demo-shell">
+            <div class="demo-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+              <p>typing into any app</p>
+            </div>
+            <div class="compose">
+              <p class="compose-label">You say</p>
+              <p id="demo-spoken" class="spoken">
+                check the PRD, run release tests, and make sure MCP and Qwen do not regress
+              </p>
+              <div class="orb-stage" id="orb-stage">
+                <canvas id="orb" width="300" height="300" aria-hidden="true"></canvas>
+                <p id="orb-lang" class="orb-lang">listening &middot; english</p>
+                <p class="orb-hint" id="orb-hint">hold the orb and talk &mdash; it moves with your voice. Audio never leaves this page.</p>
+              </div>
+              <p class="compose-label result">DictaHue pastes</p>
+              <p id="demo-pasted" class="pasted">
+                Check the PRD, run the release tests, and make sure MCP and Qwen do not regress.
+              </p>
+            </div>
           </div>
-          <div class="glass-pill processing">
-            <span class="rail"></span>
-            <span class="thinking"></span>
-            <span class="thinking offset"></span>
-          </div>
-          <div class="glass-toast">
-            <span>Cursor not focused</span>
-            <button type="button">Copy</button>
-          </div>
+          <div class="proof-chip chip-left">on-device</div>
+          <div class="proof-chip chip-right">works in chat, docs, browsers</div>
         </div>
       </section>
 
-      <section class="strip" aria-label="Launch promise">
+      <section class="signal-strip" aria-label="Core value props">
         <div>
-          <strong>Local first</strong>
-          <span>Audio and transcripts stay on device by default.</span>
+          <strong>Fast English first</strong>
+          <span>Press, speak, release, paste into chat, docs, browsers, and IDEs.</span>
         </div>
         <div>
-          <strong>Low friction</strong>
-          <span>Works where your cursor already is.</span>
+          <strong>Work terms matter</strong>
+          <span>Keeps product names, acronyms, and rambly builder instructions useful.</span>
         </div>
         <div>
-          <strong>Work speech</strong>
-          <span>Acronyms, product names, and Hinglish get better over time.</span>
+          <strong>Built for mixed-language brains</strong>
+          <span>Hindi+English works today. The next bilingual mode will be shaped by users.</span>
         </div>
       </section>
 
-      <section class="section two-col" id="privacy">
+      <section class="section split" id="how">
         <div>
-          <p class="eyebrow">Privacy model</p>
-          <h2>Built for people who cannot send work audio to the cloud.</h2>
+          <p class="eyebrow">Why this exists</p>
+          <h2>Universal dictation for builders who do not always think in one language.</h2>
         </div>
-        <div class="plain-list">
-          <p>Dictation runs locally on your Mac. The app asks for Microphone and Accessibility/Input Monitoring because every serious dictation app needs to listen and paste.</p>
-          <p>V0 does not ask for Screen Recording, Calendar, Contacts, or Files access. Diagnostics are local unless you choose to share them.</p>
-        </div>
-      </section>
-
-      <section class="section" id="benchmarks">
-        <div class="section-head">
-          <p class="eyebrow">Same-WAV local benchmark</p>
-          <h2>Measured against local engines, not vibes.</h2>
-        </div>
-        <div class="proof-panel">
-          <div>
-            <span>Expanded real-use check</span>
-            <strong>0.872 useful</strong>
-            <p>19 real saved clips covering recent English, Hindi+English probes, and 60-120s stress clips. Current resident product path stayed ahead of MLX tiny, MLX translate, raw MLX turbo, and Parakeet on aggregate useful score.</p>
-          </div>
-          <div>
-            <span>Hindi+English under 60s</span>
-            <strong>0.906 useful</strong>
-            <p>Meaning 0.932, terms 0.986 on the real-use probe slice. Parakeet is promising, but still needs guarded routing before it can replace the product path.</p>
-          </div>
-          <div>
-            <span>Structure safety</span>
-            <strong>0 unsafe</strong>
-            <p>86 accepted structure updates in the latest gate, with no unsafe accepted rows and no protected-term drops.</p>
-          </div>
-        </div>
-        <div class="bench-grid">
-          <article>
-            <span>English, public clips under 60s</span>
-            <strong>0.935 useful</strong>
-            <p>p95 0.767s on clean English; at-par quality with the best measured local Whisper path.</p>
-          </article>
-          <article>
-            <span>Hindi+English, public clips under 60s</span>
-            <strong>0.674 useful</strong>
-            <p>p95 0.705s; materially ahead of measured OpenWhispr small/base on meaning and terms.</p>
-          </article>
-          <article>
-            <span>Hindi+English, 60-120s stress clips</span>
-            <strong>0.641 useful</strong>
-            <p>p95 3.666s; stronger than measured local baselines, still not claimed as solved.</p>
-          </article>
-        </div>
-        <p class="fine-print">Current claim boundary: same-WAV local benchmark plus small actual-user directional Wispr Flow comparison. Long English is not a launch claim yet. Wispr Flow remains directional until a clean loopback same-WAV benchmark exists.</p>
-      </section>
-
-      <section class="section two-col" id="feedback">
-        <div>
-          <p class="eyebrow">Feedback loop</p>
-          <h2>Use it, break it, tell us what it missed.</h2>
-        </div>
-        <div class="feedback-card">
+        <div class="copy-stack">
           <p>
-            Best launch setup: GitHub Releases for downloads and stars, GitHub Discussions
-            for public issues, plus Discord for low-friction user feedback.
+            DictaHue starts where adoption starts: fast, private English dictation that works in the apps you already use.
+            Then it handles the real builder pattern: product terms, acronyms, mixed accents, and language switching.
           </p>
-          <div class="actions compact">
-            <a class="button primary" href="https://github.com/sohamsinha2018/dictahue/discussions">Open GitHub Discussions</a>
-            <a class="button ghost" href="https://github.com/sohamsinha2018/dictahue/discussions">Ask on GitHub</a>
+          <p>
+            Hindi+English is the first multilingual mode because that is where local dictation still feels weak. The product should expand
+            language by language without making English slower or less reliable.
+          </p>
+        </div>
+      </section>
+
+      <section class="section steps" aria-label="How DictaHue works">
+        <article>
+          <span>1</span>
+          <h3>Hold the hotkey</h3>
+          <p>A tiny orb shows that the app is listening. It stays out of your way.</p>
+        </article>
+        <article>
+          <span>2</span>
+          <h3>Speak normally</h3>
+          <p>English, Indian English, acronyms, app names, rambling, and Hindi+English when you switch.</p>
+        </article>
+        <article>
+          <span>3</span>
+          <h3>Release to paste</h3>
+          <p>Useful text lands in the focused field. If no field is focused, a compact copy toast appears.</p>
+        </article>
+      </section>
+
+      <section class="section split privacy" id="privacy">
+        <div>
+          <p class="eyebrow">For work devices</p>
+          <h2>Use dictation where cloud voice tools are hard to approve.</h2>
+        </div>
+        <div class="security-grid">
+          <article>
+            <h3>Audio stays local</h3>
+            <p>Speech recognition and light structure run on your Mac.</p>
+          </article>
+          <article>
+            <h3>No screen recording</h3>
+            <p>DictaHue does not need to see your screen to dictate into apps.</p>
+          </article>
+          <article>
+            <h3>Standard permissions</h3>
+            <p>Microphone to listen. Accessibility/Input Monitoring to paste where your cursor is.</p>
+          </article>
+          <article>
+            <h3>Easy to review</h3>
+            <p>Open-source code, local logs, no account, and opt-in diagnostics only.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section evidence" id="benchmarks">
+        <div class="section-head">
+          <p class="eyebrow">Backed by real recordings</p>
+          <h2>Keeps the meaning, keeps the terms, stays fast.</h2>
+          <p>
+            We replay real saved recordings through the local engine and compare the output with
+            Gemini-cross-checked gold transcripts. The takeaway: English is daily-use ready, and
+            Hindi+English preserves more meaning than the tested local alternatives.
+          </p>
+        </div>
+
+        <div class="metric-grid">
+          <article class="wide">
+            <span>Hindi+English beta &middot; same recordings, same test</span>
+            <strong>~89% vs 66-70% meaning kept</strong>
+            <div class="bar-row">
+              <div class="bar-label"><span>DictaHue</span><span>~89%</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width: 89%"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-label"><span>Tested local general engines</span><span>66-70%</span></div>
+              <div class="bar-track"><div class="bar-fill rival" style="width: 70%"></div></div>
+            </div>
+            <p>Same 13 mixed-language clips: DictaHue retained ~89% meaning vs ~66-70% for tested local general engines.</p>
+          </article>
+          <article class="wide">
+            <span>English &middot; 45 real saved dictations</span>
+            <strong>~90% meaning retained</strong>
+            <div class="bar-row">
+              <div class="bar-label"><span>DictaHue, same 18 clips</span><span>~87%</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width: 87%"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-label"><span>Parakeet, same 18 clips</span><span>~81%</span></div>
+              <div class="bar-track"><div class="bar-fill rival" style="width: 81%"></div></div>
+            </div>
+            <p>On 45 real saved dictations, work terms were also retained at about 90%. On the same 18 clips, DictaHue kept ~87% meaning vs ~81% for Parakeet.</p>
+          </article>
+          <article>
+            <span>Long rambles</span>
+            <strong>~93% meaning retained</strong>
+            <p>Best on the kind of long messy instructions people speak into AI tools and docs.</p>
+          </article>
+          <article>
+            <span>Live speed</span>
+            <strong>~1-2s from release to text</strong>
+            <p>Recent installed-app test runs land normal dictation in the ~1-2s band; multilingual can take a few seconds and is labeled beta.</p>
+          </article>
+        </div>
+
+        <div class="benchmark-note">
+          <p>
+            Same-WAV local benchmark. English: 45 clips, meaning 0.897, terms 0.900. Long English: meaning 0.928, terms 0.919.
+            Hindi+English ships as experimental: 13 clips, DictaHue meaning 0.885 vs tested local general engines at 0.661-0.702, terms 0.701.
+            Structure gate: 0 unsafe accepted updates. Wispr Flow comparisons remain directional. See the
+            <a href="./benchmark-method.html">public benchmark method</a>.
+          </p>
+        </div>
+      </section>
+
+      <section class="section final-cta" id="feedback">
+        <div>
+          <p class="eyebrow">Built in public</p>
+          <h2>Try it, star it, and vote for the next bilingual mode.</h2>
+          <p>
+            DictaHue is free because the goal is adoption, feedback, and proof that local dictation can feel as simple
+            as paid tools. Hindi+English is first. Tell us which mix should come next.
+          </p>
+          <div class="language-poll" aria-label="Next multilingual mode poll">
+            <span>English + Mandarin</span>
+            <span>English + Spanish</span>
+            <span>English + Arabic</span>
+            <span>Your language mix</span>
           </div>
-          <p class="fine-print">Public feedback is tracked through GitHub Discussions.</p>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/sohamsinha2018/dictahue">View the source</a>
+          <a class="button secondary" href="https://github.com/sohamsinha2018/dictahue/discussions">Vote on GitHub</a>
         </div>
       </section>
     </main>
+
+    <script>
+      (function () {
+        var examples = [
+          {
+            spoken: "check the PRD, run release tests, and make sure MCP and Qwen do not regress",
+            pasted: "Check the PRD, run the release tests, and make sure MCP and Qwen do not regress.",
+            dual: false
+          },
+          {
+            spoken: "isko PRD ke against check karo aur English path regress mat hone dena",
+            pasted: "Check this against the PRD and make sure the English path does not regress.",
+            dual: true
+          },
+          {
+            spoken: "write a crisp Slack note about the launch checklist and the security review",
+            pasted: "Write a crisp Slack note about the launch checklist and the security review.",
+            dual: false
+          }
+        ];
+        var spoken = document.getElementById("demo-spoken");
+        var pasted = document.getElementById("demo-pasted");
+        var canvas = document.getElementById("orb");
+        var stage = document.getElementById("orb-stage");
+        var langEl = document.getElementById("orb-lang");
+        var hintEl = document.getElementById("orb-hint");
+        if (!spoken || !pasted || !canvas) return;
+
+        var gl = null;
+        try { gl = canvas.getContext("webgl"); } catch (e) {}
+        var hasGL = !!gl;
+
+        // Approved DictaHue orb shader, desktop profile.
+        var VSH = "attribute vec2 p; void main(){ gl_Position = vec4(p,0.,1.); }";
+        var FSH = [
+          "precision mediump float;",
+          "uniform float t, proc, dual, ratio, visc, fade;",
+          "uniform float bandLow, bandMid, bandHigh, uSmall;",
+          "uniform vec2 res; uniform vec3 colA, colB;",
+          "float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453); }",
+          "float noise(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.-2.*f);",
+          "  return mix(mix(hash(i),hash(i+vec2(1,0)),f.x), mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x), f.y); }",
+          "float fbm(vec2 p){ float v=0., a=.55; for(int i=0;i<3;i++){ v+=a*noise(p); p*=2.1; a*=.5; } return v; }",
+          "void main(){",
+          "  vec2 p = (gl_FragCoord.xy*2. - res) / min(res.x,res.y);",
+          "  float speed = mix(1., .35, visc) * (1. + proc*1.2);",
+          "  float tt = t * speed;",
+          "  float theta = atan(p.y, p.x);",
+          "  float r = length(p);",
+          "  vec3 col = vec3(0.0);",
+          "  float voice = clamp(0.55*bandLow + 0.55*bandMid + 0.35*bandHigh, 0.0, 1.0);",
+          "  float crests = mix(8.0, 5.0, uSmall);",
+          "  float A  = mix(0.095, 0.19, uSmall) * voice * (1.0-proc);",
+          "  float sh = 0.02*bandHigh*(1.0-proc)*(1.0-uSmall);",
+          "  float throb = proc * (0.06*sin(tt*7.5) + 0.02*sin(tt*13.0));",
+          "  float base = 0.80*(1.0 + 0.015*sin(tt*0.8) - 0.15*proc + throb);",
+          "  float AB = (1.1 + 0.9*bandMid + 0.6*bandHigh)*(1.0-proc);",
+          "  float drift = tt*2.2;",
+          "  float rMain = base*(1.0 + A*sin(crests*theta - drift) + sh*sin(16.0*theta + tt*4.0));",
+          "  float inten = mix(0.016, 0.034, uSmall)*(1.0 + 1.4*bandLow + proc*0.6);",
+          "  float thick = mix(0.022, 0.05, uSmall);",
+          "  float copies = mix(4.0, 2.0, uSmall);",
+          "  vec3 num = vec3(0.0); float den = 0.0;",
+          "  for (int i = 0; i < 4; i++) {",
+          "    if (float(i) >= copies) break;",
+          "    float fi = float(i);",
+          "    float fmax = copies - 1.0;",
+          "    float ab = mix(-AB, AB, fi/max(fmax,1.0));",
+          "    float dir = (uSmall > 0.5 && i == 1) ? -1.0 : 1.0;",
+          "    float rS = base*(1.0 + (A + (0.012*bandMid + 0.012*bandHigh)*(1.0-proc))*sin(crests*theta - dir*drift + ab)",
+          "                         + sh*sin(16.0*theta + tt*4.0 + ab*0.5));",
+          "    vec3 hue = (dual > 0.5)",
+          "      ? ((uSmall > 0.5) ? ((i == 0) ? colA : colB) : mix(colA, colB, fi/max(fmax,1.0)))",
+          "      : colA * mix(0.75, 1.2, fi/max(fmax,1.0));",
+          "    vec3 procHue = (dual > 0.5) ? mix(colA, colB, 0.5 + 0.25*sin(tt*4.7)) : colA;",
+          "    hue = mix(hue, procHue, proc);",
+          "    float d = abs(r - rS);",
+          "    float line = inten / (sqrt(d*d + 0.0003) + thick);",
+          "    float lo = min(rMain, rS), hi = max(rMain, rS);",
+          "    float dBand = max(0.0, max(r - hi, lo - r));",
+          "    float band = 0.004 * inten * 320.0 / (dBand + 0.05) * (1.0-uSmall);",
+          "    num += hue * (line + band*0.35);",
+          "    den += 1.0;",
+          "  }",
+          "  col += num / den;",
+          "  vec2 w1 = p + .3*vec2(cos(tt*.5), sin(tt*.4));",
+          "  vec2 w2 = p - .3*vec2(sin(tt*.45), cos(tt*.35));",
+          "  float f1 = fbm(w1*2.0 + tt*.08);",
+          "  float f2 = fbm(w2*2.0 - tt*.06);",
+          "  float mixv = smoothstep(.32, .68, f1/(f1+f2+1e-4) + (ratio-.5)*.4);",
+          "  vec3 fillCol = mix(colA, colB, mixv*dual);",
+          "  float fill = 1.0 - smoothstep(-0.16, 0.0, r - rMain);",
+          "  col += fillCol * fill * (0.20 + 0.15*bandLow) * (1.0-0.35*uSmall) * (1.0 - .22*smoothstep(.0,.5,r)*proc);",
+          "  col = pow(col, vec3(1.4));",
+          "  col += (hash(gl_FragCoord.xy) - 0.5) / 255.0;",
+          "  float maskLo = mix(0.22, 0.06, uSmall);",
+          "  float maskHi = mix(0.30, 0.10, uSmall);",
+          "  float mask = 1.0 - smoothstep(rMain+maskLo, rMain+maskHi, r);",
+          "  gl_FragColor = vec4(col, fade * max(fill*0.9, min(1.0, (col.r+col.g+col.b))) * mask);",
+          "}"
+        ].join("\n");
+        var U = null;
+        if (hasGL) {
+          var mkShader = function (type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+          var prog = gl.createProgram();
+          gl.attachShader(prog, mkShader(gl.VERTEX_SHADER, VSH));
+          gl.attachShader(prog, mkShader(gl.FRAGMENT_SHADER, FSH));
+          gl.linkProgram(prog);
+          if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+            hasGL = false;
+          } else {
+            gl.useProgram(prog);
+            var buf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+            var loc = gl.getAttribLocation(prog, "p");
+            gl.enableVertexAttribArray(loc);
+            gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+            gl.enable(gl.BLEND);
+            gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+            U = function (n) { return gl.getUniformLocation(prog, n); };
+          }
+        }
+        // No WebGL: hide the orb, keep the typing demo alive.
+        if (!hasGL && stage) stage.style.display = "none";
+
+        var COL = { en: [0.145, 0.874, 0.956], hiA: [0.10, 0.85, 1.0], hiB: [1.0, 0.60, 0.15] };
+        var bands = { low: 0, mid: 0, high: 0 };
+        var proc = 0, dual = 0, ratio = 0.5, fade = 0.9;
+        var t0 = performance.now(), lastFrame = t0;
+
+        function draw(now) {
+          if (!hasGL) return;
+          var t = (now - t0) / 1000;
+          gl.viewport(0, 0, canvas.width, canvas.height);
+          gl.clearColor(0, 0, 0, 0);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+          gl.uniform1f(U("t"), t);
+          gl.uniform1f(U("bandLow"), bands.low);
+          gl.uniform1f(U("bandMid"), bands.mid);
+          gl.uniform1f(U("bandHigh"), bands.high);
+          gl.uniform1f(U("proc"), proc);
+          gl.uniform1f(U("dual"), dual);
+          gl.uniform1f(U("ratio"), ratio);
+          gl.uniform1f(U("visc"), 0);
+          gl.uniform1f(U("fade"), fade);
+          gl.uniform2f(U("res"), canvas.width, canvas.height);
+          gl.uniform1f(U("uSmall"), 0);
+          gl.uniform3fv(U("colA"), dual > 0.02 ? COL.hiA : COL.en);
+          gl.uniform3fv(U("colB"), COL.hiB);
+          gl.drawArrays(gl.TRIANGLES, 0, 3);
+        }
+
+        var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduced) {
+          // Single calm frame, no loop, no text rotation.
+          bands.low = 0.25; bands.mid = 0.2; bands.high = 0.1;
+          if (hintEl) hintEl.style.display = "none";
+          draw(t0 + 1500);
+          return;
+        }
+
+        // --- scripted loop: listen (type) -> process -> paste ---
+        var LISTEN = 3000, PROC = 800, SETTLE = 2600;
+        var exIdx = 0, phase = "listen", phaseStart = performance.now(), wordsShown = -1;
+        var micHold = false, micStream = null, audioCtx = null, analyser = null, micData = null;
+
+        function setLang(txt) { if (langEl) langEl.textContent = txt; }
+        function fakeBands(now, active) {
+          if (!active) return { low: 0, mid: 0, high: 0 };
+          return {
+            low: 0.45 + 0.35 * Math.sin(now / 300),
+            mid: 0.35 + 0.3 * Math.sin(now / 170 + 1),
+            high: 0.25 + 0.25 * Math.sin(now / 110 + 2)
+          };
+        }
+        function micBands() {
+          analyser.getByteFrequencyData(micData);
+          var hzPerBin = audioCtx.sampleRate / 2 / micData.length;
+          function avg(lo, hi) {
+            var a = Math.max(1, Math.floor(lo / hzPerBin)), b = Math.min(micData.length - 1, Math.ceil(hi / hzPerBin));
+            var sum = 0; for (var i = a; i <= b; i++) sum += micData[i];
+            return Math.max(0, Math.min(1, (sum / (b - a + 1) - 8) / 70));
+          }
+          return { low: avg(0, 250), mid: avg(250, 2000), high: avg(2000, 6000) };
+        }
+        function followBands(now, dt) {
+          var tgt;
+          if (micHold && analyser) tgt = micBands();
+          else tgt = fakeBands(now, phase === "listen" && !micHold);
+          for (var k in bands) {
+            var tau = tgt[k] > bands[k] ? 50 : 400;
+            bands[k] += (tgt[k] - bands[k]) * (1 - Math.exp(-dt / tau));
+          }
+        }
+        // Mic is opt-in per hold: stream starts on pointerdown and is fully
+        // stopped on release, so the mic-in-use indicator never outlives the hold.
+        function stopMic() {
+          if (micStream) { micStream.getTracks().forEach(function (t) { t.stop(); }); micStream = null; }
+          if (audioCtx) { try { audioCtx.close(); } catch (e) {} audioCtx = null; }
+          analyser = null;
+          micData = null;
+        }
+        function releaseMic() {
+          if (!micHold) return;
+          micHold = false;
+          stopMic();
+        }
+        function startMic() {
+          if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) return;
+          navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+            if (!micHold) { stream.getTracks().forEach(function (t) { t.stop(); }); return; }
+            micStream = stream;
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            audioCtx.resume();
+            analyser = audioCtx.createAnalyser();
+            analyser.fftSize = 1024;
+            analyser.smoothingTimeConstant = 0.8;
+            audioCtx.createMediaStreamSource(stream).connect(analyser);
+            micData = new Uint8Array(analyser.frequencyBinCount);
+          }).catch(function () { micHold = false; });
+        }
+        if (hasGL) {
+          canvas.addEventListener("pointerdown", function (e) {
+            e.preventDefault();
+            micHold = true;
+            startMic();
+          });
+          window.addEventListener("pointerup", releaseMic);
+          window.addEventListener("pointercancel", releaseMic);
+          window.addEventListener("blur", releaseMic);
+          document.addEventListener("visibilitychange", function () { if (document.hidden) releaseMic(); });
+        }
+
+        var running = true;
+        if ("IntersectionObserver" in window) {
+          new IntersectionObserver(function (entries) {
+            var vis = entries[0].isIntersecting;
+            if (vis && !running) { running = true; lastFrame = performance.now(); phaseStart = performance.now(); requestAnimationFrame(frame); }
+            else if (!vis) running = false;
+          }).observe(spoken);
+        }
+
+        function frame(now) {
+          if (!running) return;
+          var dt = now - lastFrame; lastFrame = now;
+          followBands(now, dt);
+
+          if (micHold) {
+            // Pause the scripted loop while the visitor plays with the orb.
+            phaseStart += dt;
+            proc = Math.max(0, proc - dt / 200);
+            setLang(analyser ? "listening · you" : "waiting for the mic…");
+          } else {
+            var ex = examples[exIdx];
+            var el = now - phaseStart;
+            if (phase === "listen") {
+              var words = ex.spoken.split(" ");
+              var n = Math.min(words.length, Math.floor((el / LISTEN) * words.length) + 1);
+              if (n !== wordsShown) {
+                wordsShown = n;
+                spoken.textContent = words.slice(0, n).join(" ");
+                pasted.classList.add("pending");
+              }
+              var dualTarget = ex.dual && el > 500 ? 1 : 0;
+              dual += (dualTarget - dual) * Math.min(1, dt / 600);
+              setLang(ex.dual && dual > 0.4 ? "listening · hindi + english" : "listening · english");
+              proc = Math.max(0, proc - dt / 200);
+              if (el >= LISTEN) { phase = "proc"; phaseStart = now; setLang("processing"); }
+            } else if (phase === "proc") {
+              proc = Math.min(1, el / 300);
+              if (el >= PROC) {
+                phase = "settle"; phaseStart = now;
+                pasted.textContent = ex.pasted;
+                pasted.classList.remove("pending");
+                setLang("text landed");
+              }
+            } else {
+              proc = Math.max(0, proc - dt / 200);
+              dual += (0 - dual) * Math.min(1, dt / 900);
+              if (el >= SETTLE) {
+                exIdx = (exIdx + 1) % examples.length;
+                phase = "listen"; phaseStart = now; wordsShown = -1;
+              }
+            }
+          }
+
+          draw(now);
+          requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      })();
+    </script>
   </body>
 </html>
