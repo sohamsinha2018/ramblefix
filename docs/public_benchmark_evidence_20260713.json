@@ -1,0 +1,48 @@
+{
+ "version": "2026-07-13.router_bakeoff_v1",
+ "method": "same-WAV replay of retained real recordings; gold = Gemini 2.5 Pro+Flash cross-checked; scoring = transliteration-normalized meaning/term coverage (scripts/rescore_transliteration_normalized.py); run dir eval_runs/bakeoff-primary-engine-20260712",
+ "router_english_all": [
+  {
+   "n": 45,
+   "meaning": 0.897,
+   "terms": 0.9
+  }
+ ],
+ "router_english_long": [
+  {
+   "n": 25,
+   "meaning": 0.928,
+   "terms": 0.919
+  }
+ ],
+ "router_hinglish_first_paste": [
+  {
+   "n": 13,
+   "meaning": 0.885,
+   "terms": 0.701
+  }
+ ],
+ "old_first_paste_hinglish": [
+  {
+   "n": 13,
+   "meaning": 0.661,
+   "terms": 0.409
+  }
+ ],
+ "parakeet_english": [
+  {
+   "n": 18,
+   "meaning": 0.806,
+   "terms": 0.833
+  }
+ ],
+ "structure_gate": [
+  {
+   "accepted": 152,
+   "rows": 330,
+   "unsafe_accepted": 0
+  }
+ ],
+ "scoreable_rows_total": 58,
+ "silence_guard": "R-048 standalone signoff hallucinations gated by scripts in regression chain"
+}

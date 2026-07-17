@@ -1,0 +1,119 @@
+{
+  "version": "2026-07-13.router_bakeoff_claims_v1",
+  "claim_boundary": {
+    "allowed": [
+      "same-WAV replay against cross-checked cloud gold",
+      "Hindi+English retained more meaning than tested local general engines on the same 13 clips",
+      "ahead of Parakeet on the same 18 English clips",
+      "Hindi+English ships as experimental"
+    ],
+    "forbidden": [
+      "beats Wispr Flow",
+      "better than Wispr Flow",
+      "best STT",
+      "best English STT",
+      "Hindi solved",
+      "hundreds of audio clips"
+    ]
+  },
+  "claim_cards": [
+    {
+      "id": "router_english_all",
+      "label": "English, real usage",
+      "source_file": "docs/public_benchmark_evidence_20260713.json",
+      "source_section": "router_english_all",
+      "selector": {},
+      "metrics": {
+        "meaning": { "source_key": "meaning", "expected": 0.897, "display": "0.897 meaning" },
+        "terms": { "source_key": "terms", "expected": 0.9, "display": "Terms 0.900" }
+      },
+      "site_must_contain": [
+        "English",
+        "~90% meaning retained",
+        "45 clips, meaning 0.897, terms 0.900"
+      ]
+    },
+    {
+      "id": "router_english_long",
+      "label": "English long rambles",
+      "source_file": "docs/public_benchmark_evidence_20260713.json",
+      "source_section": "router_english_long",
+      "selector": {},
+      "metrics": {
+        "meaning": { "source_key": "meaning", "expected": 0.928, "display": "0.928 meaning" },
+        "terms": { "source_key": "terms", "expected": 0.919, "display": "0.919 terms" }
+      },
+      "site_must_contain": [
+        "~93% meaning retained",
+        "Long English: meaning 0.928, terms 0.919"
+      ]
+    },
+    {
+      "id": "router_hinglish_first_paste",
+      "label": "Hindi+English, first paste",
+      "source_file": "docs/public_benchmark_evidence_20260713.json",
+      "source_section": "router_hinglish_first_paste",
+      "selector": {},
+      "metrics": {
+        "meaning": { "source_key": "meaning", "expected": 0.885, "display": "0.885 meaning" },
+        "terms": { "source_key": "terms", "expected": 0.701, "display": "Terms 0.701" }
+      },
+      "site_must_contain": [
+        "Hindi+English beta",
+        "~89% vs 66-70% meaning kept",
+        "Same 13 mixed-language clips: DictaHue retained ~89% meaning vs ~66-70% for tested local general engines",
+        "Hindi+English ships as experimental: 13 clips, DictaHue meaning 0.885 vs tested local general engines at 0.661-0.702, terms 0.701",
+        "experimental"
+      ]
+    },
+    {
+      "id": "structure_safety_gate",
+      "label": "Structure safety",
+      "source_file": "docs/public_benchmark_evidence_20260713.json",
+      "source_section": "structure_gate",
+      "selector": {},
+      "metrics": {
+        "unsafe_accepted": { "source_key": "unsafe_accepted", "expected": 0, "display": "0 unsafe" },
+        "accepted": { "source_key": "accepted", "expected": 152, "display": "152 accepted" }
+      },
+      "site_must_contain": [
+        "0 unsafe",
+        "Structure gate: 0 unsafe accepted updates"
+      ]
+    },
+    {
+      "id": "vs_parakeet_same_slice",
+      "label": "vs Parakeet",
+      "source_file": "docs/public_benchmark_evidence_20260713.json",
+      "source_section": "parakeet_english",
+      "selector": {},
+      "metrics": {
+        "meaning": { "source_key": "meaning", "expected": 0.806, "display": "0.806" }
+      },
+      "site_must_contain": [
+        "Same-WAV local benchmark",
+        "Wispr Flow comparisons remain directional"
+      ]
+    }
+  ],
+  "evidence_files": [
+    "docs/public_benchmark_evidence_20260713.json",
+    "docs/bakeoff_primary_engine_20260712.md"
+  ],
+  "site_must_contain": [
+    "Same-WAV local benchmark",
+    "Gemini-cross-checked gold",
+    "Hindi+English preserves more meaning than the tested local alternatives",
+    "Hindi+English ships as experimental",
+    "Wispr Flow comparisons remain directional"
+  ],
+  "release_notes_must_contain": [
+    "Do not claim long English as best-in-class",
+    "Wispr Flow comparison is directional"
+  ],
+  "readout_must_contain": [
+    "Do not market long English as beaten",
+    "Wispr directional",
+    "Structure safety: 86 accepted structure updates, 0 unsafe accepted rows"
+  ]
+}

@@ -10,7 +10,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CLAIMS = ROOT / "docs/benchmark_claims_20260709.json"
+CLAIMS = ROOT / "docs/benchmark_claims_20260713.json"
 SITE = ROOT / "site/index.html"
 RELEASE_NOTES = ROOT / "docs/github_release_v0_0_1.md"
 READOUT = ROOT / "docs/current_regression_readout_20260709.md"

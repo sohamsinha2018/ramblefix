@@ -28,6 +28,7 @@ output/
 # locally, but many are rough working logs rather than release documentation.
 docs/*
 !docs/benchmark_claims_20260709.json
+!docs/benchmark_claims_20260713.json
 !docs/current_regression_readout_20260709.md
 !docs/dictahue_launch_plan_20260708.md
 !docs/github_release_v0_0_1.md
@@ -36,6 +37,7 @@ docs/*
 !docs/mac_v0_public_launch.md
 !docs/production_app_standards.md
 !docs/public_benchmark_evidence_20260709.json
+!docs/public_benchmark_evidence_20260713.json
 !docs/public_launch_completion_audit_20260709.md
 !docs/site_visual_smoke_20260709.md
 !docs/stt_app_ux_scan_20260707.md
