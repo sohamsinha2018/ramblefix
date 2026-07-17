@@ -27,6 +27,7 @@ output/
 # Keep the first public source push focused. Internal research notes are useful
 # locally, but many are rough working logs rather than release documentation.
 docs/*
+!docs/bakeoff_primary_engine_20260712.md
 !docs/benchmark_claims_20260709.json
 !docs/benchmark_claims_20260713.json
 !docs/current_regression_readout_20260709.md
