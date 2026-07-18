@@ -13,7 +13,7 @@
     <meta property="og:image" content="https://sohamsinha2018.github.io/dictahue/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101214'/%3E%3Cpath d='M12 34c5-18 10 18 15 0s10 18 15 0 10 18 15 0' fill='none' stroke='%2325dff4' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M12 28c5-13 10 13 15 0s10 13 15 0 10 13 15 0' fill='none' stroke='%23b6ff58' stroke-width='4' stroke-linecap='round' opacity='.88'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="./styles.css?v=20260717a" />
+    <link rel="stylesheet" href="./styles.css?v=20260717b" />
   </head>
   <body>
     <header class="site-nav">
@@ -50,6 +50,7 @@
             <span>MIT licensed source</span>
             <span>Hindi+English beta</span>
           </div>
+          <p class="lang-strip">English + <span lang="hi">हिन्दी</span> today &middot; <span lang="zh">中文</span> next on the list &middot; <a href="#feedback">vote for your mix</a></p>
         </div>
 
         <div class="hero-visual" aria-label="DictaHue dictation demo">
@@ -58,7 +59,7 @@
               <span></span>
               <span></span>
               <span></span>
-              <p>typing into any app</p>
+              <p id="demo-app">typing into any app</p>
             </div>
             <div class="compose">
               <p class="compose-label">You say</p>
@@ -225,10 +226,11 @@
             as paid tools. Hindi+English is first. Tell us which mix should come next.
           </p>
           <div class="language-poll" aria-label="Next multilingual mode poll">
-            <span>English + Mandarin</span>
-            <span>English + Spanish</span>
-            <span>English + Arabic</span>
-            <span>Your language mix</span>
+            <a href="https://github.com/sohamsinha2018/dictahue/discussions">English + Mandarin</a>
+            <a href="https://github.com/sohamsinha2018/dictahue/discussions">English + Spanish</a>
+            <a href="https://github.com/sohamsinha2018/dictahue/discussions">English + Tagalog</a>
+            <a href="https://github.com/sohamsinha2018/dictahue/discussions">English + Arabic</a>
+            <a href="https://github.com/sohamsinha2018/dictahue/discussions">Your language mix</a>
           </div>
         </div>
         <div class="actions">
@@ -240,21 +242,47 @@
 
     <script>
       (function () {
+        var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        // Benchmark bars grow when scrolled into view (no-JS/reduced-motion: full width).
+        var grid = document.querySelector(".metric-grid");
+        var fills = grid ? grid.querySelectorAll(".bar-fill") : [];
+        if (fills.length && !reducedMotion && "IntersectionObserver" in window) {
+          fills.forEach(function (b) { b.dataset.w = b.style.width; b.style.width = "0%"; });
+          var barIO = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              barIO.disconnect();
+              fills.forEach(function (b, i) {
+                setTimeout(function () { b.style.width = b.dataset.w; }, 130 * i);
+              });
+            });
+          }, { threshold: 0.15 });
+          barIO.observe(grid);
+        }
+
+        // Fillers and false starts are wrapped in «…» — typed dim, struck through on paste.
         var examples = [
           {
+            app: "typing into Slack",
             spoken: "check the PRD, run release tests, and make sure MCP and Qwen do not regress",
             pasted: "Check the PRD, run the release tests, and make sure MCP and Qwen do not regress.",
-            dual: false
+            dual: false,
+            listen: 3000
           },
           {
+            app: "typing into your editor",
             spoken: "isko PRD ke against check karo aur English path regress mat hone dena",
             pasted: "Check this against the PRD and make sure the English path does not regress.",
-            dual: true
+            dual: true,
+            listen: 3000
           },
           {
-            spoken: "write a crisp Slack note about the launch checklist and the security review",
-            pasted: "Write a crisp Slack note about the launch checklist and the security review.",
-            dual: false
+            app: "typing into Docs",
+            spoken: "«okay so» the launch note — «no wait —» the checklist first, «um,» then the security review, and keep the whole thing short",
+            pasted: "The launch note: the checklist first, then the security review, and keep the whole thing short.",
+            dual: false,
+            listen: 4300
           }
         ];
         var spoken = document.getElementById("demo-spoken");
@@ -263,7 +291,28 @@
         var stage = document.getElementById("orb-stage");
         var langEl = document.getElementById("orb-lang");
         var hintEl = document.getElementById("orb-hint");
+        var appEl = document.getElementById("demo-app");
         if (!spoken || !pasted || !canvas) return;
+
+        function tokensOf(ex) {
+          if (ex.tokens) return ex.tokens;
+          var toks = [];
+          ex.spoken.split("«").forEach(function (part, i) {
+            var halves = i === 0 ? ["", part] : part.split("»");
+            (i === 0 ? "" : halves[0]).split(" ").forEach(function (w) { if (w) toks.push({ w: w, f: true }); });
+            (halves[1] || "").split(" ").forEach(function (w) { if (w) toks.push({ w: w, f: false }); });
+          });
+          ex.tokens = toks;
+          return toks;
+        }
+        function renderSpoken(ex, n) {
+          var toks = tokensOf(ex);
+          var html = "";
+          for (var i = 0; i < Math.min(n, toks.length); i++) {
+            html += (toks[i].f ? '<span class="filler">' + toks[i].w + "</span>" : toks[i].w) + " ";
+          }
+          spoken.innerHTML = html;
+        }
 
         var gl = null;
         try { gl = canvas.getContext("webgl"); } catch (e) {}
@@ -390,8 +439,7 @@
           gl.drawArrays(gl.TRIANGLES, 0, 3);
         }
 
-        var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if (reduced) {
+        if (reducedMotion) {
           // Single calm frame, no loop, no text rotation.
           bands.low = 0.25; bands.mid = 0.2; bands.high = 0.1;
           if (hintEl) hintEl.style.display = "none";
@@ -400,11 +448,18 @@
         }
 
         // --- scripted loop: listen (type) -> process -> paste ---
-        var LISTEN = 3000, PROC = 800, SETTLE = 2600;
+        var PROC = 800, SETTLE = 2600;
         var exIdx = 0, phase = "listen", phaseStart = performance.now(), wordsShown = -1;
         var micHold = false, micStream = null, audioCtx = null, analyser = null, micData = null;
 
-        function setLang(txt) { if (langEl) langEl.textContent = txt; }
+        var SWITCH_HTML = '<span class="dot dot-hi"></span><span lang="hi">हिन्दी</span> + <span class="dot dot-en"></span>English &middot; heard the switch';
+        var lastLang = "";
+        function setLang(txt, isHtml) {
+          if (!langEl || txt === lastLang) return;
+          lastLang = txt;
+          if (isHtml) langEl.innerHTML = txt;
+          else langEl.textContent = txt;
+        }
         function fakeBands(now, active) {
           if (!active) return { low: 0, mid: 0, high: 0 };
           return {
@@ -493,17 +548,20 @@
           } else {
             var ex = examples[exIdx];
             var el = now - phaseStart;
+            var LISTEN = ex.listen || 3000;
             if (phase === "listen") {
-              var words = ex.spoken.split(" ");
-              var n = Math.min(words.length, Math.floor((el / LISTEN) * words.length) + 1);
+              if (wordsShown === -1 && appEl) appEl.textContent = ex.app;
+              var toks = tokensOf(ex);
+              var n = Math.min(toks.length, Math.floor((el / LISTEN) * toks.length) + 1);
               if (n !== wordsShown) {
                 wordsShown = n;
-                spoken.textContent = words.slice(0, n).join(" ");
+                renderSpoken(ex, n);
                 pasted.classList.add("pending");
               }
               var dualTarget = ex.dual && el > 500 ? 1 : 0;
               dual += (dualTarget - dual) * Math.min(1, dt / 600);
-              setLang(ex.dual && dual > 0.4 ? "listening · hindi + english" : "listening · english");
+              if (ex.dual && dual > 0.4) setLang(SWITCH_HTML, true);
+              else setLang("listening · english");
               proc = Math.max(0, proc - dt / 200);
               if (el >= LISTEN) { phase = "proc"; phaseStart = now; setLang("processing"); }
             } else if (phase === "proc") {
@@ -512,6 +570,8 @@
                 phase = "settle"; phaseStart = now;
                 pasted.textContent = ex.pasted;
                 pasted.classList.remove("pending");
+                pasted.classList.add("flash");
+                spoken.classList.add("cleaned");
                 setLang("text landed");
               }
             } else {
@@ -520,6 +580,8 @@
               if (el >= SETTLE) {
                 exIdx = (exIdx + 1) % examples.length;
                 phase = "listen"; phaseStart = now; wordsShown = -1;
+                pasted.classList.remove("flash");
+                spoken.classList.remove("cleaned");
               }
             }
           }
