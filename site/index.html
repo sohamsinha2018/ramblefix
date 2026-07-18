@@ -13,7 +13,7 @@
     <meta property="og:image" content="https://sohamsinha2018.github.io/ramblefix/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101214'/%3E%3Cpath d='M12 34c5-18 10 18 15 0s10 18 15 0 10 18 15 0' fill='none' stroke='%2325dff4' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M12 28c5-13 10 13 15 0s10 13 15 0 10 13 15 0' fill='none' stroke='%23b6ff58' stroke-width='4' stroke-linecap='round' opacity='.88'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="./styles.css?v=20260718b" />
+    <link rel="stylesheet" href="./styles.css?v=20260718c" />
   </head>
   <body>
     <header class="site-nav">
@@ -266,6 +266,7 @@
       </section>
     </main>
 
+    <script src="./vendor/anime.min.js"></script>
     <script>
       (function () {
         var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -347,6 +348,30 @@
             html += (toks[i].f ? '<span class="filler">' + toks[i].w + "</span>" : toks[i].w) + " ";
           }
           spoken.innerHTML = html;
+        }
+
+        // The wow beat: on paste, fillers dissolve out, clean words assemble in,
+        // and the orb gives one "emit" pulse. Driven by anime.js (vendored);
+        // falls back to an instant swap if the lib or motion is unavailable.
+        function wowTransform(ex) {
+          var A = window.anime;
+          if (!A) { pasted.textContent = ex.pasted; return; }
+          // clean sentence -> word spans, staggered in
+          var words = ex.pasted.split(" ");
+          pasted.innerHTML = words.map(function (w) { return '<span class="pw">' + w + "</span>"; }).join(" ");
+          A.set("#demo-pasted .pw", { opacity: 0, translateY: 9 });
+          A({ targets: "#demo-pasted .pw", opacity: [0, 1], translateY: [9, 0], delay: A.stagger(42), duration: 360, easing: "easeOutQuad" });
+          // fillers get pulled out
+          var fillers = spoken.querySelectorAll(".filler");
+          if (fillers.length) {
+            A({ targets: fillers, opacity: [0.42, 0.06], translateY: [0, 7], delay: A.stagger(30), duration: 520, easing: "easeInQuad" });
+          }
+          // orb emit pulse
+          if (canvas) A({ targets: canvas, scale: [1, 1.17, 1], duration: 620, easing: "easeOutQuad" });
+        }
+        function clearWow() {
+          var A = window.anime;
+          if (A && canvas) A.set(canvas, { scale: 1 });
         }
 
         var gl = null;
@@ -644,10 +669,10 @@
               proc = Math.min(1, el / 300);
               if (el >= PROC) {
                 phase = "settle"; phaseStart = now;
-                pasted.textContent = ex.pasted;
                 pasted.classList.remove("pending");
-                pasted.classList.add("flash");
                 spoken.classList.add("cleaned");
+                wowTransform(ex);
+                pasted.classList.add("flash");
                 setLang("text landed");
               }
             } else {
@@ -658,6 +683,7 @@
                 phase = "listen"; phaseStart = now; wordsShown = -1;
                 pasted.classList.remove("flash");
                 spoken.classList.remove("cleaned");
+                clearWow();
                 markChip(exIdx);
               }
             }

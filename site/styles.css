@@ -350,9 +350,10 @@ h3 {
 }
 
 #orb {
-  width: 88px;
-  height: 88px;
+  width: 98px;
+  height: 98px;
   display: block;
+  transform-origin: center;
 }
 
 .mic-btn {
@@ -459,6 +460,11 @@ h3 {
 .pasted.pending {
   opacity: 0.5;
   transition: opacity 0.3s;
+}
+
+.pasted .pw {
+  display: inline-block;
+  will-change: transform, opacity;
 }
 
 .proof-chip {
