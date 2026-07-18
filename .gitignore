@@ -62,3 +62,6 @@ config/*.local.json
 *.a
 *.dmg
 *.zip
+
+# internal orb rig, never deploy
+site/orb-prototype.html
