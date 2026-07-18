@@ -85,8 +85,8 @@
    "site_must_contain": [
     "Hindi+English beta",
     "~89% vs 66-70% meaning kept",
-    "Same 13 mixed-language clips: DictaHue retained ~89% meaning vs ~66-70% for tested local general engines",
-    "Hindi+English ships as experimental: 13 clips, DictaHue meaning 0.885 vs tested local general engines at 0.661-0.702, terms 0.701",
+    "Same 13 mixed-language clips: RambleFix retained ~89% meaning vs ~66-70% for tested local general engines",
+    "Hindi+English ships as experimental: 13 clips, RambleFix meaning 0.885 vs tested local general engines at 0.661-0.702, terms 0.701",
     "experimental"
    ]
   },

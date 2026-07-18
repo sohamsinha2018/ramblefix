@@ -33,7 +33,7 @@ will be measured for finalists in the router prototype.
 ## Failed / deferred paths (do not re-try without new evidence)
 
 1. **Trelis/whisper-hinglish-preview** — model-card claims (13.7% conversational
-   CS WER, "best open Hinglish") did not transfer to real DictaHue audio:
+   CS WER, "best open Hinglish") did not transfer to real RambleFix audio:
    0.632 normalized meaning on HI+EN (vs Apex 0.919), 20.3s p50 via
    transformers/MPS fp32, 600s timeouts on 60–120s clips. Might improve
    via MLX 4-bit conversion, but quality — not just speed — trails Apex, so
@@ -135,7 +135,7 @@ Measured on the final-gold 31-clip router outputs
 | fuzzy (lev + phonetic) | 0.875 | 0.660 | 0, but FP rewrites | WORSE: `such→SOC2`, `site→STT`, `lete→Ludo`, `code→Codex` |
 | strict (lev-1, first-char, ≥6) | 0.880 | 0.701 | 0 | zero restores fired — safe but useless |
 
-Verdict: do NOT wire. DictaHue's existing glossary + approved memory-terms
+Verdict: do NOT wire. RambleFix's existing glossary + approved memory-terms
 pass already captures the recoverable near-miss class; the remaining term
 misses are dropped/translated words in the ASR output itself, which post-hoc
 matching cannot restore (and phonetic matching actively corrupts common

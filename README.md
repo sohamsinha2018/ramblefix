@@ -1,12 +1,12 @@
-# DictaHue
+# RambleFix
 
-Free, local dictation for Mac.
+Free, local, open-source dictation for Mac.
 
-DictaHue is a tiny menu-bar app for fast work dictation. Hold the hotkey, speak, release, and the text lands in the focused app. It is built for Indian English, work terms, and light Hinglish without sending your audio to the cloud.
+RambleFix is a tiny menu-bar app for fast work dictation. Hold the hotkey, speak, release, and the text lands in the focused app. It is built for Indian English, work terms, and light Hinglish without sending your audio to the cloud.
 
 ## Why Use It
 
-- Local by default: no account, no cloud product path.
+- Local by default: no account, no cloud transcription in the shipped product path.
 - Fast English dictation for everyday work.
 - Better handling of Indian English, acronyms, product names, and builder vocabulary over time.
 - Automatic lightweight cleanup after paste: trims obvious filler, adds punctuation, and slightly structures text when safe.
@@ -15,7 +15,7 @@ DictaHue is a tiny menu-bar app for fast work dictation. Hold the hotkey, speak,
 
 ## V0 Scope
 
-DictaHue V0 is dictation only:
+RambleFix V0 is dictation only:
 
 - hold Fn or Control in any text box
 - speak
@@ -28,14 +28,14 @@ No signup. No meeting recorder. No screen recording permission.
 
 ## Permissions
 
-DictaHue V0 asks only for the permissions needed for dictation:
+RambleFix V0 asks only for the permissions needed for dictation:
 
 - Microphone: record your voice locally.
 - Accessibility / Input Monitoring: listen for the hotkey and paste text into the focused app.
 
 ## Install
 
-Public installs should use a signed and notarized DMG from GitHub Releases.
+Public installs should use a signed and notarized DMG from GitHub Releases. If no release is visible yet, the public one-click installer is not ready.
 
 Local developer install:
 
@@ -51,7 +51,7 @@ RAMBLEFIX_PUBLIC_RELEASE=1 \
 RAMBLEFIX_PACKAGE_EMBED_RUNTIME=1 \
 RAMBLEFIX_PACKAGE_EMBED_VENV=1 \
 RAMBLEFIX_NOTARIZE=1 \
-RAMBLEFIX_NOTARY_PROFILE=dictahue-notary \
+RAMBLEFIX_NOTARY_PROFILE=ramblefix-notary \
 script/package_macos_release.sh
 ```
 
@@ -79,6 +79,12 @@ The launch bar is simple:
 - All runtime transcription stays local.
 
 Current release audit: [docs/release_readiness_audit_20260630.md](docs/release_readiness_audit_20260630.md)
+
+Security and release checklist: [docs/org_security_approval_and_mac_release_checklist.md](docs/org_security_approval_and_mac_release_checklist.md)
+
+## License
+
+RambleFix source code is MIT licensed. Public release artifacts that embed third-party models or native binaries must include their third-party notices before release.
 
 ## Development
 

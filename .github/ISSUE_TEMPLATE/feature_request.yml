@@ -1,5 +1,5 @@
 name: Feature request
-description: Suggest a focused improvement for DictaHue.
+description: Suggest a focused improvement for RambleFix.
 title: "[Feature]: "
 labels: ["enhancement"]
 body:
@@ -8,7 +8,7 @@ body:
     attributes:
       label: Job to be done
       description: What are you trying to accomplish with voice dictation?
-      placeholder: "Example: I want DictaHue to recover text when I forgot to focus a text field."
+      placeholder: "Example: I want RambleFix to recover text when I forgot to focus a text field."
     validations:
       required: true
   - type: textarea
@@ -23,6 +23,6 @@ body:
       options:
         - Small polish
         - Saves time every day
-        - Blocks me from using DictaHue
+        - Blocks me from using RambleFix
     validations:
       required: true

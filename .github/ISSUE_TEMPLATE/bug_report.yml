@@ -1,5 +1,5 @@
 name: Bug report
-description: Report a DictaHue app, install, paste, or transcription issue.
+description: Report a RambleFix app, install, paste, or transcription issue.
 title: "[Bug]: "
 labels: ["bug"]
 body:

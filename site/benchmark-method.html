@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DictaHue benchmark method</title>
+    <title>RambleFix benchmark method</title>
     <meta
       name="description"
-      content="How DictaHue measures local dictation quality and speed on saved same-WAV recordings."
+      content="How RambleFix measures local dictation quality and speed on saved same-WAV recordings."
     />
     <link rel="stylesheet" href="./styles.css?v=20260718a" />
   </head>
   <body>
     <header class="site-nav">
-      <a class="brand" href="./" aria-label="DictaHue home">
+      <a class="brand" href="./" aria-label="RambleFix home">
         <span class="brand-mark" aria-hidden="true"></span>
-        <span>DictaHue</span>
+        <span>RambleFix</span>
       </a>
       <nav aria-label="Main navigation">
         <a href="./#how">How it works</a>
@@ -22,7 +22,7 @@
         <a href="./#benchmarks">Benchmarks</a>
         <a href="./#feedback">Feedback</a>
       </nav>
-      <a class="nav-download" href="https://github.com/sohamsinha2018/dictahue">View source</a>
+      <a class="nav-download" href="https://github.com/sohamsinha2018/ramblefix">View source</a>
     </header>
 
     <main class="method-page">
@@ -30,13 +30,13 @@
         <p class="eyebrow">Benchmark method</p>
         <h1>Same audio, local engines, honest caveats.</h1>
         <p class="lede">
-          DictaHue benchmarks replay saved WAV recordings through local engines - every engine hears the exact same
+          RambleFix benchmarks replay saved WAV recordings through local engines - every engine hears the exact same
           audio - and compare outputs against Gemini-cross-checked gold transcripts. Cloud models are used only to
           confirm gold labels, not in the product path. "Meaning" is the share of what was said that survives into the
-          pasted text; we use it instead of word error rate because DictaHue strips fillers on purpose, and word error
-          rate would count that as a mistake. Engines tested alongside DictaHue's router include Whisper large-v3-turbo
+          pasted text; we use it instead of word error rate because RambleFix strips fillers on purpose, and word error
+          rate would count that as a mistake. Engines tested alongside RambleFix's router include Whisper large-v3-turbo
           (Apple MLX build), Qwen3 ASR (MLX), and Nvidia Parakeet. Full per-engine tables are in
-          <a href="https://github.com/sohamsinha2018/dictahue/blob/main/docs/bakeoff_primary_engine_20260712.md">docs/bakeoff_primary_engine_20260712.md</a>.
+          <a href="https://github.com/sohamsinha2018/ramblefix/blob/main/docs/bakeoff_primary_engine_20260712.md">docs/bakeoff_primary_engine_20260712.md</a>.
         </p>
 
         <div class="method-grid">
@@ -50,7 +50,7 @@
           </article>
           <article>
             <h3>Hindi+English beta</h3>
-            <p>13 mixed-language clips. DictaHue meaning 0.885 vs 0.661-0.702 for tested local general engines.</p>
+            <p>13 mixed-language clips. RambleFix meaning 0.885 vs 0.661-0.702 for tested local general engines.</p>
           </article>
           <article>
             <h3>Claim boundary</h3>
