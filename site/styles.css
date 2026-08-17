@@ -386,6 +386,27 @@ h3 {
   transform-origin: center;
 }
 
+#orb.orb-fallback {
+  width: 72px;
+  height: 72px;
+  margin: 13px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 36%, rgba(155, 255, 122, 0.92), transparent 24%),
+    radial-gradient(circle at 64% 62%, rgba(36, 215, 242, 0.92), transparent 44%),
+    #0aa7b7;
+  box-shadow:
+    0 0 9px rgba(36, 215, 242, 0.9),
+    0 0 24px rgba(36, 215, 242, 0.48),
+    inset 0 0 12px rgba(255, 255, 255, 0.38);
+  animation: orbFallbackPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes orbFallbackPulse {
+  0%, 100% { transform: scale(0.94); filter: saturate(0.92); }
+  50% { transform: scale(1.04); filter: saturate(1.12); }
+}
+
 .mic-btn {
   min-height: 30px;
   padding: 0 12px;
@@ -561,6 +582,8 @@ h3 {
 
 .signal-strip strong {
   margin-bottom: 6px;
+  font-size: 18px;
+  line-height: 1.15;
 }
 
 .signal-strip span,
@@ -888,8 +911,8 @@ h3 {
     grid-template-rows: none;
     grid-template-areas:
       "copy"
-      "visual"
-      "cta";
+      "cta"
+      "visual";
     row-gap: 26px;
   }
 
@@ -920,6 +943,12 @@ h3 {
 
   .hero {
     padding-top: 44px;
+    row-gap: 18px;
+  }
+
+  .hero-cta .trust-row,
+  .hero-cta .lang-strip {
+    display: none;
   }
 
   h1 {

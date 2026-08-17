@@ -1,0 +1,16 @@
+{
+  "version": "2026-08-18.public_site_aggregate_v1",
+  "english_large_reference": [
+    {
+      "n": 676,
+      "ramblefix_meaning": 0.8543550295857988,
+      "ramblefix_terms": 0.7422174556213016,
+      "strongest_tested_local_meaning": 0.8744260355029586,
+      "paired_meaning_delta": -0.020071005917159764,
+      "paired_meaning_ci95_low": -0.02952324610839363,
+      "paired_meaning_ci95_high": -0.010618765725925896,
+      "raw_result_sha256": "1de8d8ab39654cd1889a7b7f812c35af765b8b292dcf7b214664d637856b2956",
+      "note": "Aggregate from the full 676-row same-WAV run. The raw result contains local audio paths and is not published. This replaces the earlier 45-clip headline."
+    }
+  ]
+}

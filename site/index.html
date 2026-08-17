@@ -6,14 +6,14 @@
     <title>RambleFix — free local dictation for Mac</title>
     <meta
       name="description"
-      content="RambleFix is a free open-source local dictation app for Mac: fast English, private by default, work terms, and Hindi+English support for bilingual builders."
+      content="RambleFix is a free, open-source Mac dictation app: fast local English, light cleanup, and experimental Hindi+English support."
     />
     <meta property="og:title" content="RambleFix — free local dictation for Mac" />
     <meta property="og:description" content="Wispr-style dictation for work machines where cloud voice tools are hard to approve. Audio stays on your Mac." />
     <meta property="og:image" content="https://sohamsinha2018.github.io/ramblefix/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101214'/%3E%3Cpath d='M12 34c5-18 10 18 15 0s10 18 15 0 10 18 15 0' fill='none' stroke='%2325dff4' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M12 28c5-13 10 13 15 0s10 13 15 0 10 13 15 0' fill='none' stroke='%23b6ff58' stroke-width='4' stroke-linecap='round' opacity='.88'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="./styles.css?v=20260718d" />
+    <link rel="stylesheet" href="./styles.css?v=20260818a" />
   </head>
   <body>
     <header class="site-nav">
@@ -36,16 +36,18 @@
           <p class="eyebrow">Free, open-source dictation for Mac</p>
           <h1>Fast, private dictation on your Mac.</h1>
           <p class="lede">
-            Most people speak roughly three times faster than they type — RambleFix turns that into clean text in any app. Hold a key, speak, release. Built for work machines where cloud dictation is hard to approve: your voice stays on your Mac, with only standard dictation permissions.
+            Hold a key, speak naturally, release. RambleFix turns long instructions into useful text in any Mac app,
+            without sending your voice to a cloud transcription service. English is the daily-use path;
+            Hindi+English is the first bilingual beta.
           </p>
         </div>
 
         <div class="hero-cta">
           <div class="actions">
-            <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix">Watch the repo for the release</a>
+            <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix">Follow the public release</a>
             <a class="button secondary" href="https://github.com/sohamsinha2018/ramblefix">View the source</a>
           </div>
-          <p class="install-note">No public build yet: download opens once the app is signed and notarized by Apple, with a published checksum — no unsigned binaries. Watch the repo (Watch &rarr; Custom &rarr; Releases) to get pinged on release, or read the <a href="./security-review.html">security notes</a>.</p>
+          <p class="install-note">The one-click download opens when the signed Mac build and checksum are public. No unsigned binaries. Until then, follow the repo or read the <a href="./security-review.html">security notes</a>.</p>
           <div class="trust-row" aria-label="Launch promises">
             <span>Audio stays local</span>
             <span>No account</span>
@@ -53,7 +55,7 @@
             <span>MIT licensed source</span>
             <span>Hindi+English beta</span>
           </div>
-          <p class="lang-strip">English + <span lang="hi">हिन्दी</span> today &middot; Tagalog, <span lang="zh">中文</span>, Spanish, Arabic on the shortlist &middot; <a href="#feedback">vote for your mix</a></p>
+          <p class="lang-strip">English + <span lang="hi">हिन्दी</span> today &middot; more language mixes after the first beta is solid &middot; <a href="#feedback">vote for your mix</a></p>
         </div>
 
         <div class="hero-visual" aria-label="RambleFix dictation demo">
@@ -93,22 +95,22 @@
         </div>
       </section>
 
-      <section class="signal-strip" aria-label="Core value props">
+      <section class="signal-strip" aria-label="Measured product signals">
         <div>
-          <strong>Keeps up with you</strong>
-          <span>Hold, speak, release. Text lands about as fast as you finish talking — never slow down to type.</span>
+          <strong>676 dictations tested</strong>
+          <span>English meaning at 85% on the larger reference run. No accuracy win claimed.</span>
         </div>
         <div>
-          <strong>Keeps your terms</strong>
-          <span>Product names, acronyms, and half-formed thoughts survive the cleanup — not flattened into mush.</span>
+          <strong>89% Hindi+English</strong>
+          <span>Meaning kept versus 66–70% for tested local general engines on the same 13 clips.</span>
         </div>
         <div>
-          <strong>Multilingual</strong>
-          <span>Ramble in English, or slip into Hindi+English mid-sentence. Tagalog’s likely next — it’s the most common English mix after Hindi — and you vote on the rest.</span>
+          <strong>152 safe cleanups</strong>
+          <span>Accepted punctuation and filler edits; zero accepted meaning changes.</span>
         </div>
         <div>
-          <strong>Free and fully local</strong>
-          <span>No account, no subscription, no cloud. Open source and minimal-permission — even a locked-down work Mac can approve it.</span>
+          <strong>Runs on your Mac</strong>
+          <span>No account, no screen recording, and no cloud transcription in the product path.</span>
         </div>
       </section>
 
@@ -125,8 +127,8 @@
           </p>
           <p>
             Plenty of free tools transcribe. RambleFix is about what lands after: work terms survive, fillers get
-            cleaned up, and Hindi+English came first because that is where local dictation is weakest. New languages
-            get added one at a time — never by making English slower.
+            cleaned up, and Hindi+English came first because that is where local dictation is weakest. New language
+            mixes get added one at a time — never by making English slower.
           </p>
         </div>
       </section>
@@ -177,13 +179,11 @@
       <section class="section evidence" id="benchmarks">
         <div class="section-head">
           <p class="eyebrow">Tested on real recordings</p>
-          <h2>Keeps the meaning, keeps the terms, stays fast.</h2>
+          <h2>Useful English. A clearer edge when languages mix.</h2>
           <p>
-            “Meaning kept” is how much of what you actually said survives into the pasted text — the cleanup only
-            drops fillers, it never rewrites the rest. We measure it by replaying real saved recordings through the
-            local engine and scoring against Gemini-cross-checked gold (reference) transcripts, rather than word error rate — which would
-            punish RambleFix for dropping fillers on purpose. The takeaway: English is daily-use ready, and
-            Hindi+English keeps more meaning than the tested local alternatives.
+            Every local engine hears the same saved audio, and final text is checked against cloud-cross-checked
+            references. English is useful, but we do not claim an accuracy win over the strongest tested local
+            baseline. Hindi+English is where the engine shows a clear measured edge.
           </p>
         </div>
 
@@ -202,28 +202,22 @@
             <p>Same 13 mixed-language clips: RambleFix kept ~89% meaning vs ~66-70% for tested local general engines.</p>
           </article>
           <article class="wide">
-            <span>English &middot; all 45 real saved dictations</span>
-            <strong>~90% meaning kept</strong>
-            <p class="bar-subhead">Head-to-head, only the 18 clips both engines heard:</p>
+            <span>English &middot; large-corpus reference run</span>
+            <strong>85% meaning kept across 676 dictations</strong>
             <div class="bar-row">
-              <div class="bar-label"><span>RambleFix</span><span>~87%</span></div>
-              <div class="bar-track"><div class="bar-fill" style="width: 87%"></div></div>
+              <div class="bar-label"><span>RambleFix</span><span>85.4%</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width: 85.4%"></div></div>
             </div>
             <div class="bar-row">
-              <div class="bar-label"><span>Parakeet</span><span>~81%</span></div>
-              <div class="bar-track"><div class="bar-fill rival" style="width: 81%"></div></div>
+              <div class="bar-label"><span>Strongest tested local baseline</span><span>87.4%</span></div>
+              <div class="bar-track"><div class="bar-fill rival" style="width: 87.4%"></div></div>
             </div>
-            <p>The ~90% headline is RambleFix across all 45 dictations, where work terms were also kept at about 90%. Parakeet is Nvidia’s open speech model, the usual local pick.</p>
+            <p>RambleFix kept 74.2% of scored work terms. The strongest tested local baseline was two meaning points ahead, so this is evidence of daily usefulness — not an English accuracy win.</p>
           </article>
           <article>
-            <span>Long rambles</span>
-            <strong>~93% meaning kept</strong>
-            <p>Our strongest numbers come on long, messy instructions — the kind people speak into AI tools and docs.</p>
-          </article>
-          <article>
-            <span>Live speed</span>
-            <strong>text lands a beat after you release</strong>
-            <p>In recent test runs on the installed app, normal dictation pastes a beat after you release the key; multilingual can take a few seconds and is labeled beta.</p>
+            <span>Measured honestly</span>
+            <strong>Same audio. Clear boundaries.</strong>
+            <p>Every tested local engine heard the same files. Wispr Flow stays out of the chart until we can test it on the same surface.</p>
           </article>
           <article>
             <span>Cleanup safety</span>
@@ -234,10 +228,9 @@
 
         <div class="benchmark-note">
           <p>
-            Same-WAV local benchmark — every engine hears the exact same audio files. English: 45 clips, meaning 0.897, terms 0.900. Long English: meaning 0.928, terms 0.919.
-            Hindi+English ships as experimental: 13 clips, RambleFix meaning 0.885 vs tested local general engines at 0.661-0.702, terms 0.701.
-            Structure gate: 0 unsafe accepted updates — the cleanup step accepted 152 edits and none changed what a sentence meant.
-            Wispr Flow comparisons remain directional: we have not run cloud tools on the same audio, so treat those as a rough signal, not a head-to-head. See the
+            Same-WAV results: English n=676, RambleFix meaning 85.4% vs 87.4% for the strongest tested local baseline.
+            Hindi+English beta n=13, RambleFix 88.5% vs 66.1-70.2%. Cleanup accepted 152 edits with 0 meaning changes.
+            Wispr Flow remains directional, not head-to-head. See the
             <a href="./benchmark-method.html">public benchmark method</a>.
           </p>
         </div>
@@ -246,7 +239,7 @@
       <section class="section final-cta" id="feedback">
         <div>
           <p class="eyebrow">Built in public</p>
-          <h2>Read the source, star it, and vote for the next bilingual mode.</h2>
+          <h2>Follow the release and choose the next language mix.</h2>
           <p>
             RambleFix is free and open source because the fastest way to make local dictation good is people using it
             and telling us where it breaks. Hindi+English is first. Tell us which mix should come next.
@@ -377,6 +370,14 @@
         var gl = null;
         try { gl = canvas.getContext("webgl"); } catch (e) {}
         var hasGL = !!gl;
+        if (hasGL) {
+          var rendererInfo = gl.getExtension("WEBGL_debug_renderer_info");
+          var renderer = rendererInfo ? gl.getParameter(rendererInfo.UNMASKED_RENDERER_WEBGL) : "";
+          if (/swiftshader|software renderer/i.test(renderer)) {
+            hasGL = false;
+            gl = null;
+          }
+        }
 
         // Approved RambleFix orb shader, desktop profile.
         var VSH = "attribute vec2 p; void main(){ gl_Position = vec4(p,0.,1.); }";
@@ -469,8 +470,8 @@
             U = function (n) { return gl.getUniformLocation(prog, n); };
           }
         }
-        // No WebGL: hide the orb, keep the typing demo alive.
-        if (!hasGL && stage) stage.style.display = "none";
+        // Keep the demo responsive on software-rendered or WebGL-free devices.
+        if (!hasGL) canvas.classList.add("orb-fallback");
 
         var COL = { en: [0.145, 0.874, 0.956], hiA: [0.10, 0.85, 1.0], hiB: [1.0, 0.60, 0.15] };
         var bands = { low: 0, mid: 0, high: 0 };

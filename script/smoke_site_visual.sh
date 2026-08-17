@@ -34,21 +34,21 @@ curl -fsS "$URL/styles.css" >/dev/null
 
 for text in \
   "RambleFix" \
-  "Free and open-source local dictation for Mac" \
-  "Fast private dictation, free on your Mac." \
-  "Hold a key, speak, release" \
-  "your voice stays on your Mac" \
-  "Signed Mac build coming soon" \
+  "Free, open-source dictation for Mac" \
+  "Fast, private dictation on your Mac." \
+  "Hold a key, speak naturally, release" \
+  "without sending your voice to a cloud transcription service" \
+  "Follow the public release" \
+  "676 dictations tested" \
   "Use dictation where cloud voice tools are hard to approve." \
-  "Same-WAV local benchmark" \
-  "~90% meaning retained" \
+  "Same-WAV results" \
+  "85% meaning kept across 676 dictations" \
   "~89% vs 66-70% meaning kept" \
-  "~1-2s from release to text" \
-  "0 unsafe" \
-  "Hindi+English ships as experimental" \
+  "0 meaning changes" \
+  "Hindi+English beta n=13" \
   "public benchmark method" \
   "security-review.html" \
-  "vote for the next bilingual mode" \
+  "choose the next language mix" \
   "View the source"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-smoke.html; then
     echo "site visual smoke failed: missing text: $text" >&2
@@ -57,16 +57,29 @@ for text in \
 done
 
 if ! grep -Fq "Download for Mac" /tmp/ramblefix-site-smoke.html && \
-   ! grep -Fq "Signed Mac build coming soon" /tmp/ramblefix-site-smoke.html; then
+   ! grep -Fq "Follow the public release" /tmp/ramblefix-site-smoke.html; then
   echo "site visual smoke failed: missing download CTA state" >&2
   exit 1
 fi
+
+for stale in \
+  "all 45 real saved dictations" \
+  "~90% meaning kept" \
+  "Tagalog’s likely next" \
+  "beats Wispr Flow"; do
+  if grep -Fq "$stale" /tmp/ramblefix-site-smoke.html; then
+    echo "site visual smoke failed: stale or unsupported claim present: $stale" >&2
+    exit 1
+  fi
+done
 
 curl -fsS "$URL/benchmark-method.html" >/tmp/ramblefix-site-method-smoke.html
 for text in \
   "Benchmark method" \
   "Same audio, local engines, honest caveats." \
-  "Cloud models are used only to confirm gold labels" \
+  "Gemini-cross-checked gold transcripts" \
+  "confirm gold labels, not in the product path" \
+  "676 saved dictations" \
   "Wispr Flow comparisons remain directional"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-method-smoke.html; then
     echo "site visual smoke failed: missing method text: $text" >&2

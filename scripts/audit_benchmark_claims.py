@@ -10,10 +10,8 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CLAIMS = ROOT / "docs/benchmark_claims_20260713.json"
+CLAIMS = ROOT / "docs/benchmark_claims_current.json"
 SITE = ROOT / "site/index.html"
-RELEASE_NOTES = ROOT / "docs/github_release_v0_0_1.md"
-READOUT = ROOT / "docs/current_regression_readout_20260709.md"
 
 
 def fail(message: str) -> None:
@@ -88,13 +86,12 @@ def main() -> None:
             )
         assert_contains(SITE, list(card.get("site_must_contain", [])))
 
-    assert_contains(SITE, list(claims.get("site_must_contain", [])))
-    assert_contains(RELEASE_NOTES, list(claims.get("release_notes_must_contain", [])))
-    assert_contains(READOUT, list(claims.get("readout_must_contain", [])))
+    for rel, snippets in dict(claims.get("surface_must_contain") or {}).items():
+        assert_contains(ROOT / rel, list(snippets))
 
     forbidden = list((claims.get("claim_boundary") or {}).get("forbidden", []))
-    for path in [SITE, RELEASE_NOTES, READOUT]:
-        assert_not_contains(path, forbidden)
+    for rel in list(claims.get("forbidden_surfaces") or ["site/index.html"]):
+        assert_not_contains(ROOT / rel, forbidden)
 
     print("benchmark claim audit passed")
 

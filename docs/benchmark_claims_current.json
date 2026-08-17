@@ -1,0 +1,88 @@
+{
+  "version": "2026-08-18.public_site_claims_v1",
+  "claim_boundary": {
+    "allowed": [
+      "English reference result on the full 676-dictation same-WAV run",
+      "Hindi+English engine comparison on the same 13 clips",
+      "structure safety result on the recorded 330-row gate",
+      "Hindi+English is experimental"
+    ],
+    "forbidden": [
+      "beats Wispr Flow",
+      "better than Wispr Flow",
+      "best STT",
+      "best English STT",
+      "all 45 real saved dictations",
+      "~90% meaning kept"
+    ]
+  },
+  "claim_cards": [
+    {
+      "id": "english_large_reference",
+      "source_file": "docs/public_benchmark_evidence_20260818.json",
+      "source_section": "english_large_reference",
+      "selector": {},
+      "metrics": {
+        "n": {"source_key": "n", "expected": 676},
+        "meaning": {"source_key": "ramblefix_meaning", "expected": 0.8543550295857988},
+        "terms": {"source_key": "ramblefix_terms", "expected": 0.7422174556213016},
+        "baseline_meaning": {"source_key": "strongest_tested_local_meaning", "expected": 0.8744260355029586}
+      },
+      "site_must_contain": [
+        "676 dictations tested",
+        "85% meaning kept across 676 dictations",
+        "English n=676, RambleFix meaning 85.4% vs 87.4% for the strongest tested local baseline"
+      ]
+    },
+    {
+      "id": "hinglish_same13",
+      "source_file": "docs/public_benchmark_evidence_20260713.json",
+      "source_section": "router_hinglish_first_paste",
+      "selector": {},
+      "metrics": {
+        "n": {"source_key": "n", "expected": 13},
+        "meaning": {"source_key": "meaning", "expected": 0.885},
+        "terms": {"source_key": "terms", "expected": 0.701}
+      },
+      "site_must_contain": [
+        "~89% vs 66-70% meaning kept",
+        "Hindi+English beta n=13, RambleFix 88.5% vs 66.1-70.2%"
+      ]
+    },
+    {
+      "id": "structure_safety",
+      "source_file": "docs/public_benchmark_evidence_20260713.json",
+      "source_section": "structure_gate",
+      "selector": {},
+      "metrics": {
+        "accepted": {"source_key": "accepted", "expected": 152},
+        "unsafe_accepted": {"source_key": "unsafe_accepted", "expected": 0}
+      },
+      "site_must_contain": [
+        "152 safe cleanups",
+        "Cleanup accepted 152 edits with 0 meaning changes"
+      ]
+    }
+  ],
+  "evidence_files": [
+    "docs/public_benchmark_evidence_20260818.json",
+    "docs/public_benchmark_evidence_20260713.json"
+  ],
+  "surface_must_contain": {
+    "site/index.html": [
+      "Same-WAV results",
+      "English is useful, but we do not claim an accuracy win",
+      "Same audio. Clear boundaries.",
+      "Wispr Flow remains directional"
+    ],
+    "site/benchmark-method.html": [
+      "676 saved dictations",
+      "we make no English accuracy-win claim",
+      "Wispr Flow comparisons remain directional"
+    ]
+  },
+  "forbidden_surfaces": [
+    "site/index.html",
+    "site/benchmark-method.html"
+  ]
+}
