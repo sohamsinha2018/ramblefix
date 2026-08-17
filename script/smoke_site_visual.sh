@@ -34,22 +34,24 @@ curl -fsS "$URL/styles.css" >/dev/null
 
 for text in \
   "RambleFix" \
-  "Free, open-source dictation for Mac" \
-  "Fast, private dictation on your Mac." \
-  "Hold a key, speak naturally, release" \
-  "without sending your voice to a cloud transcription service" \
+  "Free · open source · entirely on your Mac" \
+  "Speak freely." \
+  "Even when your language switches." \
+  "Hold a key, speak naturally" \
+  "No cloud. No account. No subscription." \
   "Follow the public release" \
-  "676 dictations tested" \
-  "Use dictation where cloud voice tools are hard to approve." \
-  "Same-WAV results" \
-  "85% meaning kept across 676 dictations" \
-  "~89% vs 66-70% meaning kept" \
+  "English · 676 real dictations" \
+  "Use your voice wherever you would normally type." \
+  "Private enough to explain in one sentence." \
+  "Same-WAV local benchmark" \
+  "85% <small>meaning kept</small>" \
+  "~89% <small>meaning kept</small>" \
   "0 meaning changes" \
   "Hindi+English beta n=13" \
   "public benchmark method" \
   "security-review.html" \
-  "choose the next language mix" \
-  "View the source"; do
+  "help choose the next bilingual mode" \
+  "View source"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-smoke.html; then
     echo "site visual smoke failed: missing text: $text" >&2
     exit 1
@@ -65,6 +67,7 @@ fi
 for stale in \
   "all 45 real saved dictations" \
   "~90% meaning kept" \
+  "~93%" \
   "Tagalog’s likely next" \
   "beats Wispr Flow"; do
   if grep -Fq "$stale" /tmp/ramblefix-site-smoke.html; then

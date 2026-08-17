@@ -29,9 +29,9 @@
         "baseline_meaning": {"source_key": "strongest_tested_local_meaning", "expected": 0.8744260355029586}
       },
       "site_must_contain": [
-        "676 dictations tested",
-        "85% meaning kept across 676 dictations",
-        "English n=676, RambleFix meaning 85.4% vs 87.4% for the strongest tested local baseline"
+        "English · 676 real dictations",
+        "85% <small>meaning kept</small>",
+        "strongest tested local baseline kept 87.4% meaning"
       ]
     },
     {
@@ -45,8 +45,9 @@
         "terms": {"source_key": "terms", "expected": 0.701}
       },
       "site_must_contain": [
-        "~89% vs 66-70% meaning kept",
-        "Hindi+English beta n=13, RambleFix 88.5% vs 66.1-70.2%"
+        "~89% <small>meaning kept</small>",
+        "Versus 66–70% for tested local general engines",
+        "Hindi+English beta n=13.</strong> RambleFix 88.5% vs 66.1-70.2%"
       ]
     },
     {
@@ -59,7 +60,7 @@
         "unsafe_accepted": {"source_key": "unsafe_accepted", "expected": 0}
       },
       "site_must_contain": [
-        "152 safe cleanups",
+        "152 <small>edits accepted</small>",
         "Cleanup accepted 152 edits with 0 meaning changes"
       ]
     }
@@ -70,10 +71,11 @@
   ],
   "surface_must_contain": {
     "site/index.html": [
-      "Same-WAV results",
-      "English is useful, but we do not claim an accuracy win",
-      "Same audio. Clear boundaries.",
-      "Wispr Flow remains directional"
+      "Speak freely.",
+      "Even when your language switches.",
+      "Same-WAV local benchmark",
+      "we do not claim an English accuracy win",
+      "Wispr Flow comparisons remain directional"
     ],
     "site/benchmark-method.html": [
       "676 saved dictations",

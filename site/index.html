@@ -3,697 +3,479 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RambleFix — free local dictation for Mac</title>
+    <title>RambleFix — free, local dictation for Mac</title>
     <meta
       name="description"
-      content="RambleFix is a free, open-source Mac dictation app: fast local English, light cleanup, and experimental Hindi+English support."
+      content="Speak naturally in English or Hindi+English. RambleFix turns it into clean text in any Mac app, locally and for free."
     />
-    <meta property="og:title" content="RambleFix — free local dictation for Mac" />
-    <meta property="og:description" content="Wispr-style dictation for work machines where cloud voice tools are hard to approve. Audio stays on your Mac." />
+    <meta property="og:title" content="RambleFix — speak freely, locally" />
+    <meta
+      property="og:description"
+      content="Free local Mac dictation for English and Hindi+English. No cloud, no account, no subscription."
+    />
     <meta property="og:image" content="https://sohamsinha2018.github.io/ramblefix/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101214'/%3E%3Cpath d='M12 34c5-18 10 18 15 0s10 18 15 0 10 18 15 0' fill='none' stroke='%2325dff4' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M12 28c5-13 10 13 15 0s10 13 15 0 10 13 15 0' fill='none' stroke='%23b6ff58' stroke-width='4' stroke-linecap='round' opacity='.88'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="./styles.css?v=20260818a" />
+    <link rel="stylesheet" href="./styles.css?v=20260818b" />
   </head>
   <body>
     <header class="site-nav">
       <a class="brand" href="#top" aria-label="RambleFix home">
-        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
         <span>RambleFix</span>
       </a>
       <nav aria-label="Main navigation">
         <a href="#how">How it works</a>
+        <a href="#proof">Proof</a>
         <a href="#privacy">Privacy</a>
-        <a href="#benchmarks">Benchmarks</a>
         <a href="#feedback">Feedback</a>
       </nav>
-      <a class="nav-download" href="https://github.com/sohamsinha2018/ramblefix">View source</a>
+      <a class="nav-action" href="https://github.com/sohamsinha2018/ramblefix">View source</a>
     </header>
 
     <main id="top">
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Free, open-source dictation for Mac</p>
-          <h1>Fast, private dictation on your Mac.</h1>
+      <section class="hero" aria-labelledby="hero-title">
+        <canvas id="hero-waves" aria-hidden="true"></canvas>
+        <div class="hero-content">
+          <p class="eyebrow">Free · open source · entirely on your Mac</p>
+          <h1 id="hero-title">Speak freely.<br />Even when your language switches.</h1>
           <p class="lede">
-            Hold a key, speak naturally, release. RambleFix turns long instructions into useful text in any Mac app,
-            without sending your voice to a cloud transcription service. English is the daily-use path;
-            Hindi+English is the first bilingual beta.
+            Fast local dictation for English, with a Hindi+English beta, in any Mac app. Hold a key, speak naturally,
+            release, and clean text lands where your cursor is. No cloud. No account. No subscription.
           </p>
-        </div>
-
-        <div class="hero-cta">
           <div class="actions">
             <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix">Follow the public release</a>
-            <a class="button secondary" href="https://github.com/sohamsinha2018/ramblefix">View the source</a>
+            <a class="button secondary" href="#proof">See the evidence</a>
           </div>
-          <p class="install-note">The one-click download opens when the signed Mac build and checksum are public. No unsigned binaries. Until then, follow the repo or read the <a href="./security-review.html">security notes</a>.</p>
-          <div class="trust-row" aria-label="Launch promises">
-            <span>Audio stays local</span>
-            <span>No account</span>
-            <span>No screen recording</span>
-            <span>MIT licensed source</span>
+          <p class="release-note">The signed Mac build and checksum will be published together. No unsigned downloads.</p>
+        </div>
+
+        <div class="product-moment" id="product-moment" aria-label="Animated RambleFix dictation example">
+          <div class="spoken-side">
+            <span class="moment-label">You say</span>
+            <p id="demo-spoken">okay yaar, launch plan ko short rakho and include the security review</p>
+          </div>
+
+          <div class="hud-wrap">
+            <div class="dictation-hud listening" id="dictation-hud">
+              <canvas
+                class="product-orb"
+                id="product-orb"
+                data-product-orb="native-v2"
+                width="96"
+                height="96"
+                aria-hidden="true"
+              ></canvas>
+              <span class="hud-status" id="hud-status">Listening</span>
+              <span class="language-signal" id="language-signal" aria-live="polite">
+                <b>EN</b><b lang="hi">हिं</b>
+              </span>
+              <span class="landed-check" aria-hidden="true">✓</span>
+            </div>
+            <span class="hold-cue">hold · speak · release</span>
+          </div>
+
+          <div class="pasted-side">
+            <span class="moment-label">RambleFix pastes</span>
+            <p id="demo-pasted">Keep the launch plan short and include the security review.</p>
+          </div>
+
+          <div class="scene-tabs" role="group" aria-label="Choose a dictation example">
+            <button type="button" data-scene="0">Fast English</button>
+            <button type="button" class="active" data-scene="1">Hindi + English</button>
+            <button type="button" data-scene="2">Work terms</button>
+          </div>
+        </div>
+
+        <div class="trust-line" aria-label="Core product promises">
+          <span>Audio stays local</span>
+          <span>No screen recording</span>
+          <span>Works in any text box</span>
+          <span>MIT licensed</span>
+        </div>
+      </section>
+
+      <section class="value-band" aria-label="RambleFix in three words">
+        <div><strong>Local.</strong><span>Your voice never leaves your Mac.</span></div>
+        <div><strong>Fast.</strong><span>Text lands a beat after release.</span></div>
+        <div><strong>Bilingual.</strong><span>English stays strong when Hindi slips in.</span></div>
+      </section>
+
+      <section class="section how" id="how">
+        <div class="section-intro">
+          <p class="eyebrow">Dictation without ceremony</p>
+          <h2>Use your voice wherever you would normally type.</h2>
+          <p>For AI prompts, Slack, docs, email, and every awkward little text box in between.</p>
+        </div>
+
+        <div class="steps" aria-label="How RambleFix works">
+          <article>
+            <span class="step-number">01</span>
+            <canvas
+              class="product-orb product-orb-example"
+              id="product-orb-example"
+              data-product-orb="native-v2"
+              width="96"
+              height="96"
+              aria-hidden="true"
+            ></canvas>
+            <h3>Hold the hotkey</h3>
+            <p>A tiny floating orb confirms RambleFix is listening. Nothing else gets in your way.</p>
+          </article>
+          <article>
+            <span class="step-number">02</span>
+            <div class="language-pair"><b>EN</b><b lang="hi">हिं</b></div>
+            <h3>Speak normally</h3>
+            <p>Ramble, use product names, or switch between English and Hindi in the same thought.</p>
+          </article>
+          <article>
+            <span class="step-number">03</span>
+            <div class="paste-mark" aria-hidden="true">↳</div>
+            <h3>Release to paste</h3>
+            <p>Clean text lands at your cursor. No focused field? A compact copy option keeps the text safe.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="privacy" id="privacy">
+        <div class="privacy-copy">
+          <p class="eyebrow">Designed for work machines</p>
+          <h2>Private enough to explain in one sentence.</h2>
+          <p>Speech recognition and light structure run locally. RambleFix does not upload audio, read your screen, or require an account.</p>
+          <a href="./security-review.html">Read the security notes →</a>
+        </div>
+        <div class="privacy-points">
+          <div><strong>Local audio + text</strong><span>Nothing is sent to a cloud transcription service.</span></div>
+          <div><strong>Standard permissions</strong><span>Microphone to listen; Accessibility/Input Monitoring to paste.</span></div>
+          <div><strong>Open for review</strong><span>MIT source, local logs, and opt-in diagnostic sharing.</span></div>
+          <div><strong>No screen recording</strong><span>The app does not need to see your screen to type.</span></div>
+        </div>
+      </section>
+
+      <section class="section evidence" id="proof">
+        <div class="section-intro proof-intro">
+          <p class="eyebrow">Tested on real saved recordings</p>
+          <h2>English for daily use. Hindi+English where local tools struggle.</h2>
+          <p>Simple numbers, same audio, and an honest beta label. The detailed method is public.</p>
+        </div>
+
+        <div class="proof-grid">
+          <article class="proof-card hinglish">
             <span>Hindi+English beta</span>
+            <strong>~89% <small>meaning kept</small></strong>
+            <p>Versus 66–70% for tested local general engines on the same 13 mixed-language clips.</p>
+            <div class="comparison-bars" aria-label="Hindi and English meaning comparison">
+              <div><i style="--score: 89%"></i><b>RambleFix 89%</b></div>
+              <div class="rival"><i style="--score: 70%"></i><b>Others 66–70%</b></div>
+            </div>
+          </article>
+          <article class="proof-card english">
+            <span>English · 676 real dictations</span>
+            <strong>85% <small>meaning kept</small></strong>
+            <p>Work terms kept at 74%. The strongest tested local baseline kept 87.4% meaning
+              on the same audio, so we do not claim an English accuracy win.</p>
+          </article>
+          <article class="proof-card structure">
+            <span>Light cleanup · safety gate</span>
+            <strong>152 <small>edits accepted</small></strong>
+            <p>Zero accepted meaning changes. Fillers, punctuation, and casing improve without rewriting the thought.</p>
+          </article>
+        </div>
+
+        <p class="claim-line">
+          Wispr-style workflow and local-first privacy. The Hindi+English edge is measured at the
+          engine level on the same audio; the app does not yet route every mixed-language clip to
+          that engine, so treat it as a beta capability rather than a guarantee. We claim no
+          same-audio win over cloud tools, and none over local tools on English.
+        </p>
+
+        <details class="method-disclosure">
+          <summary>See sample sizes, exact scores, and claim limits</summary>
+          <div>
+            <p><strong>Same-WAV local benchmark.</strong> Every tested local engine hears the same audio. References use Gemini-cross-checked gold.</p>
+            <p><strong>English (n=676, updated 2026-08-01).</strong> Meaning 0.854, terms 0.742.
+              These supersede an earlier 45-clip result (0.897 / 0.900) that was optimistic by
+              about 4 points — small samples flattered us, so we re-ran at scale and published
+              the lower number.</p>
+            <p><strong>What we do NOT claim.</strong> On the same audio the best local
+              alternative scores meaning 0.874 to our 0.854 (paired difference -0.020,
+              95% CI [-0.030, -0.011]). The interval excludes zero, so it is a real if small
+              deficit, not a tie — and certainly not a win. An earlier 73-clip comparison did
+              read as a tie; it was underpowered. We make no comparative English accuracy
+              claim, and no end-to-end speed comparison, because we have not measured theirs.</p>
+            <p><strong>Hindi+English beta n=13.</strong> RambleFix 88.5% vs 66.1-70.2% meaning kept for tested local general engines; terms 70.1%.</p>
+            <p>Structure gate: 0 unsafe accepted updates. Cleanup accepted 152 edits with 0 meaning changes.</p>
+            <p>Hindi+English keeps more meaning than the tested local alternatives. Hindi+English ships as experimental.</p>
+            <p>Wispr Flow comparisons remain directional: we have not run cloud tools on the same audio, so this is not a head-to-head superiority claim.</p>
+            <a href="./benchmark-method.html">Read the public benchmark method →</a>
           </div>
-          <p class="lang-strip">English + <span lang="hi">हिन्दी</span> today &middot; more language mixes after the first beta is solid &middot; <a href="#feedback">vote for your mix</a></p>
-        </div>
-
-        <div class="hero-visual" aria-label="RambleFix dictation demo">
-          <div class="demo-shell">
-            <div class="demo-bar">
-              <span></span>
-              <span></span>
-              <span></span>
-              <p id="demo-app">typing into any app</p>
-            </div>
-            <div class="compose">
-              <p class="compose-label">You say</p>
-              <p id="demo-spoken" class="spoken">
-                okay so the launch note — no wait — the checklist first, um, then the security review, and keep the whole thing short
-              </p>
-              <div class="orb-stage" id="orb-stage">
-                <canvas id="orb" width="300" height="300" aria-hidden="true"></canvas>
-                <p id="orb-lang" class="orb-lang">listening &middot; english</p>
-              </div>
-              <p class="compose-label result">RambleFix pastes</p>
-              <p id="demo-pasted" class="pasted">
-                The launch note: the checklist first, then the security review, and keep the whole thing short.
-              </p>
-              <div class="act-chips" id="act-chips" role="group" aria-label="Demo scenes">
-                <button type="button" class="active">Strips the umms</button>
-                <button type="button">Hears the switch</button>
-                <button type="button">Fast English</button>
-              </div>
-              <div class="mic-try">
-                <p class="orb-hint" id="orb-hint">Visual only &mdash; nothing is transcribed, and audio never leaves this page. The real engine ships in the Mac app.</p>
-                <button type="button" id="mic-btn" class="mic-btn" style="display: none">Hold &mdash; the orb reacts to your voice</button>
-              </div>
-            </div>
-          </div>
-          <div class="proof-chip chip-left">on-device</div>
-          <div class="proof-chip chip-right">works in chat, docs, browsers</div>
-        </div>
+        </details>
       </section>
 
-      <section class="signal-strip" aria-label="Measured product signals">
-        <div>
-          <strong>676 dictations tested</strong>
-          <span>English meaning at 85% on the larger reference run. No accuracy win claimed.</span>
-        </div>
-        <div>
-          <strong>89% Hindi+English</strong>
-          <span>Meaning kept versus 66–70% for tested local general engines on the same 13 clips.</span>
-        </div>
-        <div>
-          <strong>152 safe cleanups</strong>
-          <span>Accepted punctuation and filler edits; zero accepted meaning changes.</span>
-        </div>
-        <div>
-          <strong>Runs on your Mac</strong>
-          <span>No account, no screen recording, and no cloud transcription in the product path.</span>
-        </div>
-      </section>
-
-      <section class="section split" id="how">
-        <div>
-          <p class="eyebrow">Why this exists</p>
-          <h2>Talking is faster than typing — if the text that lands is actually usable.</h2>
-        </div>
-        <div class="copy-stack">
-          <p>
-            Most of what builders dictate now is long, rambly instructions for AI tools — easy to say, tedious to
-            type. The catch has always been the output: raw transcripts full of fillers, mangled product names, and
-            your second language flattened away.
-          </p>
-          <p>
-            Plenty of free tools transcribe. RambleFix is about what lands after: work terms survive, fillers get
-            cleaned up, and Hindi+English came first because that is where local dictation is weakest. New language
-            mixes get added one at a time — never by making English slower.
-          </p>
-        </div>
-      </section>
-
-      <section class="section steps" aria-label="How RambleFix works">
-        <article>
-          <span>1</span>
-          <h3>Hold the hotkey</h3>
-          <p>A tiny orb shows that the app is listening. It stays out of your way.</p>
-        </article>
-        <article>
-          <span>2</span>
-          <h3>Speak normally</h3>
-          <p>English, Indian English, acronyms, app names, rambling, and Hindi+English when you switch.</p>
-        </article>
-        <article>
-          <span>3</span>
-          <h3>Release to paste</h3>
-          <p>Useful text lands in the focused field. If no field is focused, a compact copy toast appears.</p>
-        </article>
-      </section>
-
-      <section class="section split privacy" id="privacy">
-        <div>
-          <p class="eyebrow">For work devices</p>
-          <h2>Use dictation where cloud voice tools are hard to approve.</h2>
-        </div>
-        <div class="security-grid">
-          <article>
-            <h3>Audio stays local</h3>
-            <p>Speech recognition and light structure run on your Mac.</p>
-          </article>
-          <article>
-            <h3>No screen recording</h3>
-            <p>RambleFix does not need to see your screen to dictate into apps.</p>
-          </article>
-          <article>
-            <h3>Standard permissions</h3>
-            <p>Microphone to listen. Accessibility/Input Monitoring to paste where your cursor is.</p>
-          </article>
-          <article>
-            <h3>Easy to review</h3>
-            <p>Open-source code, local logs, no account, and opt-in diagnostics only.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section evidence" id="benchmarks">
-        <div class="section-head">
-          <p class="eyebrow">Tested on real recordings</p>
-          <h2>Useful English. A clearer edge when languages mix.</h2>
-          <p>
-            Every local engine hears the same saved audio, and final text is checked against cloud-cross-checked
-            references. English is useful, but we do not claim an accuracy win over the strongest tested local
-            baseline. Hindi+English is where the engine shows a clear measured edge.
-          </p>
-        </div>
-
-        <div class="metric-grid">
-          <article class="wide">
-            <span>Hindi+English beta &middot; same recordings, same test</span>
-            <strong>~89% vs 66-70% meaning kept</strong>
-            <div class="bar-row">
-              <div class="bar-label"><span>RambleFix</span><span>~89%</span></div>
-              <div class="bar-track"><div class="bar-fill" style="width: 89%"></div></div>
-            </div>
-            <div class="bar-row">
-              <div class="bar-label"><span>Other local engines, same clips</span><span>66-70%</span></div>
-              <div class="bar-track"><div class="bar-fill rival" style="width: 70%"></div></div>
-            </div>
-            <p>Same 13 mixed-language clips: RambleFix kept ~89% meaning vs ~66-70% for tested local general engines.</p>
-          </article>
-          <article class="wide">
-            <span>English &middot; large-corpus reference run</span>
-            <strong>85% meaning kept across 676 dictations</strong>
-            <div class="bar-row">
-              <div class="bar-label"><span>RambleFix</span><span>85.4%</span></div>
-              <div class="bar-track"><div class="bar-fill" style="width: 85.4%"></div></div>
-            </div>
-            <div class="bar-row">
-              <div class="bar-label"><span>Strongest tested local baseline</span><span>87.4%</span></div>
-              <div class="bar-track"><div class="bar-fill rival" style="width: 87.4%"></div></div>
-            </div>
-            <p>RambleFix kept 74.2% of scored work terms. The strongest tested local baseline was two meaning points ahead, so this is evidence of daily usefulness — not an English accuracy win.</p>
-          </article>
-          <article>
-            <span>Measured honestly</span>
-            <strong>Same audio. Clear boundaries.</strong>
-            <p>Every tested local engine heard the same files. Wispr Flow stays out of the chart until we can test it on the same surface.</p>
-          </article>
-          <article>
-            <span>Cleanup safety</span>
-            <strong>152 edits accepted, 0 changed meaning</strong>
-            <p>The cleanup step (fillers out, punctuation and casing in) never rewrites what you said — every accepted edit is checked against that.</p>
-          </article>
-        </div>
-
-        <div class="benchmark-note">
-          <p>
-            Same-WAV results: English n=676, RambleFix meaning 85.4% vs 87.4% for the strongest tested local baseline.
-            Hindi+English beta n=13, RambleFix 88.5% vs 66.1-70.2%. Cleanup accepted 152 edits with 0 meaning changes.
-            Wispr Flow remains directional, not head-to-head. See the
-            <a href="./benchmark-method.html">public benchmark method</a>.
-          </p>
-        </div>
-      </section>
-
-      <section class="section final-cta" id="feedback">
+      <section class="final-cta" id="feedback">
         <div>
           <p class="eyebrow">Built in public</p>
-          <h2>Follow the release and choose the next language mix.</h2>
-          <p>
-            RambleFix is free and open source because the fastest way to make local dictation good is people using it
-            and telling us where it breaks. Hindi+English is first. Tell us which mix should come next.
-          </p>
-          <div class="language-poll" aria-label="Next multilingual mode poll">
-            <a href="https://github.com/sohamsinha2018/ramblefix/discussions">English + Tagalog</a>
-            <a href="https://github.com/sohamsinha2018/ramblefix/discussions">English + Mandarin</a>
-            <a href="https://github.com/sohamsinha2018/ramblefix/discussions">English + Spanish</a>
-            <a href="https://github.com/sohamsinha2018/ramblefix/discussions">English + Arabic</a>
-            <a href="https://github.com/sohamsinha2018/ramblefix/discussions">Your language mix</a>
-          </div>
+          <h2>Free forever. Built with real voices.</h2>
+          <p>Star the project for the signed Mac release, report the misses, and help choose the next bilingual mode.</p>
         </div>
-        <div class="actions">
-          <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix">View the source</a>
-          <a class="button secondary" href="https://github.com/sohamsinha2018/ramblefix/discussions">Vote on GitHub</a>
+        <div class="final-actions">
+          <a class="button primary dark" href="https://github.com/sohamsinha2018/ramblefix">Star on GitHub</a>
+          <a class="button secondary" href="https://github.com/sohamsinha2018/ramblefix/discussions">Share feedback</a>
+        </div>
+        <div class="language-poll" aria-label="Next bilingual mode poll">
+          <a href="https://github.com/sohamsinha2018/ramblefix/discussions">English + Tagalog</a>
+          <a href="https://github.com/sohamsinha2018/ramblefix/discussions">English + Mandarin</a>
+          <a href="https://github.com/sohamsinha2018/ramblefix/discussions">English + Spanish</a>
+          <a href="https://github.com/sohamsinha2018/ramblefix/discussions">Your language mix</a>
         </div>
       </section>
     </main>
 
-    <script src="./vendor/anime.min.js"></script>
+    <footer>
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>RambleFix</span></a>
+      <span>Free · local · open source</span>
+      <a href="https://github.com/sohamsinha2018/ramblefix">GitHub ↗</a>
+    </footer>
+
     <script>
       (function () {
         var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        var micBtn = document.getElementById("mic-btn");
-        var chipsWrap = document.getElementById("act-chips");
-        var chips = chipsWrap ? chipsWrap.querySelectorAll("button") : [];
-        function markChip(idx) {
-          chips.forEach(function (c, j) {
-            c.classList.toggle("active", j === idx);
-            c.setAttribute("aria-pressed", j === idx ? "true" : "false");
-          });
-        }
-
-        // Benchmark bars grow when scrolled into view (no-JS/reduced-motion: full width).
-        var grid = document.querySelector(".metric-grid");
-        var fills = grid ? grid.querySelectorAll(".bar-fill") : [];
-        if (fills.length && !reducedMotion && "IntersectionObserver" in window) {
-          fills.forEach(function (b) { b.dataset.w = b.style.width; b.style.width = "0%"; });
-          var barIO = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              if (!entry.isIntersecting) return;
-              barIO.disconnect();
-              fills.forEach(function (b, i) {
-                setTimeout(function () { b.style.width = b.dataset.w; }, 130 * i);
-              });
-            });
-          }, { threshold: 0.15 });
-          barIO.observe(grid);
-        }
-
-        // Fillers and false starts are wrapped in «…» — typed dim, struck through on paste.
-        var examples = [
-          {
-            app: "typing into Docs",
-            spoken: "«okay so» the launch note — «no wait —» the checklist first, «um,» then the security review, and keep the whole thing short",
-            pasted: "The launch note: the checklist first, then the security review, and keep the whole thing short.",
-            dual: false,
-            listen: 3400
-          },
-          {
-            app: "typing into your editor",
-            spoken: "isko PRD ke against check karo aur English path regress mat hone dena",
-            pasted: "Check this against the PRD and make sure the English path does not regress.",
-            dual: true,
-            listen: 2400
-          },
-          {
-            app: "typing into Slack",
-            spoken: "check the PRD, run release tests, and make sure MCP and Qwen do not regress",
-            pasted: "Check the PRD, run the release tests, and make sure MCP and Qwen do not regress.",
-            dual: false,
-            listen: 2400
-          }
-        ];
+        var moment = document.getElementById("product-moment");
         var spoken = document.getElementById("demo-spoken");
         var pasted = document.getElementById("demo-pasted");
-        var canvas = document.getElementById("orb");
-        var stage = document.getElementById("orb-stage");
-        var langEl = document.getElementById("orb-lang");
-        var hintEl = document.getElementById("orb-hint");
-        var appEl = document.getElementById("demo-app");
-        if (!spoken || !pasted || !canvas) return;
+        var hud = document.getElementById("dictation-hud");
+        var status = document.getElementById("hud-status");
+        var orbCanvas = document.getElementById("product-orb");
+        var orbCtx = orbCanvas ? orbCanvas.getContext("2d") : null;
+        var orbExampleCanvas = document.getElementById("product-orb-example");
+        var orbExampleCtx = orbExampleCanvas ? orbExampleCanvas.getContext("2d") : null;
+        var tabs = Array.prototype.slice.call(document.querySelectorAll("[data-scene]"));
+        var scenes = [
+          {
+            spoken: "okay so first check the launch list, then the security review, and keep it short",
+            pasted: "First, check the launch list, then the security review. Keep it short.",
+            dual: false
+          },
+          {
+            spoken: "okay yaar, launch plan ko short rakho and include the security review",
+            pasted: "Keep the launch plan short and include the security review.",
+            dual: true
+          },
+          {
+            spoken: "make sure MCP, Qwen, and Kubernetes terms survive the structure pass",
+            pasted: "Make sure MCP, Qwen, and Kubernetes survive the structure pass.",
+            dual: false
+          }
+        ];
+        var current = 1;
+        var phase = "listening";
+        var phaseTimer = null;
+        var cycleTimer = null;
+        var orbRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+        var orbSize = 64;
 
-        function tokensOf(ex) {
-          if (ex.tokens) return ex.tokens;
-          var toks = [];
-          ex.spoken.split("«").forEach(function (part, i) {
-            var halves = i === 0 ? ["", part] : part.split("»");
-            (i === 0 ? "" : halves[0]).split(" ").forEach(function (w) { if (w) toks.push({ w: w, f: true }); });
-            (halves[1] || "").split(" ").forEach(function (w) { if (w) toks.push({ w: w, f: false }); });
+        function resizeProductOrb() {
+          [
+            [orbCanvas, orbCtx],
+            [orbExampleCanvas, orbExampleCtx]
+          ].forEach(function (surface) {
+            if (!surface[0] || !surface[1]) return;
+            surface[0].width = Math.round(orbSize * orbRatio);
+            surface[0].height = Math.round(orbSize * orbRatio);
+            surface[1].setTransform(orbRatio, 0, 0, orbRatio, 0, 0);
           });
-          ex.tokens = toks;
-          return toks;
-        }
-        function renderSpoken(ex, n) {
-          var toks = tokensOf(ex);
-          var html = "";
-          for (var i = 0; i < Math.min(n, toks.length); i++) {
-            html += (toks[i].f ? '<span class="filler">' + toks[i].w + "</span>" : toks[i].w) + " ";
-          }
-          spoken.innerHTML = html + '<span class="caret" aria-hidden="true"></span>';
         }
 
-        // The wow beat: on paste, fillers dissolve out, clean words assemble in,
-        // and the orb gives one "emit" pulse. Driven by anime.js (vendored);
-        // falls back to an instant swap if the lib or motion is unavailable.
-        function wowTransform(ex) {
-          var A = window.anime;
-          if (!A) { pasted.textContent = ex.pasted; return; }
-          // clean sentence -> word spans, staggered in
-          var words = ex.pasted.split(" ");
-          pasted.innerHTML = words.map(function (w) { return '<span class="pw">' + w + "</span>"; }).join(" ");
-          A.set("#demo-pasted .pw", { opacity: 0, translateY: 10 });
-          A({ targets: "#demo-pasted .pw", opacity: [0, 1], translateY: [10, 0], delay: A.stagger(38), duration: 460, easing: "easeOutExpo" });
-          // fillers get pulled out
-          var fillers = spoken.querySelectorAll(".filler");
-          if (fillers.length) {
-            A({ targets: fillers, opacity: [0.42, 0.05], translateY: [0, 8], delay: A.stagger(34), duration: 520, easing: "easeInQuad" });
-          }
-          // orb emit pulse — slight overshoot for a crafted pop
-          if (canvas) A({ targets: canvas, scale: [1, 1.19, 1], duration: 680, easing: "easeOutBack" });
-        }
-        function clearWow() {
-          var A = window.anime;
-          if (A && canvas) A.set(canvas, { scale: 1 });
+        function orbColor(hue, alpha) {
+          return "hsla(" + hue + ", 86%, 58%, " + alpha + ")";
         }
 
-        var gl = null;
-        try { gl = canvas.getContext("webgl"); } catch (e) {}
-        var hasGL = !!gl;
-        if (hasGL) {
-          var rendererInfo = gl.getExtension("WEBGL_debug_renderer_info");
-          var renderer = rendererInfo ? gl.getParameter(rendererInfo.UNMASKED_RENDERER_WEBGL) : "";
-          if (/swiftshader|software renderer/i.test(renderer)) {
-            hasGL = false;
-            gl = null;
-          }
-        }
+        function drawOrbSurface(context, now, orbPhase, dual, sessionShift) {
+          if (!context) return;
+          var t = now / 1000;
+          var listening = orbPhase === "listening";
+          var processing = orbPhase === "processing";
+          var level = listening
+            ? Math.max(0.12, Math.min(1, 0.54 + 0.24 * Math.sin(t * 3.1) + 0.13 * Math.sin(t * 7.7 + 1.2)))
+            : 0;
+          var primaryHue = 187 + sessionShift + (processing ? Math.min(18, t % 5 * 3.6) : 0);
+          var secondaryHue = 28 + sessionShift * 0.35;
+          var center = orbSize / 2;
+          var baseRadius = orbSize * 0.34;
+          var throb = processing && !reducedMotion
+            ? -0.15 + 0.06 * Math.sin(t * 7.5) + 0.02 * Math.sin(t * 13)
+            : 0;
+          var amplitude = listening && !reducedMotion ? 0.30 * level : 0;
+          var inflation = listening && !reducedMotion ? 1 + 0.12 * level : 1;
+          var radius = baseRadius * inflation * (1 + 0.02 * Math.sin(t * 0.8) + throb);
 
-        // Approved RambleFix orb shader, desktop profile.
-        var VSH = "attribute vec2 p; void main(){ gl_Position = vec4(p,0.,1.); }";
-        var FSH = [
-          "precision mediump float;",
-          "uniform float t, proc, dual, ratio, visc, fade;",
-          "uniform float bandLow, bandMid, bandHigh, uSmall;",
-          "uniform vec2 res; uniform vec3 colA, colB;",
-          "float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453); }",
-          "float noise(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.-2.*f);",
-          "  return mix(mix(hash(i),hash(i+vec2(1,0)),f.x), mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x), f.y); }",
-          "float fbm(vec2 p){ float v=0., a=.55; for(int i=0;i<3;i++){ v+=a*noise(p); p*=2.1; a*=.5; } return v; }",
-          "void main(){",
-          "  vec2 p = (gl_FragCoord.xy*2. - res) / min(res.x,res.y);",
-          "  float speed = mix(1., .35, visc) * (1. + proc*1.2);",
-          "  float tt = t * speed;",
-          "  float theta = atan(p.y, p.x);",
-          "  float r = length(p);",
-          "  vec3 col = vec3(0.0);",
-          "  float voice = clamp(0.55*bandLow + 0.55*bandMid + 0.35*bandHigh, 0.0, 1.0);",
-          "  float crests = mix(8.0, 5.0, uSmall);",
-          "  float A  = mix(0.095, 0.19, uSmall) * voice * (1.0-proc);",
-          "  float sh = 0.02*bandHigh*(1.0-proc)*(1.0-uSmall);",
-          "  float throb = proc * (0.06*sin(tt*7.5) + 0.02*sin(tt*13.0));",
-          "  float base = 0.80*(1.0 + 0.015*sin(tt*0.8) - 0.15*proc + throb);",
-          "  float AB = (1.1 + 0.9*bandMid + 0.6*bandHigh)*(1.0-proc);",
-          "  float drift = tt*2.2;",
-          "  float rMain = base*(1.0 + A*sin(crests*theta - drift) + sh*sin(16.0*theta + tt*4.0));",
-          "  float inten = mix(0.016, 0.034, uSmall)*(1.0 + 1.4*bandLow + proc*0.6);",
-          "  float thick = mix(0.022, 0.05, uSmall);",
-          "  float copies = mix(4.0, 2.0, uSmall);",
-          "  vec3 num = vec3(0.0); float den = 0.0;",
-          "  for (int i = 0; i < 4; i++) {",
-          "    if (float(i) >= copies) break;",
-          "    float fi = float(i);",
-          "    float fmax = copies - 1.0;",
-          "    float ab = mix(-AB, AB, fi/max(fmax,1.0));",
-          "    float dir = (uSmall > 0.5 && i == 1) ? -1.0 : 1.0;",
-          "    float rS = base*(1.0 + (A + (0.012*bandMid + 0.012*bandHigh)*(1.0-proc))*sin(crests*theta - dir*drift + ab)",
-          "                         + sh*sin(16.0*theta + tt*4.0 + ab*0.5));",
-          "    vec3 hue = (dual > 0.5)",
-          "      ? ((uSmall > 0.5) ? ((i == 0) ? colA : colB) : mix(colA, colB, fi/max(fmax,1.0)))",
-          "      : colA * mix(0.75, 1.2, fi/max(fmax,1.0));",
-          "    vec3 procHue = (dual > 0.5) ? mix(colA, colB, 0.5 + 0.25*sin(tt*4.7)) : colA;",
-          "    hue = mix(hue, procHue, proc);",
-          "    float d = abs(r - rS);",
-          "    float line = inten / (sqrt(d*d + 0.0003) + thick);",
-          "    float lo = min(rMain, rS), hi = max(rMain, rS);",
-          "    float dBand = max(0.0, max(r - hi, lo - r));",
-          "    float band = 0.004 * inten * 320.0 / (dBand + 0.05) * (1.0-uSmall);",
-          "    num += hue * (line + band*0.35);",
-          "    den += 1.0;",
-          "  }",
-          "  col += num / den;",
-          "  vec2 w1 = p + .3*vec2(cos(tt*.5), sin(tt*.4));",
-          "  vec2 w2 = p - .3*vec2(sin(tt*.45), cos(tt*.35));",
-          "  float f1 = fbm(w1*2.0 + tt*.08);",
-          "  float f2 = fbm(w2*2.0 - tt*.06);",
-          "  float mixv = smoothstep(.32, .68, f1/(f1+f2+1e-4) + (ratio-.5)*.4);",
-          "  vec3 fillCol = mix(colA, colB, mixv*dual);",
-          "  float fill = 1.0 - smoothstep(-0.16, 0.0, r - rMain);",
-          "  col += fillCol * fill * (0.20 + 0.15*bandLow) * (1.0-0.35*uSmall) * (1.0 - .22*smoothstep(.0,.5,r)*proc);",
-          "  col = pow(col, vec3(1.4));",
-          "  col += (hash(gl_FragCoord.xy) - 0.5) / 255.0;",
-          "  float maskLo = mix(0.22, 0.06, uSmall);",
-          "  float maskHi = mix(0.30, 0.10, uSmall);",
-          "  float mask = 1.0 - smoothstep(rMain+maskLo, rMain+maskHi, r);",
-          "  gl_FragColor = vec4(col, fade * max(fill*0.9, min(1.0, (col.r+col.g+col.b))) * mask);",
-          "}"
-        ].join("\n");
-        var U = null;
-        if (hasGL) {
-          var mkShader = function (type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
-          var prog = gl.createProgram();
-          gl.attachShader(prog, mkShader(gl.VERTEX_SHADER, VSH));
-          gl.attachShader(prog, mkShader(gl.FRAGMENT_SHADER, FSH));
-          gl.linkProgram(prog);
-          if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
-            hasGL = false;
-          } else {
-            gl.useProgram(prog);
-            var buf = gl.createBuffer();
-            gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-            var loc = gl.getAttribLocation(prog, "p");
-            gl.enableVertexAttribArray(loc);
-            gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-            gl.enable(gl.BLEND);
-            gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-            U = function (n) { return gl.getUniformLocation(prog, n); };
+          context.clearRect(0, 0, orbSize, orbSize);
+
+          var gradient = context.createRadialGradient(
+            center - radius * 0.2,
+            center - radius * 0.22,
+            radius * 0.08,
+            center,
+            center,
+            radius * 1.08
+          );
+          gradient.addColorStop(0, "rgba(230, 255, 255, " + (0.64 + 0.14 * level) + ")");
+          gradient.addColorStop(0.46, orbColor(primaryHue, 0.46));
+          gradient.addColorStop(1, orbColor(primaryHue + 8, 0.16));
+          context.beginPath();
+          context.arc(center, center, radius, 0, Math.PI * 2);
+          context.fillStyle = gradient;
+          context.fill();
+
+          context.beginPath();
+          context.arc(center, center, radius + 1.5, 0, Math.PI * 2);
+          context.strokeStyle = orbColor(primaryHue, 0.22);
+          context.lineWidth = 3;
+          context.stroke();
+
+          for (var copy = 0; copy < 2; copy += 1) {
+            var direction = copy === 0 ? 1 : -1;
+            var offset = copy === 0 ? -0.55 : 0.55;
+            context.beginPath();
+            for (var step = 0; step <= 72; step += 1) {
+              var theta = step / 72 * Math.PI * 2;
+              var wave = amplitude * Math.sin(5 * theta - direction * t * 2.2 + offset);
+              var pathRadius = radius * (1 + wave);
+              var x = center + pathRadius * Math.cos(theta);
+              var y = center + pathRadius * Math.sin(theta);
+              if (step === 0) context.moveTo(x, y); else context.lineTo(x, y);
+            }
+            context.closePath();
+            context.strokeStyle = dual && processing
+              ? orbColor(copy === 0 ? primaryHue : secondaryHue, 0.92)
+              : orbColor(primaryHue, copy === 0 ? 0.95 : 0.55);
+            context.lineWidth = 1.6;
+            context.stroke();
           }
         }
-        // Keep the demo responsive on software-rendered or WebGL-free devices.
-        if (!hasGL) canvas.classList.add("orb-fallback");
 
-        var COL = { en: [0.145, 0.874, 0.956], hiA: [0.10, 0.85, 1.0], hiB: [1.0, 0.60, 0.15] };
-        var bands = { low: 0, mid: 0, high: 0 };
-        var proc = 0, dual = 0, ratio = 0.5, fade = 0.9;
-        var t0 = performance.now(), lastFrame = t0;
-
-        function draw(now) {
-          if (!hasGL) return;
-          var t = (now - t0) / 1000;
-          gl.viewport(0, 0, canvas.width, canvas.height);
-          gl.clearColor(0, 0, 0, 0);
-          gl.clear(gl.COLOR_BUFFER_BIT);
-          gl.uniform1f(U("t"), t);
-          gl.uniform1f(U("bandLow"), bands.low);
-          gl.uniform1f(U("bandMid"), bands.mid);
-          gl.uniform1f(U("bandHigh"), bands.high);
-          gl.uniform1f(U("proc"), proc);
-          gl.uniform1f(U("dual"), dual);
-          gl.uniform1f(U("ratio"), ratio);
-          gl.uniform1f(U("visc"), 0);
-          gl.uniform1f(U("fade"), fade);
-          gl.uniform2f(U("res"), canvas.width, canvas.height);
-          gl.uniform1f(U("uSmall"), 0);
-          gl.uniform3fv(U("colA"), dual > 0.02 ? COL.hiA : COL.en);
-          gl.uniform3fv(U("colB"), COL.hiB);
-          gl.drawArrays(gl.TRIANGLES, 0, 3);
+        function drawProductOrb(now) {
+          drawOrbSurface(orbCtx, now, phase, moment.classList.contains("dual"), [-8, 0, 16][current] || 0);
+          drawOrbSurface(orbExampleCtx, now, "listening", false, 0);
         }
 
-        if (reducedMotion) {
-          // Static frames only; chips swap between finished scenes.
-          bands.low = 0.25; bands.mid = 0.2; bands.high = 0.1;
-          if (hintEl) hintEl.style.display = "none";
-          if (micBtn) micBtn.style.display = "none";
-          chips.forEach(function (c, i) {
-            c.addEventListener("click", function () {
-              var ex = examples[i];
-              markChip(i);
-              if (appEl) appEl.textContent = ex.app;
-              renderSpoken(ex, 999);
-              spoken.classList.add("cleaned");
-              pasted.textContent = ex.pasted;
-              dual = ex.dual ? 1 : 0;
-              draw(t0 + 1500);
-            });
+        function setActiveTab() {
+          tabs.forEach(function (tab) {
+            var active = Number(tab.dataset.scene) === current;
+            tab.classList.toggle("active", active);
+            tab.setAttribute("aria-pressed", active ? "true" : "false");
           });
-          draw(t0 + 1500);
-          return;
         }
 
-        // --- scripted loop: listen (type) -> process -> paste ---
-        var PROC = 600, SETTLE = 2000;
-        var exIdx = 0, phase = "listen", phaseStart = performance.now(), wordsShown = -1;
-        var micHold = false, micStream = null, audioCtx = null, analyser = null, micData = null;
+        function renderScene() {
+          var scene = scenes[current];
+          spoken.textContent = scene.spoken;
+          pasted.textContent = scene.pasted;
+          moment.classList.toggle("dual", scene.dual);
+          setActiveTab();
+          setPhase("listening");
+          if (reducedMotion) return;
+          clearTimeout(phaseTimer);
+          clearTimeout(cycleTimer);
+          phaseTimer = setTimeout(function () { setPhase("processing"); }, 2400);
+          cycleTimer = setTimeout(function () {
+            setPhase("landed");
+            phaseTimer = setTimeout(function () {
+              current = (current + 1) % scenes.length;
+              renderScene();
+            }, 2100);
+          }, 3300);
+        }
 
-        var SWITCH_HTML = '<span class="dot dot-hi"></span><span lang="hi">हिन्दी</span> + <span class="dot dot-en"></span>English &middot; heard the switch';
-        var lastLang = "";
-        function setLang(txt, isHtml) {
-          if (!langEl || txt === lastLang) return;
-          lastLang = txt;
-          if (isHtml) langEl.innerHTML = txt;
-          else langEl.textContent = txt;
+        function setPhase(next) {
+          phase = next;
+          hud.classList.remove("listening", "processing", "landed");
+          hud.classList.add(next);
+          moment.dataset.phase = next;
+          status.textContent = next === "listening" ? "Listening" : next === "processing" ? "Making it clear" : "Pasted";
+          if (reducedMotion) drawProductOrb(1200);
         }
-        function fakeBands(now, active) {
-          if (!active) return { low: 0, mid: 0, high: 0 };
-          return {
-            low: 0.45 + 0.35 * Math.sin(now / 300),
-            mid: 0.35 + 0.3 * Math.sin(now / 170 + 1),
-            high: 0.25 + 0.25 * Math.sin(now / 110 + 2)
-          };
-        }
-        function micBands() {
-          analyser.getByteFrequencyData(micData);
-          var hzPerBin = audioCtx.sampleRate / 2 / micData.length;
-          function avg(lo, hi) {
-            var a = Math.max(1, Math.floor(lo / hzPerBin)), b = Math.min(micData.length - 1, Math.ceil(hi / hzPerBin));
-            var sum = 0; for (var i = a; i <= b; i++) sum += micData[i];
-            return Math.max(0, Math.min(1, (sum / (b - a + 1) - 8) / 70));
-          }
-          return { low: avg(0, 250), mid: avg(250, 2000), high: avg(2000, 6000) };
-        }
-        function followBands(now, dt) {
-          var tgt;
-          if (micHold && analyser) tgt = micBands();
-          else tgt = fakeBands(now, phase === "listen" && !micHold);
-          for (var k in bands) {
-            var tau = tgt[k] > bands[k] ? 50 : 400;
-            bands[k] += (tgt[k] - bands[k]) * (1 - Math.exp(-dt / tau));
-          }
-        }
-        // Mic is opt-in per hold: stream starts on pointerdown and is fully
-        // stopped on release, so the mic-in-use indicator never outlives the hold.
-        function stopMic() {
-          if (micStream) { micStream.getTracks().forEach(function (t) { t.stop(); }); micStream = null; }
-          if (audioCtx) { try { audioCtx.close(); } catch (e) {} audioCtx = null; }
-          analyser = null;
-          micData = null;
-        }
-        function releaseMic() {
-          if (!micHold) return;
-          micHold = false;
-          stopMic();
-        }
-        function startMic() {
-          if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) return;
-          navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
-            if (!micHold) { stream.getTracks().forEach(function (t) { t.stop(); }); return; }
-            micStream = stream;
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            audioCtx.resume();
-            analyser = audioCtx.createAnalyser();
-            analyser.fftSize = 1024;
-            analyser.smoothingTimeConstant = 0.8;
-            audioCtx.createMediaStreamSource(stream).connect(analyser);
-            micData = new Uint8Array(analyser.frequencyBinCount);
-          }).catch(function () { micHold = false; });
-        }
-        if (hasGL && micBtn) {
-          var beginHold = function (e) {
-            e.preventDefault();
-            micHold = true;
-            startMic();
-          };
-          micBtn.style.display = "";
-          micBtn.addEventListener("pointerdown", beginHold);
-          micBtn.addEventListener("keydown", function (e) {
-            if ((e.code === "Space" || e.code === "Enter") && !e.repeat) beginHold(e);
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            current = Number(tab.dataset.scene);
+            renderScene();
           });
-          micBtn.addEventListener("keyup", function (e) {
-            if (e.code === "Space" || e.code === "Enter") releaseMic();
-          });
-          window.addEventListener("pointerup", releaseMic);
-          window.addEventListener("pointercancel", releaseMic);
-          window.addEventListener("blur", releaseMic);
-          document.addEventListener("visibilitychange", function () { if (document.hidden) releaseMic(); });
-        } else if (micBtn) {
-          micBtn.style.display = "none";
-        }
-
-        function goToAct(i) {
-          exIdx = i;
-          phase = "listen";
-          phaseStart = performance.now();
-          wordsShown = -1;
-          pasted.classList.remove("flash");
-          spoken.classList.remove("cleaned");
-          markChip(i);
-          if (!running) {
-            running = true;
-            lastFrame = performance.now();
-            requestAnimationFrame(frame);
-          }
-        }
-        chips.forEach(function (c, i) {
-          c.addEventListener("click", function () { goToAct(i); });
         });
 
+        renderScene();
+        resizeProductOrb();
+
+        var canvas = document.getElementById("hero-waves");
+        var hero = document.querySelector(".hero");
+        if (!canvas || !hero) return;
+        var ctx = canvas.getContext("2d");
+        var ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+        var width = 0;
+        var height = 0;
         var running = true;
+        var lastDraw = 0;
+
+        function resize() {
+          var box = hero.getBoundingClientRect();
+          width = Math.max(1, Math.round(box.width));
+          height = Math.max(1, Math.round(box.height));
+          canvas.width = Math.round(width * ratio);
+          canvas.height = Math.round(height * ratio);
+          canvas.style.width = width + "px";
+          canvas.style.height = height + "px";
+          ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+          if (reducedMotion) draw(1200);
+        }
+
+        function waveLine(t, color, base, amp, freq, speed, offset, alpha) {
+          ctx.beginPath();
+          for (var x = -30; x <= width + 30; x += 9) {
+            var envelope = Math.sin(Math.min(1, Math.max(0, x / width)) * Math.PI);
+            var y = base + Math.sin(x * freq + t * speed + offset) * amp * envelope;
+            y += Math.sin(x * freq * 0.43 - t * speed * 0.72 + offset) * amp * 0.32 * envelope;
+            if (x === -30) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+          }
+          ctx.strokeStyle = color;
+          ctx.globalAlpha = alpha;
+          ctx.lineWidth = 1.35;
+          ctx.stroke();
+        }
+
+        function draw(now) {
+          if (!running) return;
+          if (!reducedMotion && now - lastDraw < 33) {
+            requestAnimationFrame(draw);
+            return;
+          }
+          lastDraw = now;
+          drawProductOrb(now);
+          ctx.clearRect(0, 0, width, height);
+          var t = now / 1000;
+          var base = height * 0.67;
+          waveLine(t, "#23cfe5", base - 20, 62, 0.013, 1.2, 0, 0.34);
+          waveLine(t, "#9de34c", base + 6, 44, 0.017, -1.05, 1.4, 0.31);
+          waveLine(t, "#ff8a45", base + 30, 31, 0.020, 0.9, 2.1, 0.22);
+          ctx.globalAlpha = 1;
+          if (!reducedMotion) requestAnimationFrame(draw);
+        }
+
+        resize();
+        window.addEventListener("resize", function () {
+          resize();
+          resizeProductOrb();
+        }, { passive: true });
+        document.addEventListener("visibilitychange", function () {
+          running = !document.hidden;
+          if (running && !reducedMotion) requestAnimationFrame(draw);
+        });
         if ("IntersectionObserver" in window) {
           new IntersectionObserver(function (entries) {
-            var vis = entries[0].isIntersecting;
-            if (vis && !running) { running = true; lastFrame = performance.now(); phaseStart = performance.now(); requestAnimationFrame(frame); }
-            else if (!vis) running = false;
-          }).observe(document.querySelector(".demo-shell") || spoken);
+            running = entries[0].isIntersecting && !document.hidden;
+            if (running && !reducedMotion) requestAnimationFrame(draw);
+          }).observe(hero);
         }
-
-        function frame(now) {
-          if (!running) return;
-          var dt = now - lastFrame; lastFrame = now;
-          followBands(now, dt);
-
-          if (micHold) {
-            // Pause the scripted loop while the visitor plays with the orb.
-            phaseStart += dt;
-            proc = Math.max(0, proc - dt / 200);
-            setLang(analyser ? "listening · you" : "waiting for the mic…");
-          } else {
-            var ex = examples[exIdx];
-            var el = now - phaseStart;
-            var LISTEN = ex.listen || 3000;
-            if (phase === "listen") {
-              if (wordsShown === -1 && appEl) appEl.textContent = ex.app;
-              var toks = tokensOf(ex);
-              var n = Math.min(toks.length, Math.floor((el / LISTEN) * toks.length) + 1);
-              if (n !== wordsShown) {
-                wordsShown = n;
-                renderSpoken(ex, n);
-                pasted.classList.add("pending");
-              }
-              var dualTarget = ex.dual && el > 500 ? 1 : 0;
-              dual += (dualTarget - dual) * Math.min(1, dt / 600);
-              if (ex.dual && dual > 0.4) setLang(SWITCH_HTML, true);
-              else setLang("listening · english");
-              proc = Math.max(0, proc - dt / 200);
-              if (el >= LISTEN) { phase = "proc"; phaseStart = now; setLang("processing"); }
-            } else if (phase === "proc") {
-              proc = Math.min(1, el / 300);
-              if (el >= PROC) {
-                phase = "settle"; phaseStart = now;
-                pasted.classList.remove("pending");
-                spoken.classList.add("cleaned");
-                wowTransform(ex);
-                pasted.classList.add("flash");
-                setLang("text landed");
-              }
-            } else {
-              proc = Math.max(0, proc - dt / 200);
-              dual += (0 - dual) * Math.min(1, dt / 900);
-              if (el >= SETTLE) {
-                exIdx = (exIdx + 1) % examples.length;
-                phase = "listen"; phaseStart = now; wordsShown = -1;
-                pasted.classList.remove("flash");
-                spoken.classList.remove("cleaned");
-                clearWow();
-                markChip(exIdx);
-              }
-            }
-          }
-
-          draw(now);
-          requestAnimationFrame(frame);
-        }
-        requestAnimationFrame(frame);
+        draw(0);
       })();
     </script>
   </body>
