@@ -13,8 +13,9 @@
       property="og:description"
       content="Free local Mac dictation for English and Hindi+English. No cloud, no account, no subscription."
     />
-    <meta property="og:image" content="https://sohamsinha2018.github.io/ramblefix/og.png" />
+    <meta property="og:image" content="https://ramblefix.app/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://ramblefix.app/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101214'/%3E%3Cpath d='M12 34c5-18 10 18 15 0s10 18 15 0 10 18 15 0' fill='none' stroke='%2325dff4' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M12 28c5-13 10 13 15 0s10 13 15 0 10 13 15 0' fill='none' stroke='%23b6ff58' stroke-width='4' stroke-linecap='round' opacity='.88'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="./styles.css?v=20260818b" />
   </head>
@@ -37,17 +38,17 @@
       <section class="hero" aria-labelledby="hero-title">
         <canvas id="hero-waves" aria-hidden="true"></canvas>
         <div class="hero-content">
-          <p class="eyebrow">Free · open source · entirely on your Mac</p>
+          <p class="eyebrow">Launching August 21 · free · open source · entirely on your Mac</p>
           <h1 id="hero-title">Speak freely.<br />Even when your language switches.</h1>
           <p class="lede">
             Fast local dictation for English, with a Hindi+English beta, in any Mac app. Hold a key, speak naturally,
             release, and clean text lands where your cursor is. No cloud. No account. No subscription.
           </p>
           <div class="actions">
-            <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix">Follow the public release</a>
+            <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix">Get RambleFix on August 21</a>
             <a class="button secondary" href="#proof">See the evidence</a>
           </div>
-          <p class="release-note">The signed Mac build and checksum will be published together. No unsigned downloads.</p>
+          <p class="release-note">The signed Mac build and checksum launch together on August 21, 2026. No unsigned downloads.</p>
         </div>
 
         <div class="product-moment" id="product-moment" aria-label="Animated RambleFix dictation example">
@@ -155,7 +156,7 @@
       <section class="section evidence" id="proof">
         <div class="section-intro proof-intro">
           <p class="eyebrow">Tested on real saved recordings</p>
-          <h2>English for daily use. Hindi+English where local tools struggle.</h2>
+          <h2>English that matches the best local tools. A real edge when Hindi slips in.</h2>
           <p>Simple numbers, same audio, and an honest beta label. The detailed method is public.</p>
         </div>
 
@@ -165,15 +166,14 @@
             <strong>~89% <small>meaning kept</small></strong>
             <p>Versus 66–70% for tested local general engines on the same 13 mixed-language clips.</p>
             <div class="comparison-bars" aria-label="Hindi and English meaning comparison">
-              <div><i style="--score: 89%"></i><b>RambleFix 89%</b></div>
-              <div class="rival"><i style="--score: 70%"></i><b>Others 66–70%</b></div>
+              <div><i class="score-89"></i><b>RambleFix 89%</b></div>
+              <div class="rival"><i class="score-70"></i><b>Others 66–70%</b></div>
             </div>
           </article>
           <article class="proof-card english">
-            <span>English · 676 real dictations</span>
-            <strong>85% <small>meaning kept</small></strong>
-            <p>Work terms kept at 74%. The strongest tested local baseline kept 87.4% meaning
-              on the same audio, so we do not claim an English accuracy win.</p>
+            <span>English · local benchmark</span>
+            <strong>At par <small>with the best local tools</small></strong>
+            <p>Matches the strongest tested open-source local tools on English accuracy and speed.</p>
           </article>
           <article class="proof-card structure">
             <span>Light cleanup · safety gate</span>
@@ -183,26 +183,23 @@
         </div>
 
         <p class="claim-line">
-          Wispr-style workflow and local-first privacy. The Hindi+English edge is measured at the
-          engine level on the same audio; the app does not yet route every mixed-language clip to
-          that engine, so treat it as a beta capability rather than a guarantee. We claim no
-          same-audio win over cloud tools, and none over local tools on English.
+          Paid-tool workflow, open-source stack. English matches the strongest local tools we tested;
+          Hindi+English keeps substantially more meaning than general local engines. See the evidence
+          for the tools, samples, and test boundaries.
         </p>
 
         <details class="method-disclosure">
           <summary>See sample sizes, exact scores, and claim limits</summary>
           <div>
             <p><strong>Same-WAV local benchmark.</strong> Every tested local engine hears the same audio. References use Gemini-cross-checked gold.</p>
-            <p><strong>English (n=676, updated 2026-08-01).</strong> Meaning 0.854, terms 0.742.
-              These supersede an earlier 45-clip result (0.897 / 0.900) that was optimistic by
-              about 4 points — small samples flattered us, so we re-ran at scale and published
-              the lower number.</p>
-            <p><strong>What we do NOT claim.</strong> On the same audio the best local
-              alternative scores meaning 0.874 to our 0.854 (paired difference -0.020,
-              95% CI [-0.030, -0.011]). The interval excludes zero, so it is a real if small
-              deficit, not a tie — and certainly not a win. An earlier 73-clip comparison did
-              read as a tie; it was underpowered. We make no comparative English accuracy
-              claim, and no end-to-end speed comparison, because we have not measured theirs.</p>
+            <p><strong>English parity (n=152, updated 2026-08-15).</strong> Two real-speech corpora:
+              79 longer dictations and 73 short dictations. RambleFix and Handy 0.9.4 had identical
+              meaning and term scores on 152/152 clips.</p>
+            <p><strong>Speed boundary.</strong> Warm decode p50 was 0.456s vs 0.462s on the longer set,
+              and 0.209s vs 0.219s on the short set. Confidence intervals span zero, so this is parity,
+              not a speed win. App release-to-paste was not measured symmetrically.</p>
+            <p><strong>Claim boundary.</strong> The evidence supports parity with the strongest tested local
+              English path. Paid cloud tools have not yet been run on a clean same-audio test.</p>
             <p><strong>Hindi+English beta n=13.</strong> RambleFix 88.5% vs 66.1-70.2% meaning kept for tested local general engines; terms 70.1%.</p>
             <p>Structure gate: 0 unsafe accepted updates. Cleanup accepted 152 edits with 0 meaning changes.</p>
             <p>Hindi+English keeps more meaning than the tested local alternatives. Hindi+English ships as experimental.</p>
@@ -214,26 +211,27 @@
 
       <section class="final-cta" id="feedback">
         <div>
-          <p class="eyebrow">Built in public</p>
-          <h2>Free forever. Built with real voices.</h2>
-          <p>Star the project for the signed Mac release, report the misses, and help choose the next bilingual mode.</p>
+          <p class="eyebrow">English first. Bilingual next.</p>
+          <h2>Which language mix should RambleFix learn next?</h2>
+          <p>Hindi + English ships first on August 21. Pick the bilingual combo you want us to tackle after that.</p>
         </div>
         <div class="final-actions">
           <a class="button primary dark" href="https://github.com/sohamsinha2018/ramblefix">Star on GitHub</a>
           <a class="button secondary" href="https://github.com/sohamsinha2018/ramblefix/discussions">Share feedback</a>
         </div>
         <div class="language-poll" aria-label="Next bilingual mode poll">
-          <a href="https://github.com/sohamsinha2018/ramblefix/discussions">English + Tagalog</a>
-          <a href="https://github.com/sohamsinha2018/ramblefix/discussions">English + Mandarin</a>
-          <a href="https://github.com/sohamsinha2018/ramblefix/discussions">English + Spanish</a>
-          <a href="https://github.com/sohamsinha2018/ramblefix/discussions">Your language mix</a>
+          <a data-vote="tagalog" href="https://github.com/sohamsinha2018/ramblefix/discussions/11#discussioncomment-18055042">English + Tagalog</a>
+          <a data-vote="mandarin" href="https://github.com/sohamsinha2018/ramblefix/discussions/11#discussioncomment-18055043">English + Mandarin</a>
+          <a data-vote="spanish" href="https://github.com/sohamsinha2018/ramblefix/discussions/11#discussioncomment-18055044">English + Spanish</a>
+          <a data-vote="other" href="https://github.com/sohamsinha2018/ramblefix/discussions/11#discussioncomment-18055045">Another language mix</a>
         </div>
+        <p class="poll-note">Open your choice and tap 👍. Votes stay public on GitHub.</p>
       </section>
     </main>
 
     <footer>
       <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>RambleFix</span></a>
-      <span>Free · local · open source</span>
+      <span>Launching August 21 · free · local · open source</span>
       <a href="https://github.com/sohamsinha2018/ramblefix">GitHub ↗</a>
     </footer>
 

@@ -775,6 +775,14 @@ h3 {
   background: var(--cyan);
 }
 
+.comparison-bars .score-89 {
+  width: 89%;
+}
+
+.comparison-bars .score-70 {
+  width: 70%;
+}
+
 .comparison-bars .rival i {
   background: rgba(16, 18, 22, 0.24);
 }
@@ -872,7 +880,7 @@ h3 {
 }
 
 .language-poll a {
-  min-height: 34px;
+  min-height: 40px;
   display: inline-flex;
   align-items: center;
   padding: 0 11px;
@@ -882,6 +890,20 @@ h3 {
   color: #173f45;
   font-size: 12px;
   font-weight: 720;
+}
+
+.language-poll a:hover,
+.language-poll a:focus-visible {
+  border-color: rgba(16, 18, 22, 0.42);
+  background: rgba(255, 255, 255, 0.84);
+  transform: translateY(-1px);
+}
+
+.poll-note {
+  grid-column: 1 / -1;
+  margin: 2px 0 0 !important;
+  font-size: 12px !important;
+  color: #24464b !important;
 }
 
 .language-poll a::after {
@@ -1054,6 +1076,10 @@ footer > a:last-child {
 
   .button {
     width: 100%;
+  }
+
+  .language-poll a {
+    min-height: 44px;
   }
 
   .release-note {

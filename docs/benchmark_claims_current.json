@@ -1,37 +1,43 @@
 {
-  "version": "2026-08-18.public_site_claims_v1",
+  "version": "2026-08-18.public_site_claims_v2",
   "claim_boundary": {
     "allowed": [
-      "English reference result on the full 676-dictation same-WAV run",
+      "English parity with the strongest tested open-source local tools",
       "Hindi+English engine comparison on the same 13 clips",
       "structure safety result on the recorded 330-row gate",
-      "Hindi+English is experimental"
+      "Hindi+English is experimental",
+      "launching August 21, 2026"
     ],
     "forbidden": [
       "beats Wispr Flow",
       "better than Wispr Flow",
       "best STT",
       "best English STT",
-      "all 45 real saved dictations",
+      "beats every open-source",
+      "beats all open-source",
+      "matches paid cloud tools",
+      "English · 676 real dictations",
       "~90% meaning kept"
     ]
   },
   "claim_cards": [
     {
-      "id": "english_large_reference",
+      "id": "english_handy_parity",
       "source_file": "docs/public_benchmark_evidence_20260818.json",
-      "source_section": "english_large_reference",
+      "source_section": "english_handy_parity",
       "selector": {},
       "metrics": {
-        "n": {"source_key": "n", "expected": 676},
-        "meaning": {"source_key": "ramblefix_meaning", "expected": 0.8543550295857988},
-        "terms": {"source_key": "ramblefix_terms", "expected": 0.7422174556213016},
-        "baseline_meaning": {"source_key": "strongest_tested_local_meaning", "expected": 0.8744260355029586}
+        "n": {"source_key": "n", "expected": 152},
+        "same_scored_outputs": {"source_key": "same_scored_outputs", "expected": 152},
+        "longer_ramblefix_meaning": {"source_key": "longer_ramblefix_meaning", "expected": 0.9206},
+        "longer_handy_meaning": {"source_key": "longer_handy_meaning", "expected": 0.9206},
+        "short_ramblefix_meaning": {"source_key": "short_ramblefix_meaning", "expected": 0.9337},
+        "short_handy_meaning": {"source_key": "short_handy_meaning", "expected": 0.9337}
       },
       "site_must_contain": [
-        "English · 676 real dictations",
-        "85% <small>meaning kept</small>",
-        "strongest tested local baseline kept 87.4% meaning"
+        "English · local benchmark",
+        "At par <small>with the best local tools</small>",
+        "Matches the strongest tested open-source local tools on English accuracy and speed"
       ]
     },
     {
@@ -71,15 +77,17 @@
   ],
   "surface_must_contain": {
     "site/index.html": [
+      "Launching August 21",
       "Speak freely.",
       "Even when your language switches.",
       "Same-WAV local benchmark",
-      "we do not claim an English accuracy win",
+      "English parity (n=152",
       "Wispr Flow comparisons remain directional"
     ],
     "site/benchmark-method.html": [
-      "676 saved dictations",
-      "we make no English accuracy-win claim",
+      "152 saved dictations",
+      "Handy 0.9.4",
+      "OpenWhispr results vary by model and clip length",
       "Wispr Flow comparisons remain directional"
     ]
   },

@@ -65,3 +65,4 @@ config/*.local.json
 
 # internal orb rig, never deploy
 site/orb-prototype.html
+.vercel

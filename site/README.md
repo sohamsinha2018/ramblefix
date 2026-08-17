@@ -2,13 +2,16 @@
 
 Static launch site for RambleFix.
 
-Live pre-DNS URL:
+Live fallback URL:
 
 ```text
 https://sohamsinha2018.github.io/ramblefix/
 ```
 
-Move `ramblefix.app` to GitHub Pages only after DNS points away from GoDaddy.
+Primary launch domain: `https://ramblefix.app/`.
+
+The static site deploys to Vercel first. Keep the GitHub Pages URL as a fallback until
+GoDaddy DNS points `ramblefix.app` at the Vercel project and HTTPS is active.
 
 Before publishing, configure the links in `index.html`:
 

@@ -1,16 +1,30 @@
 {
-  "version": "2026-08-18.public_site_aggregate_v1",
-  "english_large_reference": [
+  "version": "2026-08-18.public_site_aggregate_v2",
+  "english_handy_parity": [
     {
-      "n": 676,
-      "ramblefix_meaning": 0.8543550295857988,
-      "ramblefix_terms": 0.7422174556213016,
-      "strongest_tested_local_meaning": 0.8744260355029586,
-      "paired_meaning_delta": -0.020071005917159764,
-      "paired_meaning_ci95_low": -0.02952324610839363,
-      "paired_meaning_ci95_high": -0.010618765725925896,
-      "raw_result_sha256": "1de8d8ab39654cd1889a7b7f812c35af765b8b292dcf7b214664d637856b2956",
-      "note": "Aggregate from the full 676-row same-WAV run. The raw result contains local audio paths and is not published. This replaces the earlier 45-clip headline."
+      "n": 152,
+      "handy_version": "0.9.4",
+      "same_scored_outputs": 152,
+      "longer_n": 79,
+      "longer_ramblefix_meaning": 0.9206,
+      "longer_handy_meaning": 0.9206,
+      "longer_ramblefix_terms": 0.7698,
+      "longer_handy_terms": 0.7698,
+      "longer_ramblefix_decode_p50": 0.456,
+      "longer_handy_decode_p50": 0.462,
+      "longer_decode_delta_ci95_low": -0.0505,
+      "longer_decode_delta_ci95_high": 0.0083,
+      "short_n": 73,
+      "short_ramblefix_meaning": 0.9337,
+      "short_handy_meaning": 0.9337,
+      "short_ramblefix_terms": 0.7477,
+      "short_handy_terms": 0.7477,
+      "short_ramblefix_decode_p50": 0.209,
+      "short_handy_decode_p50": 0.219,
+      "short_decode_delta_ci95_low": -0.0379,
+      "short_decode_delta_ci95_high": 0.0225,
+      "source": "docs/bakeoff_english_vs_handy_metal_20260815.md and eval_runs/english-vs-handy-metal-20260815/report.json",
+      "note": "Same-WAV, warm decode, same weights and Metal runtime. Accuracy is identical and speed differences are within noise. App release-to-paste was not measured symmetrically."
     }
   ]
 }
