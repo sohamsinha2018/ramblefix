@@ -132,6 +132,7 @@ for text in \
   "Built to be easy to review before work use." \
   "No Screen Recording in V0." \
   "No cloud transcription in the shipped product path" \
+  "anonymous page and CTA events only" \
   "Developer ID signed, notarized, stapled"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-security-smoke.html; then
     echo "site visual smoke failed: missing security text: $text" >&2
