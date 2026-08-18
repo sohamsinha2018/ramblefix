@@ -29,7 +29,18 @@ RAMBLEFIX_DISCUSSIONS_URL="https://github.com/<owner>/<repo>/discussions" \
 script/configure_site_links.sh
 ```
 
-The page has no analytics, signup, or third-party runtime dependency.
+The page has no signup or third-party browser runtime dependency. It sends only explicit,
+anonymous product events through the first-party `/api/track` endpoint. There is no
+autocapture, cookie, person profile, or session replay. Configure Vercel with:
+
+```text
+POSTHOG_PROJECT_TOKEN=<project token>
+POSTHOG_HOST=https://us.i.posthog.com
+```
+
+The tracked events are `site viewed`, `site cta clicked`, `github star clicked`,
+`download requested`, `language vote clicked`, and `demo switched`. Download links must use
+`data-analytics-event="download requested"` and a stable `data-analytics-target` value.
 
 Local smoke:
 

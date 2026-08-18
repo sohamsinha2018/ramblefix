@@ -31,6 +31,7 @@ done
 
 curl -fsS "$URL" >/tmp/ramblefix-site-smoke.html
 curl -fsS "$URL/styles.css" >/dev/null
+curl -fsS "$URL/analytics.js" >/tmp/ramblefix-site-analytics-smoke.js
 
 for text in \
   "RambleFix" \
@@ -38,7 +39,7 @@ for text in \
   "Ramble freely." \
   "It gets it right." \
   "Fast, private dictation across your Mac." \
-  "Star for the August 21 launch" \
+  "Star on GitHub" \
   "faster local engine in our tests" \
   "English meaning kept intact" \
   "Use your voice wherever you would normally type." \
@@ -61,8 +62,33 @@ for text in \
 done
 
 if ! grep -Fq "Download for Mac" /tmp/ramblefix-site-smoke.html && \
-   ! grep -Fq "Star for the August 21 launch" /tmp/ramblefix-site-smoke.html; then
+   ! grep -Fq "Star on GitHub" /tmp/ramblefix-site-smoke.html; then
   echo "site visual smoke failed: missing download CTA state" >&2
+  exit 1
+fi
+
+for text in \
+  'data-analytics-event="github star clicked"' \
+  'data-analytics-event="language vote clicked"' \
+  'src="./analytics.js?v='; do
+  if ! grep -Fq "$text" /tmp/ramblefix-site-smoke.html; then
+    echo "site visual smoke failed: missing analytics contract: $text" >&2
+    exit 1
+  fi
+done
+
+for text in \
+  'navigator.doNotTrack === "1"' \
+  '"/api/track"' \
+  'data-analytics-event'; do
+  if ! grep -Fq "$text" /tmp/ramblefix-site-analytics-smoke.js; then
+    echo "site visual smoke failed: analytics client contract missing: $text" >&2
+    exit 1
+  fi
+done
+
+if grep -R -E -q 'phc_[A-Za-z0-9]+' "$ROOT/site" --exclude-dir=.vercel; then
+  echo "site visual smoke failed: PostHog project token leaked into public site files" >&2
   exit 1
 fi
 
