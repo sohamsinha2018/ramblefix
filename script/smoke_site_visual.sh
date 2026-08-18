@@ -46,7 +46,7 @@ for text in \
   "Same-WAV local benchmark" \
   "Statistically tied with Handy on English meaning" \
   "~89% <small>meaning kept</small>" \
-  "Hindi+English beta n=13" \
+  "Hindi+English n=13" \
   "Different models, different trade-offs" \
   "Other local ASR models" \
   "Read the public benchmark method" \
@@ -93,7 +93,7 @@ for text in \
   "226 paired recordings" \
   "2.51× faster" \
   "not release-to-paste app latency" \
-  "Hindi+English remains experimental"; do
+  "The Hindi+English comparison uses 13 clips"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-method-smoke.html; then
     echo "site visual smoke failed: missing method text: $text" >&2
     exit 1
