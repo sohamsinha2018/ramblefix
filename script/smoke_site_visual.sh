@@ -34,23 +34,22 @@ curl -fsS "$URL/styles.css" >/dev/null
 
 for text in \
   "RambleFix" \
-  "Launching August 21 · free · open source · entirely on your Mac" \
-  "Speak freely." \
-  "Even when your language switches." \
-  "Hold a key, speak naturally" \
-  "No cloud. No account. No subscription." \
-  "Get RambleFix on August 21" \
-  "English · local benchmark" \
+  "Launching August 21 · free · local · open source" \
+  "Ramble freely." \
+  "It gets it right." \
+  "Fast, private dictation across your Mac." \
+  "Star for the August 21 launch" \
+  "faster local engine than Handy" \
+  "with Handy on English meaning" \
   "Use your voice wherever you would normally type." \
-  "Private enough to explain in one sentence." \
+  "Local by design." \
   "Same-WAV local benchmark" \
-  "At par <small>with the best local tools</small>" \
+  "Statistically tied with Handy on English meaning" \
   "~89% <small>meaning kept</small>" \
-  "0 meaning changes" \
   "Hindi+English beta n=13" \
-  "public benchmark method" \
+  "Read the public benchmark method" \
   "security-review.html" \
-  "Which language mix should RambleFix learn next?" \
+  "What should we make bilingual next?" \
   "English + Tagalog" \
   "View source"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-smoke.html; then
@@ -60,7 +59,7 @@ for text in \
 done
 
 if ! grep -Fq "Download for Mac" /tmp/ramblefix-site-smoke.html && \
-   ! grep -Fq "Get RambleFix on August 21" /tmp/ramblefix-site-smoke.html; then
+   ! grep -Fq "Star for the August 21 launch" /tmp/ramblefix-site-smoke.html; then
   echo "site visual smoke failed: missing download CTA state" >&2
   exit 1
 fi
@@ -72,7 +71,10 @@ for stale in \
   "English · 676 real dictations" \
   "beats every open-source" \
   "Tagalog’s likely next" \
-  "beats Wispr Flow"; do
+  "beats Wispr Flow" \
+  "Free forever" \
+  "Works in any text box" \
+  "Your voice never leaves your Mac"; do
   if grep -Fq "$stale" /tmp/ramblefix-site-smoke.html; then
     echo "site visual smoke failed: stale or unsupported claim present: $stale" >&2
     exit 1
@@ -85,9 +87,11 @@ for text in \
   "Same audio, local engines, honest caveats." \
   "Gemini-cross-checked gold transcripts" \
   "confirm gold labels, not in the product path" \
-  "152 saved dictations" \
-  "Handy 0.9.4" \
-  "Wispr Flow comparisons remain directional"; do
+  "676 saved WAVs" \
+  "226 paired recordings" \
+  "2.51× faster" \
+  "not release-to-paste app latency" \
+  "Hindi+English remains experimental"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-method-smoke.html; then
     echo "site visual smoke failed: missing method text: $text" >&2
     exit 1

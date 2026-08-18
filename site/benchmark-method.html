@@ -8,7 +8,7 @@
       name="description"
       content="How RambleFix measures local dictation quality and speed on saved same-WAV recordings."
     />
-    <link rel="stylesheet" href="./styles.css?v=20260818b" />
+    <link rel="stylesheet" href="./styles.css?v=20260818c" />
   </head>
   <body>
     <header class="site-nav">
@@ -19,7 +19,7 @@
       <nav aria-label="Main navigation">
         <a href="./#how">How it works</a>
         <a href="./#privacy">Privacy</a>
-        <a href="./#benchmarks">Benchmarks</a>
+        <a href="./#proof">Proof</a>
         <a href="./#feedback">Feedback</a>
       </nav>
       <a class="nav-download" href="https://github.com/sohamsinha2018/ramblefix">View source</a>
@@ -41,12 +41,12 @@
 
         <div class="method-grid">
           <article>
-            <h3>English</h3>
-            <p>Latest clean comparison: 152 saved dictations across two real-speech corpora. RambleFix and Handy 0.9.4 produced identical scored meaning and terms on 152/152 clips.</p>
+            <h3>English meaning</h3>
+            <p>Latest paired comparison: 676 saved WAVs and gold transcripts. RambleFix's shipped Apple Neural Engine path and Handy are statistically tied on meaning.</p>
           </article>
           <article>
-            <h3>Speed</h3>
-            <p>Warm decode p50 was 0.456s vs 0.462s on the longer corpus and 0.209s vs 0.219s on short dictations. The differences are within noise. Release-to-paste is measured separately.</p>
+            <h3>Engine speed</h3>
+            <p>Across 226 paired recordings, warm median decode was 145ms for RambleFix vs 369ms for Handy: 2.51× faster. Model loading was excluded for both.</p>
           </article>
           <article>
             <h3>Hindi+English beta</h3>
@@ -54,7 +54,7 @@
           </article>
           <article>
             <h3>Claim boundary</h3>
-            <p>OpenWhispr results vary by model and clip length, so there is no universal English-win claim. Wispr Flow comparisons remain directional until a clean same-WAV loopback benchmark exists. Hindi+English remains experimental.</p>
+            <p>The 2.5× figure is engine decode against Handy, not release-to-paste app latency. OpenWhispr results vary by model. Paid cloud comparisons remain directional. Hindi+English remains experimental.</p>
           </article>
         </div>
 

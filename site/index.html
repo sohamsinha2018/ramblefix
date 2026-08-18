@@ -3,21 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RambleFix — free, local dictation for Mac</title>
+    <title>RambleFix — fast, private dictation for Mac</title>
     <meta
       name="description"
-      content="Speak naturally in English or Hindi+English. RambleFix turns it into clean text in any Mac app, locally and for free."
+      content="Ramble naturally and get clean text across your Mac. RambleFix is fast, private, free, and built for English plus Hindi+English."
     />
-    <meta property="og:title" content="RambleFix — speak freely, locally" />
+    <meta property="og:title" content="RambleFix — ramble freely. It gets it right." />
     <meta
       property="og:description"
-      content="Free local Mac dictation for English and Hindi+English. No cloud, no account, no subscription."
+      content="Fast, private Mac dictation that gets your rambles right. Free, local, and built for English plus Hindi+English."
     />
     <meta property="og:image" content="https://ramblefix.app/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://ramblefix.app/" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101214'/%3E%3Cpath d='M12 34c5-18 10 18 15 0s10 18 15 0 10 18 15 0' fill='none' stroke='%2325dff4' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M12 28c5-13 10 13 15 0s10 13 15 0 10 13 15 0' fill='none' stroke='%23b6ff58' stroke-width='4' stroke-linecap='round' opacity='.88'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="./styles.css?v=20260818b" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101214'/%3E%3Cpath d='M12 34c5-18 10 18 15 0s10 18 15 0 10 18 15 0' fill='none' stroke='%2327e2ff' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M12 28c5-13 10 13 15 0s10 13 15 0 10 13 15 0' fill='none' stroke='%23b5ff58' stroke-width='4' stroke-linecap='round' opacity='.88'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css?v=20260818c" />
   </head>
   <body>
     <header class="site-nav">
@@ -38,23 +38,28 @@
       <section class="hero" aria-labelledby="hero-title">
         <canvas id="hero-waves" aria-hidden="true"></canvas>
         <div class="hero-content">
-          <p class="eyebrow">Launching August 21 · free · open source · entirely on your Mac</p>
-          <h1 id="hero-title">Speak freely.<br />Even when your language switches.</h1>
+          <p class="eyebrow">Fast · private · free · built to run locally</p>
+          <h1 id="hero-title">Ramble freely.<br />It gets it right.</h1>
           <p class="lede">
-            Fast local dictation for English, with a Hindi+English beta, in any Mac app. Hold a key, speak naturally,
-            release, and clean text lands where your cursor is. No cloud. No account. No subscription.
+            Fast, private dictation across your Mac. RambleFix matches Handy on English meaning, with over 2× faster
+            local engine response in our test. Its Hindi+English beta keeps more of what you meant when languages mix.
           </p>
           <div class="actions">
-            <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix">Get RambleFix on August 21</a>
-            <a class="button secondary" href="#proof">See the evidence</a>
+            <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix">Star for the August 21 launch</a>
+            <a class="button secondary" href="#proof">See how it compares</a>
           </div>
-          <p class="release-note">The signed Mac build and checksum launch together on August 21, 2026. No unsigned downloads.</p>
+          <div class="hero-proof" aria-label="Headline benchmark results">
+            <div><strong>2.5×</strong><span>faster local engine than Handy</span></div>
+            <div><strong>Tied</strong><span>with Handy on English meaning</span></div>
+            <div><strong>$0</strong><span>with no cloud, account, or subscription</span></div>
+          </div>
+          <p class="release-note">Free and open source. The signed Mac build and checksum launch on August 21, 2026.</p>
         </div>
 
         <div class="product-moment" id="product-moment" aria-label="Animated RambleFix dictation example">
           <div class="spoken-side">
             <span class="moment-label">You say</span>
-            <p id="demo-spoken">okay yaar, launch plan ko short rakho and include the security review</p>
+            <p id="demo-spoken">okay so first check the launch list, then the security review, and keep it short</p>
           </div>
 
           <div class="hud-wrap">
@@ -77,13 +82,13 @@
           </div>
 
           <div class="pasted-side">
-            <span class="moment-label">RambleFix pastes</span>
-            <p id="demo-pasted">Keep the launch plan short and include the security review.</p>
+            <span class="moment-label">RambleFix pastes · meaning kept</span>
+            <p id="demo-pasted">First, check the launch list, then the security review. Keep it short.</p>
           </div>
 
           <div class="scene-tabs" role="group" aria-label="Choose a dictation example">
-            <button type="button" data-scene="0">Fast English</button>
-            <button type="button" class="active" data-scene="1">Hindi + English</button>
+            <button type="button" class="active" data-scene="0">Fast English</button>
+            <button type="button" data-scene="1">Hindi + English</button>
             <button type="button" data-scene="2">Work terms</button>
           </div>
         </div>
@@ -91,15 +96,15 @@
         <div class="trust-line" aria-label="Core product promises">
           <span>Audio stays local</span>
           <span>No screen recording</span>
-          <span>Works in any text box</span>
+          <span>Pastes or keeps a copy</span>
           <span>MIT licensed</span>
         </div>
       </section>
 
       <section class="value-band" aria-label="RambleFix in three words">
-        <div><strong>Local.</strong><span>Your voice never leaves your Mac.</span></div>
-        <div><strong>Fast.</strong><span>Text lands a beat after release.</span></div>
-        <div><strong>Bilingual.</strong><span>English stays strong when Hindi slips in.</span></div>
+        <div><strong>Free.</strong><span>No payment, account, or subscription.</span></div>
+        <div><strong>Private.</strong><span>Local transcription with no cloud ASR or account.</span></div>
+        <div><strong>Bilingual.</strong><span>English first, with Hindi+English in beta.</span></div>
       </section>
 
       <section class="section how" id="how">
@@ -141,8 +146,8 @@
       <section class="privacy" id="privacy">
         <div class="privacy-copy">
           <p class="eyebrow">Designed for work machines</p>
-          <h2>Private enough to explain in one sentence.</h2>
-          <p>Speech recognition and light structure run locally. RambleFix does not upload audio, read your screen, or require an account.</p>
+          <h2>Local by design.</h2>
+          <p>The shipped transcription and light-structure path runs locally and works with Wi-Fi off. RambleFix does not use cloud transcription, read your screen, or require an account.</p>
           <a href="./security-review.html">Read the security notes →</a>
         </div>
         <div class="privacy-points">
@@ -155,12 +160,17 @@
 
       <section class="section evidence" id="proof">
         <div class="section-intro proof-intro">
-          <p class="eyebrow">Tested on real saved recordings</p>
-          <h2>English that matches the best local tools. A real edge when Hindi slips in.</h2>
-          <p>Simple numbers, same audio, and an honest beta label. The detailed method is public.</p>
+          <p class="eyebrow">Tested against leading open-source tools</p>
+          <h2>Strong English. Faster local transcription. Bilingual when you need it.</h2>
+          <p>Benchmarked on the same saved audio against Handy and Whisper-based local engines. The detailed method and limits are public.</p>
         </div>
 
         <div class="proof-grid">
+          <article class="proof-card english">
+            <span>English · local engine benchmark</span>
+            <strong>2.5× <small>faster decode</small></strong>
+            <p>Statistically tied with Handy on English meaning across 676 clips, with 2.5× faster median engine decode across 226 paired recordings.</p>
+          </article>
           <article class="proof-card hinglish">
             <span>Hindi+English beta</span>
             <strong>~89% <small>meaning kept</small></strong>
@@ -170,39 +180,29 @@
               <div class="rival"><i class="score-70"></i><b>Others 66–70%</b></div>
             </div>
           </article>
-          <article class="proof-card english">
-            <span>English · local benchmark</span>
-            <strong>At par <small>with the best local tools</small></strong>
-            <p>Matches the strongest tested open-source local tools on English accuracy and speed.</p>
-          </article>
-          <article class="proof-card structure">
-            <span>Light cleanup · safety gate</span>
-            <strong>152 <small>edits accepted</small></strong>
-            <p>Zero accepted meaning changes. Fillers, punctuation, and casing improve without rewriting the thought.</p>
+          <article class="proof-card local-proof">
+            <span>Privacy · verified offline</span>
+            <strong>$0 <small>and no cloud</small></strong>
+            <p>RambleFix transcribed and pasted with Wi-Fi off and no external network connection. No account or subscription required.</p>
           </article>
         </div>
 
         <p class="claim-line">
-          Paid-tool workflow, open-source stack. English matches the strongest local tools we tested;
-          Hindi+English keeps substantially more meaning than general local engines. See the evidence
-          for the tools, samples, and test boundaries.
+          The simple version: RambleFix matches Handy on English meaning, responds faster in our local-engine test,
+          and its Hindi+English beta keeps substantially more meaning than the general local engines we tested.
         </p>
 
         <details class="method-disclosure">
           <summary>See sample sizes, exact scores, and claim limits</summary>
           <div>
             <p><strong>Same-WAV local benchmark.</strong> Every tested local engine hears the same audio. References use Gemini-cross-checked gold.</p>
-            <p><strong>English parity (n=152, updated 2026-08-15).</strong> Two real-speech corpora:
-              79 longer dictations and 73 short dictations. RambleFix and Handy 0.9.4 had identical
-              meaning and term scores on 152/152 clips.</p>
-            <p><strong>Speed boundary.</strong> Warm decode p50 was 0.456s vs 0.462s on the longer set,
-              and 0.209s vs 0.219s on the short set. Confidence intervals span zero, so this is parity,
-              not a speed win. App release-to-paste was not measured symmetrically.</p>
-            <p><strong>Claim boundary.</strong> The evidence supports parity with the strongest tested local
-              English path. Paid cloud tools have not yet been run on a clean same-audio test.</p>
+            <p><strong>English meaning (n=676, updated 2026-08-18).</strong> RambleFix's shipped Apple Neural Engine path and Handy are statistically tied on the same saved WAVs and gold transcripts.</p>
+            <p><strong>Engine speed (n=226).</strong> Warm median decode was 145ms for RambleFix vs 369ms for Handy: 2.51× faster. Both models were warm and model loading was excluded.</p>
+            <p><strong>What “faster” means.</strong> This is transcription-engine decode, not a symmetric release-to-paste app test. Handy is the paired source of the 2.5× figure. OpenWhispr's bundled Whisper engines were tested separately and remain model-dependent.</p>
+            <p><strong>Claim boundary.</strong> The evidence supports English meaning parity plus faster local engine decode. It does not support “faster than every app end-to-end” or a superiority claim over paid cloud tools.</p>
             <p><strong>Hindi+English beta n=13.</strong> RambleFix 88.5% vs 66.1-70.2% meaning kept for tested local general engines; terms 70.1%.</p>
-            <p>Structure gate: 0 unsafe accepted updates. Cleanup accepted 152 edits with 0 meaning changes.</p>
-            <p>Hindi+English keeps more meaning than the tested local alternatives. Hindi+English ships as experimental.</p>
+            <p>Light cleanup targets fillers, punctuation, and casing without intentionally rewriting the thought.</p>
+            <p>Hindi+English keeps more meaning than the tested local alternatives and ships as an experimental beta.</p>
             <p>Wispr Flow comparisons remain directional: we have not run cloud tools on the same audio, so this is not a head-to-head superiority claim.</p>
             <a href="./benchmark-method.html">Read the public benchmark method →</a>
           </div>
@@ -211,12 +211,12 @@
 
       <section class="final-cta" id="feedback">
         <div>
-          <p class="eyebrow">English first. Bilingual next.</p>
-          <h2>Which language mix should RambleFix learn next?</h2>
-          <p>Hindi + English ships first on August 21. Pick the bilingual combo you want us to tackle after that.</p>
+          <p class="eyebrow">English first · Hindi+English beta at launch · more next</p>
+          <h2>What should we make bilingual next?</h2>
+          <p>Hindi + English ships first on August 21. Vote for the language mix RambleFix should learn after that.</p>
         </div>
         <div class="final-actions">
-          <a class="button primary dark" href="https://github.com/sohamsinha2018/ramblefix">Star on GitHub</a>
+          <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix">Star on GitHub</a>
           <a class="button secondary" href="https://github.com/sohamsinha2018/ramblefix/discussions">Share feedback</a>
         </div>
         <div class="language-poll" aria-label="Next bilingual mode poll">
@@ -265,7 +265,7 @@
             dual: false
           }
         ];
-        var current = 1;
+        var current = 0;
         var phase = "listening";
         var phaseTimer = null;
         var cycleTimer = null;
@@ -371,18 +371,21 @@
           pasted.textContent = scene.pasted;
           moment.classList.toggle("dual", scene.dual);
           setActiveTab();
-          setPhase("listening");
+          setPhase("landed");
           if (reducedMotion) return;
           clearTimeout(phaseTimer);
           clearTimeout(cycleTimer);
-          phaseTimer = setTimeout(function () { setPhase("processing"); }, 2400);
-          cycleTimer = setTimeout(function () {
-            setPhase("landed");
-            phaseTimer = setTimeout(function () {
-              current = (current + 1) % scenes.length;
-              renderScene();
-            }, 2100);
-          }, 3300);
+          phaseTimer = setTimeout(function () {
+            setPhase("listening");
+            phaseTimer = setTimeout(function () { setPhase("processing"); }, 2400);
+            cycleTimer = setTimeout(function () {
+              setPhase("landed");
+              phaseTimer = setTimeout(function () {
+                current = (current + 1) % scenes.length;
+                renderScene();
+              }, 2100);
+            }, 3300);
+          }, 1700);
         }
 
         function setPhase(next) {
@@ -451,9 +454,9 @@
           ctx.clearRect(0, 0, width, height);
           var t = now / 1000;
           var base = height * 0.67;
-          waveLine(t, "#23cfe5", base - 20, 62, 0.013, 1.2, 0, 0.34);
-          waveLine(t, "#9de34c", base + 6, 44, 0.017, -1.05, 1.4, 0.31);
-          waveLine(t, "#ff8a45", base + 30, 31, 0.020, 0.9, 2.1, 0.22);
+          waveLine(t, "#27e2ff", base - 20, 62, 0.013, 1.2, 0, 0.34);
+          waveLine(t, "#b5ff58", base + 6, 44, 0.017, -1.05, 1.4, 0.31);
+          waveLine(t, "#ff991f", base + 30, 31, 0.020, 0.9, 2.1, 0.22);
           ctx.globalAlpha = 1;
           if (!reducedMotion) requestAnimationFrame(draw);
         }
