@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://ramblefix.app/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101214'/%3E%3Cpath d='M12 34c5-18 10 18 15 0s10 18 15 0 10 18 15 0' fill='none' stroke='%2327e2ff' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M12 28c5-13 10 13 15 0s10 13 15 0 10 13 15 0' fill='none' stroke='%23b5ff58' stroke-width='4' stroke-linecap='round' opacity='.88'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="./styles.css?v=20260818c" />
+    <link rel="stylesheet" href="./styles.css?v=20260818d" />
   </head>
   <body>
     <header class="site-nav">
@@ -41,16 +41,16 @@
           <p class="eyebrow">Fast · private · free · built to run locally</p>
           <h1 id="hero-title">Ramble freely.<br />It gets it right.</h1>
           <p class="lede">
-            Fast, private dictation across your Mac. RambleFix matches Handy on English meaning, with over 2× faster
-            local engine response in our test. Its Hindi+English beta keeps more of what you meant when languages mix.
+            Fast, private dictation across your Mac. In our tests, RambleFix is up to 2.5× faster than leading local
+            tools while matching top English meaning. Its Hindi+English beta keeps more of what you meant when languages mix.
           </p>
           <div class="actions">
             <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix">Star for the August 21 launch</a>
             <a class="button secondary" href="#proof">See how it compares</a>
           </div>
           <div class="hero-proof" aria-label="Headline benchmark results">
-            <div><strong>2.5×</strong><span>faster local engine than Handy</span></div>
-            <div><strong>Tied</strong><span>with Handy on English meaning</span></div>
+            <div><strong>Up to 2.5×</strong><span>faster local engine in our tests</span></div>
+            <div><strong>Top-tier</strong><span>English meaning kept intact</span></div>
             <div><strong>$0</strong><span>with no cloud, account, or subscription</span></div>
           </div>
           <p class="release-note">Free and open source. The signed Mac build and checksum launch on August 21, 2026.</p>
@@ -105,6 +105,31 @@
         <div><strong>Free.</strong><span>No payment, account, or subscription.</span></div>
         <div><strong>Private.</strong><span>Local transcription with no cloud ASR or account.</span></div>
         <div><strong>Bilingual.</strong><span>English first, with Hindi+English in beta.</span></div>
+      </section>
+
+      <section class="quick-compare" aria-labelledby="quick-compare-title">
+        <div>
+          <p class="eyebrow">Compared with leading local tools</p>
+          <h2 id="quick-compare-title">Fast without trading away meaning.</h2>
+        </div>
+        <div class="competitor-readout" aria-label="Named local tool comparison">
+          <article>
+            <span>Handy</span>
+            <strong>Same English meaning</strong>
+            <p>Statistically tied across 676 clips. RambleFix's warm engine decode was 2.5× faster across 226 paired recordings.</p>
+          </article>
+          <article>
+            <span>OpenWhispr</span>
+            <strong>Different models, different trade-offs</strong>
+            <p>On an older 45-clip same-audio test, its base model was faster but less accurate; its stronger small model was slower.</p>
+          </article>
+          <article>
+            <span>Other local ASR models</span>
+            <strong>Hindi+English is the gap</strong>
+            <p>RambleFix's bilingual beta kept 88.5% of meaning versus 66–70% for tested general local engines on the same 13 clips.</p>
+          </article>
+        </div>
+        <a class="text-link" href="#proof">See the full benchmark and limits →</a>
       </section>
 
       <section class="section how" id="how">
@@ -188,7 +213,7 @@
         </div>
 
         <p class="claim-line">
-          The simple version: RambleFix matches Handy on English meaning, responds faster in our local-engine test,
+          The simple version: RambleFix delivers top-tier local English meaning with a faster engine,
           and its Hindi+English beta keeps substantially more meaning than the general local engines we tested.
         </p>
 

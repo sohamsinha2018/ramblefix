@@ -39,14 +39,16 @@ for text in \
   "It gets it right." \
   "Fast, private dictation across your Mac." \
   "Star for the August 21 launch" \
-  "faster local engine than Handy" \
-  "with Handy on English meaning" \
+  "faster local engine in our tests" \
+  "English meaning kept intact" \
   "Use your voice wherever you would normally type." \
   "Local by design." \
   "Same-WAV local benchmark" \
   "Statistically tied with Handy on English meaning" \
   "~89% <small>meaning kept</small>" \
   "Hindi+English beta n=13" \
+  "Different models, different trade-offs" \
+  "Other local ASR models" \
   "Read the public benchmark method" \
   "security-review.html" \
   "What should we make bilingual next?" \
