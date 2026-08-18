@@ -40,6 +40,7 @@ for text in \
   "It gets it right." \
   "Fast, private dictation across your Mac." \
   "Star on GitHub" \
+  "signed Apple silicon Mac builds" \
   "faster local engine in our tests" \
   "English meaning kept intact" \
   "Use your voice wherever you would normally type." \
