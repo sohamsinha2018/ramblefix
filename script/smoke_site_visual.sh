@@ -35,21 +35,24 @@ curl -fsS "$URL/analytics.js" >/tmp/ramblefix-site-analytics-smoke.js
 
 for text in \
   "RambleFix" \
-  "Launching August 21 · free · local · open source" \
-  "Ramble freely." \
-  "It gets it right." \
-  "Fast, private dictation across your Mac." \
+  "Free · local · open source" \
+  "Ramble. Release." \
+  "It lands." \
+  "Hold the key, speak, and release." \
+  "Built for English, with Hindi + English" \
   "Star on GitHub" \
-  "signed Apple silicon Mac builds" \
+  "Signed Apple silicon builds are ready for English and Hindi + English" \
+  "2.6×" \
   "faster local engine in our tests" \
   "English meaning kept intact" \
   "Use your voice wherever you would normally type." \
   "Local by design." \
   "Same-WAV local benchmark" \
   "Statistically tied with Handy on English meaning" \
+  "7.2× faster in a same-audio engine test" \
   "~89% <small>meaning kept</small>" \
   "Hindi+English n=13" \
-  "Different models, different trade-offs" \
+  "Whisper-based local tools" \
   "Other local ASR models" \
   "Read the public benchmark method" \
   "security-review.html" \
@@ -58,6 +61,14 @@ for text in \
   "View source"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-smoke.html; then
     echo "site visual smoke failed: missing text: $text" >&2
+    exit 1
+  fi
+done
+
+hero_html="$(sed -n '/<section class="hero"/,/<section class="value-band"/p' /tmp/ramblefix-site-smoke.html)"
+for competitor in "Handy" "OpenWhispr" "whisper.cpp"; do
+  if grep -Fq "$competitor" <<<"$hero_html"; then
+    echo "site visual smoke failed: competitor named in hero: $competitor" >&2
     exit 1
   fi
 done
@@ -110,6 +121,18 @@ for stale in \
   fi
 done
 
+
+for misleading in \
+  "before you stop talking" \
+  "Speech → text in ~150ms" \
+  "under 1 second" \
+  "fastest local dictation"; do
+  if grep -Fiq "$misleading" /tmp/ramblefix-site-smoke.html; then
+    echo "site visual smoke failed: misleading speed claim present: $misleading" >&2
+    exit 1
+  fi
+done
+
 curl -fsS "$URL/benchmark-method.html" >/tmp/ramblefix-site-method-smoke.html
 for text in \
   "Benchmark method" \
@@ -118,7 +141,9 @@ for text in \
   "confirm gold labels, not in the product path" \
   "676 saved WAVs" \
   "226 paired recordings" \
-  "2.51× faster" \
+  "2.68× measured and reported conservatively as 2.6×" \
+  "40 saved English clips" \
+  "7.2× faster" \
   "not release-to-paste app latency" \
   "The Hindi+English comparison uses 13 clips"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-method-smoke.html; then

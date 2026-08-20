@@ -1,12 +1,12 @@
 {
-  "version": "2026-08-18.public_site_claims_v2",
+  "version": "2026-08-21.public_site_claims_v3",
   "claim_boundary": {
     "allowed": [
-      "English parity with the strongest tested open-source local tools",
+      "English meaning parity with the strongest tested open-source local tool",
+      "2.6x faster warm engine decode than Handy on 226 paired recordings",
+      "7.2x faster warm engine decode than whisper.cpp small.en on 40 saved clips",
       "Hindi+English engine comparison on the same 13 clips",
-      "structure safety result on the recorded 330-row gate",
-      "Hindi+English is experimental",
-      "launching August 21, 2026"
+      "English and Hindi+English builds are ready"
     ],
     "forbidden": [
       "beats Wispr Flow",
@@ -16,28 +16,59 @@
       "beats every open-source",
       "beats all open-source",
       "matches paid cloud tools",
-      "English · 676 real dictations",
-      "~90% meaning kept"
+      "before you stop talking",
+      "speech to text in 150ms",
+      "under 1 second",
+      "fastest local dictation"
     ]
   },
   "claim_cards": [
     {
       "id": "english_handy_parity",
-      "source_file": "docs/public_benchmark_evidence_20260818.json",
+      "source_file": "docs/public_benchmark_evidence_20260821.json",
       "source_section": "english_handy_parity",
       "selector": {},
       "metrics": {
-        "n": {"source_key": "n", "expected": 152},
-        "same_scored_outputs": {"source_key": "same_scored_outputs", "expected": 152},
-        "longer_ramblefix_meaning": {"source_key": "longer_ramblefix_meaning", "expected": 0.9206},
-        "longer_handy_meaning": {"source_key": "longer_handy_meaning", "expected": 0.9206},
-        "short_ramblefix_meaning": {"source_key": "short_ramblefix_meaning", "expected": 0.9337},
-        "short_handy_meaning": {"source_key": "short_handy_meaning", "expected": 0.9337}
+        "n": {"source_key": "n", "expected": 676},
+        "ramblefix_meaning": {"source_key": "ramblefix_meaning", "expected": 0.8689},
+        "handy_meaning": {"source_key": "handy_meaning", "expected": 0.8744},
+        "delta": {"source_key": "delta", "expected": -0.0055}
       },
       "site_must_contain": [
-        "English · local benchmark",
-        "At par <small>with the best local tools</small>",
-        "Matches the strongest tested open-source local tools on English accuracy and speed"
+        "Statistically tied with Handy on English meaning across 676 clips",
+        "English meaning (n=676"
+      ]
+    },
+    {
+      "id": "english_handy_speed",
+      "source_file": "docs/public_benchmark_evidence_20260821.json",
+      "source_section": "english_handy_speed",
+      "selector": {},
+      "metrics": {
+        "n": {"source_key": "n", "expected": 226},
+        "ramblefix_p50_ms": {"source_key": "ramblefix_p50_ms", "expected": 153.02},
+        "handy_p50_ms": {"source_key": "handy_p50_ms", "expected": 410.5},
+        "public_multiple": {"source_key": "public_multiple", "expected": 2.6}
+      },
+      "site_must_contain": [
+        "2.6× faster median engine decode across 226 paired recordings",
+        "Warm median decode was 153ms for RambleFix vs 411ms for Handy"
+      ]
+    },
+    {
+      "id": "english_whisper_small",
+      "source_file": "docs/public_benchmark_evidence_20260821.json",
+      "source_section": "english_whisper_small",
+      "selector": {},
+      "metrics": {
+        "n": {"source_key": "n", "expected": 40},
+        "ramblefix_p50_ms": {"source_key": "ramblefix_p50_ms", "expected": 153},
+        "whisper_p50_ms": {"source_key": "whisper_p50_ms", "expected": 1105},
+        "ratio": {"source_key": "ratio", "expected": 7.2}
+      },
+      "site_must_contain": [
+        "7.2× faster in a same-audio engine test",
+        "whisper.cpp is an engine proxy for Whisper-based apps"
       ]
     },
     {
@@ -53,42 +84,29 @@
       "site_must_contain": [
         "~89% <small>meaning kept</small>",
         "Versus 66–70% for tested local general engines",
-        "Hindi+English beta n=13.</strong> RambleFix 88.5% vs 66.1-70.2%"
-      ]
-    },
-    {
-      "id": "structure_safety",
-      "source_file": "docs/public_benchmark_evidence_20260713.json",
-      "source_section": "structure_gate",
-      "selector": {},
-      "metrics": {
-        "accepted": {"source_key": "accepted", "expected": 152},
-        "unsafe_accepted": {"source_key": "unsafe_accepted", "expected": 0}
-      },
-      "site_must_contain": [
-        "152 <small>edits accepted</small>",
-        "Cleanup accepted 152 edits with 0 meaning changes"
+        "Hindi+English n=13."
       ]
     }
   ],
   "evidence_files": [
-    "docs/public_benchmark_evidence_20260818.json",
+    "docs/public_benchmark_evidence_20260821.json",
     "docs/public_benchmark_evidence_20260713.json"
   ],
   "surface_must_contain": {
     "site/index.html": [
-      "Launching August 21",
-      "Speak freely.",
-      "Even when your language switches.",
+      "Ramble. Release.",
+      "It lands.",
+      "Your text lands almost instantly",
+      "Signed Apple silicon builds are ready for English and Hindi + English",
       "Same-WAV local benchmark",
-      "English parity (n=152",
       "Wispr Flow comparisons remain directional"
     ],
     "site/benchmark-method.html": [
-      "152 saved dictations",
-      "Handy 0.9.4",
-      "OpenWhispr results vary by model and clip length",
-      "Wispr Flow comparisons remain directional"
+      "676 saved WAVs",
+      "226 paired recordings",
+      "40 saved English clips",
+      "whisper.cpp is an engine proxy for Whisper-based apps",
+      "Paid cloud comparisons remain directional"
     ]
   },
   "forbidden_surfaces": [

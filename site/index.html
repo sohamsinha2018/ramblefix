@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RambleFix — fast, private dictation for Mac</title>
+    <title>RambleFix — fast, free, private dictation for Mac</title>
     <meta
       name="description"
-      content="Ramble naturally and get clean text across your Mac. RambleFix is fast, private, free, and built for English plus Hindi+English."
+      content="Hold, speak, release, and your text lands almost instantly. RambleFix is free, private, local Mac dictation for English and Hindi + English."
     />
-    <meta property="og:title" content="RambleFix — ramble freely. It gets it right." />
+    <meta property="og:title" content="RambleFix — ramble, release, and it lands." />
     <meta
       property="og:description"
-      content="Fast, private Mac dictation that gets your rambles right. Free, local, and built for English plus Hindi+English."
+      content="Fast, free Mac dictation that runs locally. Built for English, with Hindi + English when your thoughts switch languages."
     />
     <meta property="og:image" content="https://ramblefix.app/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -39,21 +39,21 @@
         <canvas id="hero-waves" aria-hidden="true"></canvas>
         <div class="hero-content">
           <p class="eyebrow">Fast · private · free · built to run locally</p>
-          <h1 id="hero-title">Ramble freely.<br />It gets it right.</h1>
+          <h1 id="hero-title">Ramble. Release.<br />It lands.</h1>
           <p class="lede">
-            Fast, private dictation across your Mac. In our tests, RambleFix is up to 2.5× faster than leading local
-            tools while matching top English meaning. Its Hindi+English mode keeps more of what you meant when languages mix.
+            Hold the key, speak, and release. Your text lands almost instantly, with English meaning kept intact.
+            Everything runs locally on your Mac. Built for English, with Hindi + English when your thoughts switch languages.
           </p>
           <div class="actions">
             <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="github star clicked" data-analytics-target="hero">Star on GitHub</a>
             <a class="button secondary" href="#proof" data-analytics-event="site cta clicked" data-analytics-target="hero_proof">See how it compares</a>
           </div>
           <div class="hero-proof" aria-label="Headline benchmark results">
-            <div><strong>Up to 2.5×</strong><span>faster local engine in our tests</span></div>
+            <div><strong>2.6×</strong><span>faster local engine in our tests</span></div>
             <div><strong>Top-tier</strong><span>English meaning kept intact</span></div>
             <div><strong>$0</strong><span>with no cloud, account, or subscription</span></div>
           </div>
-          <p class="release-note">Free and open source. The signed Apple silicon Mac builds and checksums launch on August 21, 2026.</p>
+          <p class="release-note">Free and open source. Signed Apple silicon builds are ready for English and Hindi + English.</p>
         </div>
 
         <div class="product-moment" id="product-moment" aria-label="Animated RambleFix dictation example">
@@ -116,12 +116,12 @@
           <article>
             <span>Handy</span>
             <strong>Same English meaning</strong>
-            <p>Statistically tied across 676 clips. RambleFix's warm engine decode was 2.5× faster across 226 paired recordings.</p>
+            <p>Statistically tied across 676 clips. RambleFix's warm engine decode was 2.6× faster across 226 paired recordings.</p>
           </article>
           <article>
-            <span>OpenWhispr</span>
-            <strong>Different models, different trade-offs</strong>
-            <p>On an older 45-clip same-audio test, its base model was faster but less accurate; its stronger small model was slower.</p>
+            <span>Whisper-based local tools</span>
+            <strong>7.2× faster in a same-audio engine test</strong>
+            <p>Across 40 saved English clips, RambleFix decoded in 153ms vs 1,105ms for whisper.cpp small.en, while keeping slightly more meaning.</p>
           </article>
           <article>
             <span>Other local ASR models</span>
@@ -193,8 +193,8 @@
         <div class="proof-grid">
           <article class="proof-card english">
             <span>English · local engine benchmark</span>
-            <strong>2.5× <small>faster decode</small></strong>
-            <p>Statistically tied with Handy on English meaning across 676 clips, with 2.5× faster median engine decode across 226 paired recordings.</p>
+            <strong>2.6× <small>faster decode</small></strong>
+            <p>Statistically tied with Handy on English meaning across 676 clips, with 2.6× faster median engine decode across 226 paired recordings.</p>
           </article>
           <article class="proof-card hinglish">
             <span>Hindi+English</span>
@@ -222,8 +222,9 @@
           <div>
             <p><strong>Same-WAV local benchmark.</strong> Every tested local engine hears the same audio. References use Gemini-cross-checked gold.</p>
             <p><strong>English meaning (n=676, updated 2026-08-18).</strong> RambleFix's shipped Apple Neural Engine path and Handy are statistically tied on the same saved WAVs and gold transcripts.</p>
-            <p><strong>Engine speed (n=226).</strong> Warm median decode was 145ms for RambleFix vs 369ms for Handy: 2.51× faster. Both models were warm and model loading was excluded.</p>
-            <p><strong>What “faster” means.</strong> This is transcription-engine decode, not a symmetric release-to-paste app test. Handy is the paired source of the 2.5× figure. OpenWhispr's bundled Whisper engines were tested separately and remain model-dependent.</p>
+            <p><strong>Engine speed (n=226).</strong> Warm median decode was 153ms for RambleFix vs 411ms for Handy: 2.68× measured, reported conservatively as 2.6×. Both models were warm and model loading was excluded.</p>
+            <p><strong>Whisper comparison (n=40).</strong> Warm median decode was 153ms for RambleFix vs 1,105ms for whisper.cpp small.en: 7.2× faster. RambleFix meaning was 0.927 vs 0.908. whisper.cpp is an engine proxy for Whisper-based apps, not an app-level OpenWhispr result.</p>
+            <p><strong>What “faster” means.</strong> These are transcription-engine decode tests, not symmetric release-to-paste app tests. Handy is the paired source of the 2.6× figure. End-to-end time also includes capture, routing, pasting, and optional structure.</p>
             <p><strong>Claim boundary.</strong> The evidence supports English meaning parity plus faster local engine decode. It does not support “faster than every app end-to-end” or a superiority claim over paid cloud tools.</p>
             <p><strong>Hindi+English n=13.</strong> RambleFix 88.5% vs 66.1-70.2% meaning kept for tested local general engines; terms 70.1%.</p>
             <p>Light cleanup targets fillers, punctuation, and casing without intentionally rewriting the thought.</p>
@@ -238,7 +239,7 @@
         <div>
           <p class="eyebrow">English · Hindi+English · more languages next</p>
           <h2>What should we make bilingual next?</h2>
-          <p>Hindi + English ships first on August 21. Vote for the language mix RambleFix should learn after that.</p>
+          <p>English and Hindi + English are ready. Vote for the language mix RambleFix should learn next.</p>
         </div>
         <div class="final-actions">
           <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="github star clicked" data-analytics-target="footer_cta">Star on GitHub</a>
@@ -256,7 +257,7 @@
 
     <footer>
       <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>RambleFix</span></a>
-      <span>Launching August 21 · free · local · open source</span>
+      <span>Free · local · open source</span>
       <a href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="site cta clicked" data-analytics-target="footer_source">GitHub ↗</a>
     </footer>
 

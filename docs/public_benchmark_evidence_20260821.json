@@ -1,0 +1,38 @@
+{
+  "version": "2026-08-21.public_site_speed_v1",
+  "english_handy_parity": [
+    {
+      "n": 676,
+      "ramblefix_meaning": 0.8689,
+      "handy_meaning": 0.8744,
+      "delta": -0.0055,
+      "ci95_low": -0.0139,
+      "ci95_high": 0.0029,
+      "source": "eval_runs/english-at-scale/results.json and eval_runs/english-at-scale/ane_paired.jsonl",
+      "note": "Same saved WAVs and gold transcripts. The confidence interval includes zero, so the public claim is parity, not superiority."
+    }
+  ],
+  "english_handy_speed": [
+    {
+      "n": 226,
+      "ramblefix_p50_ms": 153.02,
+      "handy_p50_ms": 410.5,
+      "ratio": 2.6827,
+      "public_multiple": 2.6,
+      "source": "eval_runs/english-at-scale/ane_speed.jsonl",
+      "note": "Same saved audio, warm engine decode, model loading excluded. This is not an app-level release-to-paste comparison."
+    }
+  ],
+  "english_whisper_small": [
+    {
+      "n": 40,
+      "ramblefix_meaning": 0.927,
+      "whisper_meaning": 0.9084,
+      "ramblefix_p50_ms": 153,
+      "whisper_p50_ms": 1105,
+      "ratio": 7.2,
+      "source": "docs/overnight_plan_20260818.md, competitor sweep",
+      "note": "Same saved English clips. whisper.cpp small.en is an engine proxy for Whisper-based apps, not an app-level OpenWhispr measurement."
+    }
+  ]
+}

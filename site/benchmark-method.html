@@ -46,7 +46,7 @@
           </article>
           <article>
             <h3>Engine speed</h3>
-            <p>Across 226 paired recordings, warm median decode was 145ms for RambleFix vs 369ms for Handy: 2.51× faster. Model loading was excluded for both.</p>
+            <p>Across 226 paired recordings, warm median decode was 153ms for RambleFix vs 411ms for Handy: 2.68× measured and reported conservatively as 2.6×. Model loading was excluded for both. On a separate set of 40 saved English clips, RambleFix decoded 7.2× faster than whisper.cpp small.en (153ms vs 1,105ms).</p>
           </article>
           <article>
             <h3>Hindi+English</h3>
@@ -54,7 +54,7 @@
           </article>
           <article>
             <h3>Claim boundary</h3>
-            <p>The 2.5× figure is engine decode against Handy, not release-to-paste app latency. OpenWhispr results vary by model. Paid cloud comparisons remain directional. The Hindi+English comparison uses 13 clips.</p>
+            <p>The 2.6× and 7.2× figures are warm engine decode, not release-to-paste app latency. whisper.cpp is an engine proxy for Whisper-based apps, not an app-level OpenWhispr comparison. Paid cloud comparisons remain directional. The Hindi+English comparison uses 13 clips.</p>
           </article>
         </div>
 
