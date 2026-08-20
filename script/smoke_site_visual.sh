@@ -55,6 +55,13 @@ for text in \
   "Whisper-based local tools" \
   "Other local ASR models" \
   "Read the public benchmark method" \
+  "Built through an open challenge." \
+  "Ten builders took it on" \
+  "Arnav Chauhan" \
+  "Sankeerth" \
+  "Darshan + Vishwas" \
+  "View the Builderr challenge and final results" \
+  "https://builderr.ai/speech-to-text" \
   "security-review.html" \
   "What should we make bilingual next?" \
   "English + Tagalog" \
