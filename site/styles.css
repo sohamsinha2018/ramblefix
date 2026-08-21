@@ -1054,6 +1054,20 @@ h3 {
   line-height: 1.55;
 }
 
+.builder-story-copy > p a,
+.builder-contributors strong a {
+  color: inherit;
+  text-decoration-color: rgba(20, 115, 131, 0.38);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.builder-story-copy > p a:hover,
+.builder-contributors strong a:hover {
+  color: #147383;
+  text-decoration-color: currentColor;
+}
+
 .builder-contributors {
   display: grid;
   gap: 10px;

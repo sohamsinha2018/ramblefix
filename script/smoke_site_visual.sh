@@ -60,11 +60,18 @@ for text in \
   "Other local ASR models" \
   "Read the public benchmark method" \
   "Built with other builders." \
-  "Ten builders took it on" \
+  "We crowdsourced the hardest local Hindi + English and term-repair work through" \
+  "Strong independent builders gave us concrete routes to test" \
+  "improved verified outcomes" \
   "Arnav Chauhan" \
   "Sankeerth" \
-  "Darshan + Vishwas" \
+  "Darshan" \
+  "Vishwas" \
   "View the Builderr challenge and final results" \
+  "https://www.builderr.ai/builders/arnav" \
+  "https://www.builderr.ai/builders/sankeerth" \
+  "https://www.builderr.ai/builders/darshan" \
+  "https://www.builderr.ai/builders/vishwas" \
   "https://builderr.ai/speech-to-text" \
   "security-review.html" \
   "What should we make bilingual next?" \
@@ -122,6 +129,8 @@ if grep -R -E -q 'phc_[A-Za-z0-9]+' "$ROOT/site" --exclude-dir=.vercel; then
 fi
 
 for stale in \
+  '$500 Builderr challenge' \
+  "Ten builders took it on" \
   "all 45 real saved dictations" \
   "~90% meaning kept" \
   "~93%" \
