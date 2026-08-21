@@ -95,9 +95,9 @@
   "surface_must_contain": {
     "site/index.html": [
       "Ramble. Release.",
-      "It lands.",
-      "Your text lands almost instantly",
-      "Signed Apple silicon builds are ready for English and Hindi + English",
+      "Text lands.",
+      "RambleFix types it almost instantly",
+      "Signed Apple silicon builds are ready now: English and Hindi + English",
       "Same-WAV local benchmark",
       "Wispr Flow comparisons remain directional"
     ],

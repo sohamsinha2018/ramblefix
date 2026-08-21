@@ -37,16 +37,16 @@ for text in \
   "RambleFix" \
   "Free · local · open source" \
   "Ramble. Release." \
-  "It lands." \
-  "Hold the key, speak, and release." \
-  "Built for English, with Hindi + English" \
+  "Text lands." \
+  "Hold the key, say what you need, release." \
+  "Use English, or switch on Hindi + English" \
   "Star on GitHub" \
-  "Signed Apple silicon builds are ready for English and Hindi + English" \
+  "Signed Apple silicon builds are ready now: English and Hindi + English" \
   "2.6×" \
   "faster local engine in our tests" \
   "English meaning kept intact" \
   "Use your voice wherever you would normally type." \
-  "Local by design." \
+  "Your voice stays on your Mac." \
   "Same-WAV local benchmark" \
   "Statistically tied with Handy on English meaning" \
   "7.2× faster in a same-audio engine test" \
@@ -55,7 +55,7 @@ for text in \
   "Whisper-based local tools" \
   "Other local ASR models" \
   "Read the public benchmark method" \
-  "Built through an open challenge." \
+  "Built with other builders." \
   "Ten builders took it on" \
   "Arnav Chauhan" \
   "Sankeerth" \

@@ -8,7 +8,7 @@
       name="description"
       content="Hold, speak, release, and your text lands almost instantly. RambleFix is free, private, local Mac dictation for English and Hindi + English."
     />
-    <meta property="og:title" content="RambleFix — ramble, release, and it lands." />
+    <meta property="og:title" content="RambleFix — ramble, release, and text lands." />
     <meta
       property="og:description"
       content="Fast, free Mac dictation that runs locally. Built for English, with Hindi + English when your thoughts switch languages."
@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://ramblefix.app/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101214'/%3E%3Cpath d='M12 34c5-18 10 18 15 0s10 18 15 0 10 18 15 0' fill='none' stroke='%2327e2ff' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M12 28c5-13 10 13 15 0s10 13 15 0 10 13 15 0' fill='none' stroke='%23b5ff58' stroke-width='4' stroke-linecap='round' opacity='.88'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="./styles.css?v=20260818d" />
+    <link rel="stylesheet" href="./styles.css?v=20260821a" />
   </head>
   <body>
     <header class="site-nav">
@@ -37,12 +37,23 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <canvas id="hero-waves" aria-hidden="true"></canvas>
+        <div class="hero-orb-card" aria-hidden="true">
+          <canvas
+            class="product-orb hero-orb"
+            id="hero-orb"
+            data-product-orb="native-v2"
+            width="96"
+            height="96"
+          ></canvas>
+          <span>local · ready</span>
+        </div>
         <div class="hero-content">
           <p class="eyebrow">Fast · private · free · built to run locally</p>
-          <h1 id="hero-title">Ramble. Release.<br />It lands.</h1>
+          <h1 id="hero-title">Ramble. Release.<br />Text lands.</h1>
           <p class="lede">
-            Hold the key, speak, and release. Your text lands almost instantly, with English meaning kept intact.
-            Everything runs locally on your Mac. Built for English, with Hindi + English when your thoughts switch languages.
+            Hold the key, say what you need, release. RambleFix types it almost instantly,
+            keeps the meaning, and stays on your Mac. Use English, or switch on Hindi + English
+            when your thoughts mix languages.
           </p>
           <div class="actions">
             <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="github star clicked" data-analytics-target="hero">Star on GitHub</a>
@@ -53,7 +64,7 @@
             <div><strong>Top-tier</strong><span>English meaning kept intact</span></div>
             <div><strong>$0</strong><span>with no cloud, account, or subscription</span></div>
           </div>
-          <p class="release-note">Free and open source. Signed Apple silicon builds are ready for English and Hindi + English.</p>
+          <p class="release-note">Free and open source. Signed Apple silicon builds are ready now: English and Hindi + English.</p>
         </div>
 
         <div class="product-moment" id="product-moment" aria-label="Animated RambleFix dictation example">
@@ -103,7 +114,7 @@
 
       <section class="value-band" aria-label="RambleFix in three words">
         <div><strong>Free.</strong><span>No payment, account, or subscription.</span></div>
-        <div><strong>Private.</strong><span>Local transcription with no cloud ASR or account.</span></div>
+        <div><strong>Private.</strong><span>Speech is processed locally, with no account.</span></div>
         <div><strong>Bilingual.</strong><span>Choose English or Hindi+English.</span></div>
       </section>
 
@@ -157,7 +168,7 @@
             <span class="step-number">02</span>
             <div class="language-pair"><b>EN</b><b lang="hi">हिं</b></div>
             <h3>Speak normally</h3>
-            <p>Ramble, use product names, or switch between English and Hindi in the same thought.</p>
+            <p>Ramble, use product names, or mix English and Hindi in the same thought.</p>
           </article>
           <article>
             <span class="step-number">03</span>
@@ -170,24 +181,24 @@
 
       <section class="privacy" id="privacy">
         <div class="privacy-copy">
-          <p class="eyebrow">Designed for work machines</p>
-          <h2>Local by design.</h2>
-          <p>The shipped transcription and light-structure path runs locally and works with Wi-Fi off. RambleFix does not use cloud transcription, read your screen, or require an account.</p>
+          <p class="eyebrow">Private by default</p>
+          <h2>Your voice stays on your Mac.</h2>
+          <p>RambleFix works even with Wi-Fi off. It listens, turns speech into text locally, and pastes where you are typing. No cloud transcription, no account, no screen recording.</p>
           <a href="./security-review.html" data-analytics-event="site cta clicked" data-analytics-target="security_review">Read the security notes →</a>
         </div>
         <div class="privacy-points">
-          <div><strong>Local audio + text</strong><span>Nothing is sent to a cloud transcription service.</span></div>
-          <div><strong>Standard permissions</strong><span>Microphone to listen; Accessibility/Input Monitoring to paste.</span></div>
-          <div><strong>Open for review</strong><span>MIT source, local logs, and opt-in diagnostic sharing.</span></div>
-          <div><strong>No screen recording</strong><span>The app does not need to see your screen to type.</span></div>
+          <div><strong>Audio stays local</strong><span>Speech is processed on your Mac, not sent to a transcription cloud.</span></div>
+          <div><strong>Normal permissions</strong><span>Microphone to listen, Accessibility/Input Monitoring to paste.</span></div>
+          <div><strong>No account</strong><span>No signup, subscription, workspace setup, or cloud transcript history.</span></div>
+          <div><strong>Open source</strong><span>Review the code, local logs, and opt-in diagnostics yourself.</span></div>
         </div>
       </section>
 
       <section class="section evidence" id="proof">
         <div class="section-intro proof-intro">
-          <p class="eyebrow">Tested against leading open-source tools</p>
-          <h2>Strong English. Faster local transcription. Bilingual when you need it.</h2>
-          <p>Benchmarked on the same saved audio against Handy and Whisper-based local engines. The detailed method and limits are public.</p>
+          <p class="eyebrow">Tested, not just claimed</p>
+          <h2>Fast English. Strong meaning. Bilingual when you need it.</h2>
+          <p>We run the same audio through RambleFix and popular local tools, then compare speed and meaning. Details and limits are public.</p>
         </div>
 
         <div class="proof-grid">
@@ -238,11 +249,11 @@
       <section class="builder-story" id="builders" aria-labelledby="builder-story-title">
         <div class="builder-story-copy">
           <p class="eyebrow">Built in public</p>
-          <h2 id="builder-story-title">Built through an open challenge.</h2>
+          <h2 id="builder-story-title">Built with other builders.</h2>
           <p>
             We put the hardest part of RambleFix into a $500 Builderr challenge: return a fast, faithful
-            Hindi + English final while staying completely local. Ten builders took it on. We tested every
-            promising idea against the same audio and only kept changes that cleared the regression gates.
+            Hindi + English final while staying completely local. Ten builders took it on. We tested the
+            useful ideas against the same audio and only kept the ones that made the product better.
           </p>
           <a
             class="text-link"
@@ -256,17 +267,17 @@
           <article>
             <span>Shipped</span>
             <strong>Arnav Chauhan</strong>
-            <p>Vocabulary bias and tech-term repair informed the term prompt now used on the Hindi + English route.</p>
+            <p>Helped improve product and technical terms in Hindi + English mode.</p>
           </article>
           <article>
             <span>Informed</span>
             <strong>Sankeerth</strong>
-            <p>The Round 1 winner. His dictionary-as-decode-context approach shaped ongoing term-learning work.</p>
+            <p>His Round 1 approach shaped how RambleFix remembers important words.</p>
           </article>
           <article>
             <span>Explored</span>
             <strong>Darshan + Vishwas</strong>
-            <p>Their specialist routing and incremental decoding ideas helped us test alternative paths and define the roadmap.</p>
+            <p>Their routing and faster follow-up ideas helped shape the roadmap.</p>
           </article>
         </div>
       </section>
@@ -306,6 +317,8 @@
         var pasted = document.getElementById("demo-pasted");
         var hud = document.getElementById("dictation-hud");
         var status = document.getElementById("hud-status");
+        var heroOrbCanvas = document.getElementById("hero-orb");
+        var heroOrbCtx = heroOrbCanvas ? heroOrbCanvas.getContext("2d") : null;
         var orbCanvas = document.getElementById("product-orb");
         var orbCtx = orbCanvas ? orbCanvas.getContext("2d") : null;
         var orbExampleCanvas = document.getElementById("product-orb-example");
@@ -337,6 +350,7 @@
 
         function resizeProductOrb() {
           [
+            [heroOrbCanvas, heroOrbCtx],
             [orbCanvas, orbCtx],
             [orbExampleCanvas, orbExampleCtx]
           ].forEach(function (surface) {
@@ -366,7 +380,11 @@
           var throb = processing && !reducedMotion
             ? -0.15 + 0.06 * Math.sin(t * 7.5) + 0.02 * Math.sin(t * 13)
             : 0;
-          var amplitude = listening && !reducedMotion ? 0.30 * level : 0;
+          var amplitude = listening && !reducedMotion
+            ? 0.30 * level
+            : dual && processing && !reducedMotion
+              ? 0.08 + 0.02 * Math.sin(t * 4.2)
+              : 0;
           var inflation = listening && !reducedMotion ? 1 + 0.12 * level : 1;
           var radius = baseRadius * inflation * (1 + 0.02 * Math.sin(t * 0.8) + throb);
 
@@ -416,6 +434,7 @@
         }
 
         function drawProductOrb(now) {
+          drawOrbSurface(heroOrbCtx, now, "listening", false, -4);
           drawOrbSurface(orbCtx, now, phase, moment.classList.contains("dual"), [-8, 0, 16][current] || 0);
           drawOrbSurface(orbExampleCtx, now, "listening", false, 0);
         }
@@ -453,10 +472,15 @@
 
         function setPhase(next) {
           phase = next;
+          var dual = moment.classList.contains("dual");
           hud.classList.remove("listening", "processing", "landed");
           hud.classList.add(next);
           moment.dataset.phase = next;
-          status.textContent = next === "listening" ? "Listening" : next === "processing" ? "Making it clear" : "Pasted";
+          status.textContent = next === "listening"
+            ? "Listening"
+            : next === "processing"
+              ? dual ? "Hindi + English" : "Making it clear"
+              : "Pasted";
           if (reducedMotion) drawProductOrb(1200);
         }
 
