@@ -60,8 +60,10 @@ for text in \
   "Other local ASR models" \
   "Read the public benchmark method" \
   "Built with other builders." \
-  "We crowdsourced the hardest local Hindi + English and term-repair work through" \
-  "Strong independent builders gave us concrete routes to test" \
+  "The hard problem was not Hindi alone" \
+  "keeping English fast and accurate while" \
+  "adding strong Hindi + English" \
+  "We crowdsourced routes through" \
   "improved verified outcomes" \
   "Arnav Chauhan" \
   "Sankeerth" \
