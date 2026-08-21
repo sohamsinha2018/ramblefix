@@ -174,11 +174,13 @@ for text in \
 done
 
 npx --yes playwright screenshot --browser=chromium --viewport-size=1440,1000 "$URL" "$OUT_DIR/ramblefix-site-desktop.png" >/dev/null
+npx --yes playwright screenshot --browser=chromium --viewport-size=2940,1536 "$URL" "$OUT_DIR/ramblefix-site-wide.png" >/dev/null
 npx --yes playwright screenshot --browser=chromium --viewport-size=1024,768 "$URL" "$OUT_DIR/ramblefix-site-tablet.png" >/dev/null
 npx --yes playwright screenshot --browser=chromium --viewport-size=390,844 "$URL" "$OUT_DIR/ramblefix-site-mobile.png" >/dev/null
 
 for image in \
   "$OUT_DIR/ramblefix-site-desktop.png" \
+  "$OUT_DIR/ramblefix-site-wide.png" \
   "$OUT_DIR/ramblefix-site-tablet.png" \
   "$OUT_DIR/ramblefix-site-mobile.png"; do
   if [[ ! -s "$image" ]]; then
@@ -189,5 +191,6 @@ done
 
 echo "site visual smoke passed"
 echo "$OUT_DIR/ramblefix-site-desktop.png"
+echo "$OUT_DIR/ramblefix-site-wide.png"
 echo "$OUT_DIR/ramblefix-site-tablet.png"
 echo "$OUT_DIR/ramblefix-site-mobile.png"
