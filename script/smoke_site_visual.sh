@@ -40,6 +40,7 @@ for text in \
   "Text lands." \
   "Hold the key, say what you need, release." \
   "Use English, or switch on Hindi + English" \
+  "Download for Mac" \
   "Star on GitHub" \
   "Signed Apple silicon builds are ready now: English and Hindi + English" \
   "2.6×" \
@@ -65,7 +66,7 @@ for text in \
   "security-review.html" \
   "What should we make bilingual next?" \
   "English + Tagalog" \
-  "View source"; do
+  "Download"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-smoke.html; then
     echo "site visual smoke failed: missing text: $text" >&2
     exit 1
@@ -87,6 +88,7 @@ if ! grep -Fq "Download for Mac" /tmp/ramblefix-site-smoke.html && \
 fi
 
 for text in \
+  'data-analytics-event="download requested"' \
   'data-analytics-event="github star clicked"' \
   'data-analytics-event="language vote clicked"' \
   'src="./analytics.js?v='; do
