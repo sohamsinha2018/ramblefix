@@ -598,8 +598,8 @@ h3 {
 }
 
 .value-band div {
-  min-height: 138px;
-  padding: 30px clamp(22px, 4vw, 44px);
+  min-height: 112px;
+  padding: 24px clamp(20px, 3vw, 34px);
 }
 
 .value-band div + div {
@@ -612,13 +612,15 @@ h3 {
 }
 
 .value-band strong {
-  margin-bottom: 8px;
-  font-size: clamp(28px, 3vw, 42px);
+  margin-bottom: 7px;
+  font-size: clamp(26px, 2.6vw, 36px);
   line-height: 1;
 }
 
 .value-band span {
+  max-width: 360px;
   color: var(--muted);
+  font-size: 15px;
   line-height: 1.45;
 }
 
@@ -891,19 +893,17 @@ h3 {
 }
 
 .quick-compare > div:first-child {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 24px;
+  max-width: 760px;
 }
 
 .quick-compare h2 {
-  max-width: 840px;
-  font-size: clamp(36px, 4.5vw, 64px);
+  max-width: 760px;
+  margin-top: 12px;
+  font-size: clamp(36px, 4vw, 58px);
 }
 
 .quick-compare .competitor-readout {
-  margin-top: 30px;
+  margin-top: 34px;
 }
 
 .text-link {
@@ -1375,6 +1375,7 @@ footer > a:last-child {
 
   .value-band {
     grid-template-columns: 1fr;
+    padding-inline: 0;
   }
 
   .value-band div {
