@@ -47,6 +47,8 @@ for text in \
   "faster local engine in our tests" \
   "English meaning kept intact" \
   "Use your voice wherever you would normally type." \
+  "Fn" \
+  "Ctrl" \
   "Your voice stays on your Mac." \
   "Same-WAV local benchmark" \
   "Statistically tied with Handy on English meaning" \
