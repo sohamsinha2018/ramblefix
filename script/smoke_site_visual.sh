@@ -41,6 +41,7 @@ for text in \
   "Hold the key, say what you need, release." \
   "Use English, or switch on Hindi + English" \
   "Download for Mac" \
+  "View source" \
   "Star on GitHub" \
   "Signed Apple silicon builds are ready now: English and Hindi + English" \
   "2.6×" \
@@ -82,6 +83,11 @@ for competitor in "Handy" "OpenWhispr" "whisper.cpp"; do
     exit 1
   fi
 done
+
+if grep -Fq "Star on GitHub" <<<"$hero_html"; then
+  echo "site visual smoke failed: hero should invite source review before asking for stars" >&2
+  exit 1
+fi
 
 if ! grep -Fq "Download for Mac" /tmp/ramblefix-site-smoke.html && \
    ! grep -Fq "Star on GitHub" /tmp/ramblefix-site-smoke.html; then
