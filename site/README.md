@@ -45,7 +45,8 @@ POSTHOG_HOST=https://us.i.posthog.com
 ```
 
 The tracked events are `site viewed`, `site cta clicked`, `download requested`,
-`language vote clicked`, and `demo switched`. Download links must use
+`language vote clicked`, `demo switched`, `builderr clicked`, `builderr challenge clicked`,
+and `builder profile clicked`. Download links must use
 `data-analytics-event="download requested"` and a stable `data-analytics-target` value.
 
 Local smoke:

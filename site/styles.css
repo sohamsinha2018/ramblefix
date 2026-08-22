@@ -1114,6 +1114,27 @@ h3 {
   line-height: 1.48;
 }
 
+.builder-profile-links {
+  grid-column: 2 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 2px;
+}
+
+.builder-profile-links a {
+  color: #147383;
+  font-size: 12px;
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.builder-profile-links a:hover,
+.builder-profile-links a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .final-cta {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -1485,6 +1506,10 @@ footer > a:last-child {
   }
 
   .builder-contributors p {
+    grid-column: 1 / -1;
+  }
+
+  .builder-profile-links {
     grid-column: 1 / -1;
   }
 

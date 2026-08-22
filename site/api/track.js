@@ -3,7 +3,10 @@ var allowedEvents = new Set([
   "site cta clicked",
   "download requested",
   "language vote clicked",
-  "demo switched"
+  "demo switched",
+  "builderr clicked",
+  "builderr challenge clicked",
+  "builder profile clicked"
 ]);
 
 function clean(value, fallback, maxLength) {

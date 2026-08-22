@@ -74,6 +74,9 @@ for text in \
   "Sankeerth" \
   "Darshan" \
   "Vishwas" \
+  "Builderr profile ↗" \
+  "Darshan profile ↗" \
+  "Vishwas profile ↗" \
   "View the Builderr challenge and final results" \
   "https://www.builderr.ai/builders/arnav" \
   "https://www.builderr.ai/builders/sankeerth" \
@@ -138,6 +141,8 @@ for text in \
   'data-analytics-target="hero_source"' \
   'data-analytics-target="footer_source"' \
   'data-analytics-target="language_contribution"' \
+  'data-analytics-event="builder profile clicked"' \
+  'data-analytics-event="builderr challenge clicked"' \
   'src="./analytics.js?v='; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-smoke.html; then
     echo "site visual smoke failed: missing analytics contract: $text" >&2
@@ -151,6 +156,16 @@ for text in \
   'data-analytics-event'; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-analytics-smoke.js; then
     echo "site visual smoke failed: analytics client contract missing: $text" >&2
+    exit 1
+  fi
+done
+
+for text in \
+  '"builderr clicked"' \
+  '"builderr challenge clicked"' \
+  '"builder profile clicked"'; do
+  if ! grep -Fq "$text" "$ROOT/site/api/track.js"; then
+    echo "site visual smoke failed: analytics API does not allow event: $text" >&2
     exit 1
   fi
 done
