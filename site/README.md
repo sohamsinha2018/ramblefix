@@ -33,6 +33,8 @@ script/configure_site_links.sh
 
 Do not link the bare `https://github.com/sohamsinha2018/ramblefix/releases` page from the public site. Download CTAs should point to stapled `.dmg` assets. Current public copy should say `Apple Silicon Mac (M1+), macOS 13+`; the underlying release requirement is Apple silicon/arm64, with no Intel build tested or published yet.
 
+Privacy copy must use this framing: "Your voice and transcribed text never leave your Mac. Optional anonymous usage stats (counts & timings only) are on to help improve the app — turn them off anytime."
+
 The page has no signup or third-party browser runtime dependency. It sends only explicit,
 anonymous product events through the first-party `/api/track` endpoint. There is no
 autocapture, cookie, person profile, or session replay. Configure Vercel with:

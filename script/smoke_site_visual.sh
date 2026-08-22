@@ -55,6 +55,7 @@ for text in \
   "Fn" \
   "Ctrl" \
   "Your voice stays on your Mac." \
+  "Your voice and transcribed text never leave your Mac. Optional anonymous usage stats (counts & timings only) are on to help improve the app — turn them off anytime." \
   "Same-WAV local benchmark" \
   "Statistically tied with Handy on English meaning" \
   "7.2× faster in a same-audio engine test" \
@@ -219,6 +220,7 @@ curl -fsS "$URL/security-review.html" >/tmp/ramblefix-site-security-smoke.html
 for text in \
   "Security review notes" \
   "Built to be easy to review before work use." \
+  "Your voice and transcribed text never leave your Mac. Optional anonymous usage stats (counts & timings only)" \
   "No Screen Recording in V0." \
   "No cloud transcription in the shipped product path" \
   "anonymous page and CTA events only" \
