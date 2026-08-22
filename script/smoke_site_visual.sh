@@ -39,7 +39,7 @@ for text in \
   "Ramble. Release." \
   "Text lands." \
   "Hold the key, say what you need, release." \
-  "Use English, or switch on Hindi + English" \
+  "use Hindi + English when your thoughts mix languages" \
   "Download — English" \
   "Download — English + Hindi" \
   "https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" \
@@ -49,8 +49,11 @@ for text in \
   "Apple Silicon Mac (M1+), macOS 13+" \
   "DMG install flow" \
   "2.6×" \
+  "3-4×" \
+  "voice input can beat typing" \
   "faster local engine in our tests" \
   "English meaning kept intact" \
+  "Use voice to give AI fuller instructions" \
   "Use your voice wherever you would normally type." \
   "Fn" \
   "Ctrl" \
@@ -205,7 +208,9 @@ for misleading in \
   "before you stop talking" \
   "Speech → text in ~150ms" \
   "under 1 second" \
-  "fastest local dictation"; do
+  "fastest local dictation" \
+  "increase your AI productivity by 3x" \
+  "makes you 3x more productive"; do
   if grep -Fiq "$misleading" /tmp/ramblefix-site-smoke.html; then
     echo "site visual smoke failed: misleading speed claim present: $misleading" >&2
     exit 1
@@ -223,6 +228,9 @@ for text in \
   "2.68× measured and reported conservatively as 2.6×" \
   "40 saved English clips" \
   "7.2× faster" \
+  "Wispr Flow cites 45 wpm keyboard vs 220 wpm Flow" \
+  "Willow cites 150 wpm speech vs 40 wpm typing" \
+  "not as a RambleFix-specific productivity guarantee" \
   "not release-to-paste app latency" \
   "The Hindi+English comparison uses 13 clips"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-method-smoke.html; then

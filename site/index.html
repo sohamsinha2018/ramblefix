@@ -52,8 +52,8 @@
           <h1 id="hero-title">Ramble. Release.<br />Text lands.</h1>
           <p class="lede">
             Hold the key, say what you need, release. RambleFix types it almost instantly,
-            keeps the meaning, and stays on your Mac. Use English, or switch on Hindi + English
-            when your thoughts mix languages.
+            keeps the meaning, and stays on your Mac. Use voice to give AI fuller instructions;
+            use Hindi + English when your thoughts mix languages.
           </p>
           <div class="actions">
             <a class="button primary" href="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" data-analytics-event="download requested" data-analytics-target="hero_lite">Download — English</a>
@@ -66,6 +66,7 @@
           </p>
           <div class="hero-proof" aria-label="Headline benchmark results">
             <div><strong>2.6×</strong><span>faster local engine in our tests</span></div>
+            <div><strong>3-4×</strong><span>voice input can beat typing</span></div>
             <div><strong>Top-tier</strong><span>English meaning kept intact</span></div>
             <div><strong>$0</strong><span>with no cloud, account, or subscription</span></div>
           </div>
@@ -245,6 +246,7 @@
             <p><strong>English meaning (n=676, updated 2026-08-18).</strong> RambleFix's shipped Apple Neural Engine path and Handy are statistically tied on the same saved WAVs and gold transcripts.</p>
             <p><strong>Engine speed (n=226).</strong> Warm median decode was 153ms for RambleFix vs 411ms for Handy: 2.68× measured, reported conservatively as 2.6×. Both models were warm and model loading was excluded.</p>
             <p><strong>Whisper comparison (n=40).</strong> Warm median decode was 153ms for RambleFix vs 1,105ms for whisper.cpp small.en: 7.2× faster. RambleFix meaning was 0.927 vs 0.908. whisper.cpp is an engine proxy for Whisper-based apps, not an app-level OpenWhispr result.</p>
+            <p><strong>Voice input context.</strong> Public dictation tools commonly frame voice as a 3-4× input-speed advantage over typing: Wispr Flow cites 45 wpm keyboard vs 220 wpm Flow, and Willow cites 150 wpm speech vs 40 wpm typing. We treat this as market context, not a RambleFix-specific productivity guarantee.</p>
             <p><strong>What “faster” means.</strong> These are transcription-engine decode tests, not symmetric release-to-paste app tests. Handy is the paired source of the 2.6× figure. End-to-end time also includes capture, routing, pasting, and optional structure.</p>
             <p><strong>Claim boundary.</strong> The evidence supports English meaning parity plus faster local engine decode. It does not support “faster than every app end-to-end” or a superiority claim over paid cloud tools.</p>
             <p><strong>Hindi+English n=13.</strong> RambleFix 88.5% vs 66.1-70.2% meaning kept for tested local general engines; terms 70.1%.</p>

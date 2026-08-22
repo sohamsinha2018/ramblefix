@@ -6,7 +6,8 @@
       "2.6x faster warm engine decode than Handy on 226 paired recordings",
       "7.2x faster warm engine decode than whisper.cpp small.en on 40 saved clips",
       "Hindi+English engine comparison on the same 13 clips",
-      "English and Hindi+English builds are ready"
+      "English and Hindi+English builds are ready",
+      "Voice input market context based on public Wispr Flow and Willow speed claims"
     ],
     "forbidden": [
       "beats Wispr Flow",
@@ -19,7 +20,10 @@
       "before you stop talking",
       "speech to text in 150ms",
       "under 1 second",
-      "fastest local dictation"
+      "fastest local dictation",
+      "increase your AI productivity by 3x",
+      "makes you 3x more productive",
+      "3x productivity"
     ]
   },
   "claim_cards": [
@@ -97,6 +101,9 @@
       "Ramble. Release.",
       "Text lands.",
       "RambleFix types it almost instantly",
+      "Use voice to give AI fuller instructions",
+      "3-4×",
+      "voice input can beat typing",
       "Download — English",
       "Download — English + Hindi",
       "Apple Silicon Mac (M1+), macOS 13+.",
@@ -109,6 +116,9 @@
       "676 saved WAVs",
       "226 paired recordings",
       "40 saved English clips",
+      "Wispr Flow cites 45 wpm keyboard vs 220 wpm Flow",
+      "Willow cites 150 wpm speech vs 40 wpm typing",
+      "not as a RambleFix-specific productivity guarantee",
       "whisper.cpp is an engine proxy for Whisper-based apps",
       "Paid cloud comparisons remain directional"
     ]

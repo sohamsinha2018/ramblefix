@@ -49,6 +49,10 @@
             <p>Across 226 paired recordings, warm median decode was 153ms for RambleFix vs 411ms for Handy: 2.68× measured and reported conservatively as 2.6×. Model loading was excluded for both. On a separate set of 40 saved English clips, RambleFix decoded 7.2× faster than whisper.cpp small.en (153ms vs 1,105ms).</p>
           </article>
           <article>
+            <h3>Voice input context</h3>
+            <p>Wispr Flow cites 45 wpm keyboard vs 220 wpm Flow. Willow cites 150 wpm speech vs 40 wpm typing, and roughly 35 minutes saved per day for 2,000 words. We use those as public market context, not as a RambleFix-specific productivity guarantee.</p>
+          </article>
+          <article>
             <h3>Hindi+English</h3>
             <p>13 mixed-language clips. RambleFix meaning 0.885 vs 0.661-0.702 for tested local general engines.</p>
           </article>
@@ -62,6 +66,15 @@
           <p>
             This page is the public summary. The internal regression harness also checks blank/no-speech guards,
             structure safety, protected terms, local-only runtime rules, and release-to-paste timing before a public build.
+            Productivity context comes from public Wispr Flow and Willow claims; RambleFix-specific measured claims are
+            the local engine speed, meaning, and offline-runtime results above.
+          </p>
+          <p>
+            Sources:
+            <a href="https://wisprflow.ai/">Wispr Flow</a>,
+            <a href="https://willowvoice.com/blog/best-speech-to-text-tools-writers">Willow writer tools</a>,
+            and
+            <a href="https://willowvoice.com/blog/ai-voice-tools-document-creation">Willow document tools</a>.
           </p>
         </div>
       </section>

@@ -309,7 +309,7 @@ h3 {
 .hero-proof {
   max-width: 820px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   margin-top: 24px;
   overflow: hidden;
@@ -338,8 +338,9 @@ h3 {
 }
 
 .hero-proof div:nth-child(1) strong { color: #147383; }
-.hero-proof div:nth-child(2) strong { color: #5a43cc; }
-.hero-proof div:nth-child(3) strong { color: #2b6516; }
+.hero-proof div:nth-child(2) strong { color: #c46b18; }
+.hero-proof div:nth-child(3) strong { color: #5a43cc; }
+.hero-proof div:nth-child(4) strong { color: #2b6516; }
 
 .hero-proof span {
   color: #5c6672;
@@ -1421,7 +1422,7 @@ footer > a:last-child {
   }
 
   .hero-proof {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-proof div {
