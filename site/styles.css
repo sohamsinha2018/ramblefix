@@ -1195,6 +1195,18 @@ h3 {
   color: #9fa9b6 !important;
 }
 
+.poll-note a,
+.poll-note strong {
+  color: #edf5f7;
+  font-weight: 760;
+}
+
+.poll-note a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
 .language-poll button::after {
   content: "+";
   margin-left: 7px;

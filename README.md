@@ -35,7 +35,7 @@ RambleFix V0 asks only for the permissions needed for dictation:
 
 ## Install
 
-Public installs should use a signed and notarized DMG from GitHub Releases. If no release is visible yet, the public one-click installer is not ready.
+Public installs should use the signed and notarized DMG linked from `https://ramblefix.app/`. If the public download buttons are not live, the one-click installer is not ready.
 
 Local developer install:
 

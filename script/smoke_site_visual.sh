@@ -44,8 +44,8 @@ for text in \
   "Download — English + Hindi" \
   "https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" \
   "https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-HI-0.1.0.dmg" \
-  "View source" \
-  "Star on GitHub" \
+  "View source code" \
+  "Fork it, build on top, or help add the next language." \
   "Apple Silicon Mac (M1+), macOS 13+" \
   "DMG install flow" \
   "2.6×" \
@@ -81,8 +81,13 @@ for text in \
   "https://builderr.ai/speech-to-text" \
   "security-review.html" \
   "What should we make bilingual next?" \
+  "Builders who want to help with a new language route can contribute on GitHub." \
   "English + Tagalog" \
-  "Tap once to vote" \
+  "Tap once to vote anonymously" \
+  "aria-pressed=\"false\"" \
+  "Vote noted: <strong>" \
+  "contribute a language route on GitHub" \
+  "Contribute a language" \
   "Download"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-smoke.html; then
     echo "site visual smoke failed: missing text: $text" >&2
@@ -115,8 +120,7 @@ for vote in tagalog mandarin spanish other; do
   fi
 done
 
-if ! grep -Fq "Download — English" /tmp/ramblefix-site-smoke.html && \
-   ! grep -Fq "Star on GitHub" /tmp/ramblefix-site-smoke.html; then
+if ! grep -Fq "Download — English" /tmp/ramblefix-site-smoke.html; then
   echo "site visual smoke failed: missing download CTA state" >&2
   exit 1
 fi
@@ -128,8 +132,11 @@ fi
 
 for text in \
   'data-analytics-event="download requested"' \
-  'data-analytics-event="github star clicked"' \
+  'data-analytics-event="site cta clicked"' \
   'data-analytics-event="language vote clicked"' \
+  'data-analytics-target="hero_source"' \
+  'data-analytics-target="footer_source"' \
+  'data-analytics-target="language_contribution"' \
   'src="./analytics.js?v='; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-smoke.html; then
     echo "site visual smoke failed: missing analytics contract: $text" >&2
@@ -166,6 +173,7 @@ for stale in \
   "Signed Apple silicon builds are ready now" \
   "Download opens the canonical GitHub Releases page" \
   "Download for Mac" \
+  "Star on GitHub" \
   "beats Wispr Flow" \
   "Free forever" \
   "Works in any text box" \

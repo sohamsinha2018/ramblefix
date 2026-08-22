@@ -1,7 +1,6 @@
 var allowedEvents = new Set([
   "site viewed",
   "site cta clicked",
-  "github star clicked",
   "download requested",
   "language vote clicked",
   "demo switched"

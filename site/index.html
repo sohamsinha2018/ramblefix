@@ -61,7 +61,8 @@
           </div>
           <p class="download-note">
             Apple Silicon Mac (M1+), macOS 13+. English is smaller (~2 GB);
-            English + Hindi is ~3.7 GB. <a href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="site cta clicked" data-analytics-target="hero_source">View source</a>.
+            English + Hindi is ~3.7 GB. <a href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="site cta clicked" data-analytics-target="hero_source">View source code</a>.
+            Fork it, build on top, or help add the next language.
           </p>
           <div class="hero-proof" aria-label="Headline benchmark results">
             <div><strong>2.6×</strong><span>faster local engine in our tests</span></div>
@@ -296,19 +297,24 @@
         <div>
           <p class="eyebrow">English · Hindi+English · more languages next</p>
           <h2>What should we make bilingual next?</h2>
-          <p>English and Hindi + English are ready. Vote for the language mix RambleFix should learn next.</p>
+          <p>
+            English and Hindi + English are ready. Vote for the language mix RambleFix should learn next.
+            Builders who want to help with a new language route can contribute on GitHub.
+          </p>
         </div>
         <div class="final-actions">
-          <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="github star clicked" data-analytics-target="footer_cta">Star on GitHub</a>
-          <a class="button secondary" href="https://github.com/sohamsinha2018/ramblefix/discussions" data-analytics-event="site cta clicked" data-analytics-target="feedback">Share feedback</a>
+          <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="site cta clicked" data-analytics-target="footer_source">View source code</a>
+          <a class="button secondary" href="https://github.com/sohamsinha2018/ramblefix/issues/new?title=Language%20contribution%3A%20English%20%2B%20%5Blanguage%5D&body=Language%20mix%3A%0A%0AWhat%20you%20can%20help%20with%20(model%2C%20corpus%2C%20eval%2C%20runtime)%3A%0A%0ASample%20clips%20or%20public%20corpus%3A" data-analytics-event="site cta clicked" data-analytics-target="language_contribution">Contribute a language</a>
         </div>
         <div class="language-poll" aria-label="Next bilingual mode poll">
-          <button type="button" data-vote="tagalog" data-label="English + Tagalog" data-analytics-event="language vote clicked" data-analytics-target="tagalog">English + Tagalog</button>
-          <button type="button" data-vote="mandarin" data-label="English + Mandarin" data-analytics-event="language vote clicked" data-analytics-target="mandarin">English + Mandarin</button>
-          <button type="button" data-vote="spanish" data-label="English + Spanish" data-analytics-event="language vote clicked" data-analytics-target="spanish">English + Spanish</button>
-          <button type="button" data-vote="other" data-label="Another language mix" data-analytics-event="language vote clicked" data-analytics-target="other">Another language mix</button>
+          <button type="button" data-vote="tagalog" data-label="English + Tagalog" data-analytics-event="language vote clicked" data-analytics-target="tagalog" aria-pressed="false">English + Tagalog</button>
+          <button type="button" data-vote="mandarin" data-label="English + Mandarin" data-analytics-event="language vote clicked" data-analytics-target="mandarin" aria-pressed="false">English + Mandarin</button>
+          <button type="button" data-vote="spanish" data-label="English + Spanish" data-analytics-event="language vote clicked" data-analytics-target="spanish" aria-pressed="false">English + Spanish</button>
+          <button type="button" data-vote="other" data-label="Another language mix" data-analytics-event="language vote clicked" data-analytics-target="other" aria-pressed="false">Another language mix</button>
         </div>
-        <p class="poll-note" id="poll-note" aria-live="polite">Tap once to vote. Votes are counted anonymously; share details on GitHub if you want.</p>
+        <p class="poll-note" id="poll-note" aria-live="polite">
+          Tap once to vote anonymously. Want to build it? <a href="https://github.com/sohamsinha2018/ramblefix/issues/new?title=Language%20contribution%3A%20English%20%2B%20%5Blanguage%5D&body=Language%20mix%3A%0A%0AWhat%20you%20can%20help%20with%20(model%2C%20corpus%2C%20eval%2C%20runtime)%3A%0A%0ASample%20clips%20or%20public%20corpus%3A" data-analytics-event="site cta clicked" data-analytics-target="poll_language_contribution">contribute on GitHub</a>.
+        </p>
       </section>
     </main>
 
@@ -579,16 +585,18 @@
       (function () {
         var poll = document.querySelector(".language-poll");
         var note = document.getElementById("poll-note");
+        var contributionUrl = "https://github.com/sohamsinha2018/ramblefix/issues/new?title=Language%20contribution%3A%20English%20%2B%20%5Blanguage%5D&body=Language%20mix%3A%0A%0AWhat%20you%20can%20help%20with%20(model%2C%20corpus%2C%20eval%2C%20runtime)%3A%0A%0ASample%20clips%20or%20public%20corpus%3A";
         if (!poll || !note) return;
         poll.querySelectorAll("[data-vote]").forEach(function (button) {
           button.addEventListener("click", function () {
             poll.querySelectorAll("[data-vote]").forEach(function (other) {
               other.classList.remove("selected");
-              other.removeAttribute("aria-pressed");
+              other.setAttribute("aria-pressed", "false");
             });
             button.classList.add("selected");
             button.setAttribute("aria-pressed", "true");
-            note.textContent = "Vote noted: " + (button.dataset.label || button.textContent.trim()) + ".";
+            var label = button.dataset.label || button.textContent.trim();
+            note.innerHTML = "Vote noted: <strong>" + label + "</strong>. Builders can <a href=\"" + contributionUrl + "\">contribute a language route on GitHub</a>.";
           });
         });
       })();

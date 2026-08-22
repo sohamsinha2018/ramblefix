@@ -15,9 +15,9 @@ GoDaddy DNS points `ramblefix.app` at the Vercel project and HTTPS is active.
 
 Before publishing, configure the links in `index.html`:
 
-- Download — English: direct GitHub Release DMG asset URL.
-- Download — English + Hindi: direct GitHub Release DMG asset URL.
-- Star on GitHub: public repo URL.
+- Download — English: direct stapled DMG asset URL.
+- Download — English + Hindi: direct stapled DMG asset URL.
+- View source code: public repo URL.
 - GitHub Discussions: repo discussions URL.
 - Join Discord: optional invite URL. If omitted, the secondary feedback button points to GitHub Discussions.
 
@@ -42,8 +42,8 @@ POSTHOG_PROJECT_TOKEN=<project token>
 POSTHOG_HOST=https://us.i.posthog.com
 ```
 
-The tracked events are `site viewed`, `site cta clicked`, `github star clicked`,
-`download requested`, `language vote clicked`, and `demo switched`. Download links must use
+The tracked events are `site viewed`, `site cta clicked`, `download requested`,
+`language vote clicked`, and `demo switched`. Download links must use
 `data-analytics-event="download requested"` and a stable `data-analytics-target` value.
 
 Local smoke:

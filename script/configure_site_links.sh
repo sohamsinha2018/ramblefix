@@ -41,8 +41,10 @@ replacements = {
         f'<a class="button primary" href="{lite_url}" aria-label="Download RambleFix Lite DMG">Download — English</a>',
     '<span class="button secondary disabled" data-download-pending="true" aria-disabled="true">Signed Mac build coming soon</span>':
         f'<a class="button primary" href="{hi_url}" aria-label="Download RambleFix HI DMG">Download — English + Hindi</a>',
+    '<a class="button ghost" href="#" aria-label="GitHub repository placeholder">View source code</a>':
+        f'<a class="button ghost" href="{os.environ["RAMBLEFIX_GITHUB_URL"]}" aria-label="RambleFix source code repository">View source code</a>',
     '<a class="button ghost" href="#" aria-label="GitHub repository placeholder">Star on GitHub</a>':
-        f'<a class="button ghost" href="{os.environ["RAMBLEFIX_GITHUB_URL"]}" aria-label="RambleFix GitHub repository">Star on GitHub</a>',
+        f'<a class="button ghost" href="{os.environ["RAMBLEFIX_GITHUB_URL"]}" aria-label="RambleFix source code repository">View source code</a>',
     '<a class="nav-download" href="https://github.com/sohamsinha2018/ramblefix">View source</a>':
         f'<a class="nav-download" href="{lite_url}">Download</a>',
     '<a class="button primary" href="https://github.com/sohamsinha2018/ramblefix">View the source</a>':
