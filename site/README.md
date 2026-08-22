@@ -15,7 +15,8 @@ GoDaddy DNS points `ramblefix.app` at the Vercel project and HTTPS is active.
 
 Before publishing, configure the links in `index.html`:
 
-- Download for Mac: GitHub Releases DMG URL.
+- Download — English: direct GitHub Release DMG asset URL.
+- Download — English + Hindi: direct GitHub Release DMG asset URL.
 - Star on GitHub: public repo URL.
 - GitHub Discussions: repo discussions URL.
 - Join Discord: optional invite URL. If omitted, the secondary feedback button points to GitHub Discussions.
@@ -23,11 +24,14 @@ Before publishing, configure the links in `index.html`:
 Command:
 
 ```bash
-RAMBLEFIX_DOWNLOAD_URL="https://github.com/<owner>/<repo>/releases/download/v0.1.0/RambleFix-0.1.0.dmg" \
+RAMBLEFIX_LITE_DOWNLOAD_URL="https://github.com/<owner>/<repo>/releases/download/v0.1.0/RambleFix-Lite-0.1.0.dmg" \
+RAMBLEFIX_HI_DOWNLOAD_URL="https://github.com/<owner>/<repo>/releases/download/v0.1.0/RambleFix-HI-0.1.0.dmg" \
 RAMBLEFIX_GITHUB_URL="https://github.com/<owner>/<repo>" \
 RAMBLEFIX_DISCUSSIONS_URL="https://github.com/<owner>/<repo>/discussions" \
 script/configure_site_links.sh
 ```
+
+Do not link the bare `https://github.com/sohamsinha2018/ramblefix/releases` page from the public site. Download CTAs should point to stapled `.dmg` assets. Current public requirements: Apple Silicon Mac (M-series), macOS 13+, no Intel build.
 
 The page has no signup or third-party browser runtime dependency. It sends only explicit,
 anonymous product events through the first-party `/api/track` endpoint. There is no

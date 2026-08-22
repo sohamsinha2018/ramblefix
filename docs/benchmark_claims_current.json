@@ -97,7 +97,11 @@
       "Ramble. Release.",
       "Text lands.",
       "RambleFix types it almost instantly",
-      "Download opens the canonical GitHub Releases page. English and Hindi + English are the supported modes.",
+      "Download — English",
+      "Download — English + Hindi",
+      "Apple Silicon Mac (M-series), macOS 13+. No Intel build.",
+      "RambleFix-Lite-0.1.0.dmg",
+      "RambleFix-HI-0.1.0.dmg",
       "Same-WAV local benchmark",
       "Wispr Flow comparisons remain directional"
     ],

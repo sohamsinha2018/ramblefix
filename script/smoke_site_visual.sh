@@ -40,10 +40,15 @@ for text in \
   "Text lands." \
   "Hold the key, say what you need, release." \
   "Use English, or switch on Hindi + English" \
-  "Download for Mac" \
+  "Download — English" \
+  "Download — English + Hindi" \
+  "RambleFix-Lite-0.1.0.dmg" \
+  "RambleFix-HI-0.1.0.dmg" \
   "View source" \
   "Star on GitHub" \
-  "Download opens the canonical GitHub Releases page" \
+  "Apple Silicon Mac (M-series), macOS 13+" \
+  "No Intel build" \
+  "DMG install flow" \
   "2.6×" \
   "faster local engine in our tests" \
   "English meaning kept intact" \
@@ -111,9 +116,14 @@ for vote in tagalog mandarin spanish other; do
   fi
 done
 
-if ! grep -Fq "Download for Mac" /tmp/ramblefix-site-smoke.html && \
+if ! grep -Fq "Download — English" /tmp/ramblefix-site-smoke.html && \
    ! grep -Fq "Star on GitHub" /tmp/ramblefix-site-smoke.html; then
   echo "site visual smoke failed: missing download CTA state" >&2
+  exit 1
+fi
+
+if grep -Fq 'href="https://github.com/sohamsinha2018/ramblefix/releases"' /tmp/ramblefix-site-smoke.html; then
+  echo "site visual smoke failed: bare GitHub releases page linked from public site" >&2
   exit 1
 fi
 
@@ -155,6 +165,8 @@ for stale in \
   "Open your choice and tap" \
   "discussioncomment-" \
   "Signed Apple silicon builds are ready now" \
+  "Download opens the canonical GitHub Releases page" \
+  "Download for Mac" \
   "beats Wispr Flow" \
   "Free forever" \
   "Works in any text box" \
