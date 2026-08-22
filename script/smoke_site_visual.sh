@@ -43,7 +43,7 @@ for text in \
   "Download for Mac" \
   "View source" \
   "Star on GitHub" \
-  "Signed Apple silicon builds are ready now: English and Hindi + English" \
+  "Download opens the canonical GitHub Releases page" \
   "2.6×" \
   "faster local engine in our tests" \
   "English meaning kept intact" \
@@ -78,6 +78,7 @@ for text in \
   "security-review.html" \
   "What should we make bilingual next?" \
   "English + Tagalog" \
+  "Tap once to vote" \
   "Download"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-smoke.html; then
     echo "site visual smoke failed: missing text: $text" >&2
@@ -97,6 +98,18 @@ if grep -Fq "Star on GitHub" <<<"$hero_html"; then
   echo "site visual smoke failed: hero should invite source review before asking for stars" >&2
   exit 1
 fi
+
+poll_html="$(sed -n '/<div class="language-poll"/,/<\/div>/p' /tmp/ramblefix-site-smoke.html)"
+if grep -Fq 'href=' <<<"$poll_html"; then
+  echo "site visual smoke failed: language poll should vote in-page, not navigate away" >&2
+  exit 1
+fi
+for vote in tagalog mandarin spanish other; do
+  if ! grep -Fq "data-vote=\"$vote\"" <<<"$poll_html"; then
+    echo "site visual smoke failed: missing language vote button: $vote" >&2
+    exit 1
+  fi
+done
 
 if ! grep -Fq "Download for Mac" /tmp/ramblefix-site-smoke.html && \
    ! grep -Fq "Star on GitHub" /tmp/ramblefix-site-smoke.html; then
@@ -139,6 +152,9 @@ for stale in \
   "English · 676 real dictations" \
   "beats every open-source" \
   "Tagalog’s likely next" \
+  "Open your choice and tap" \
+  "discussioncomment-" \
+  "Signed Apple silicon builds are ready now" \
   "beats Wispr Flow" \
   "Free forever" \
   "Works in any text box" \

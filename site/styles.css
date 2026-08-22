@@ -1144,7 +1144,7 @@ h3 {
   margin-top: 10px;
 }
 
-.language-poll a {
+.language-poll button {
   min-height: 40px;
   display: inline-flex;
   align-items: center;
@@ -1155,19 +1155,28 @@ h3 {
   color: #edf5f7;
   font-size: 12px;
   font-weight: 720;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
 }
 
-.language-poll a:hover,
-.language-poll a:focus-visible {
+.language-poll button:hover,
+.language-poll button:focus-visible {
   border-color: var(--cyan);
   background: rgba(39, 226, 255, 0.13);
   transform: translateY(-1px);
 }
 
-.language-poll a:nth-child(1) { border-color: rgba(255, 153, 31, 0.48); }
-.language-poll a:nth-child(2) { border-color: rgba(39, 226, 255, 0.48); }
-.language-poll a:nth-child(3) { border-color: rgba(183, 139, 255, 0.48); }
-.language-poll a:nth-child(4) { border-color: rgba(181, 255, 88, 0.42); }
+.language-poll button.selected {
+  background: rgba(181, 255, 88, 0.16);
+  border-color: rgba(181, 255, 88, 0.82);
+  color: #ffffff;
+}
+
+.language-poll button:nth-child(1) { border-color: rgba(255, 153, 31, 0.48); }
+.language-poll button:nth-child(2) { border-color: rgba(39, 226, 255, 0.48); }
+.language-poll button:nth-child(3) { border-color: rgba(183, 139, 255, 0.48); }
+.language-poll button:nth-child(4) { border-color: rgba(181, 255, 88, 0.42); }
 
 .poll-note {
   grid-column: 1 / -1;
@@ -1176,9 +1185,11 @@ h3 {
   color: #9fa9b6 !important;
 }
 
-.language-poll a::after {
-  content: "↗";
-  margin-left: 6px;
+.language-poll button::after {
+  content: "+";
+  margin-left: 7px;
+  color: currentColor;
+  opacity: 0.72;
 }
 
 footer {
@@ -1357,7 +1368,7 @@ footer > a:last-child {
     width: 100%;
   }
 
-  .language-poll a {
+  .language-poll button {
     min-height: 44px;
   }
 

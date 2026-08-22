@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://ramblefix.app/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101214'/%3E%3Cpath d='M12 34c5-18 10 18 15 0s10 18 15 0 10 18 15 0' fill='none' stroke='%2327e2ff' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M12 28c5-13 10 13 15 0s10 13 15 0 10 13 15 0' fill='none' stroke='%23b5ff58' stroke-width='4' stroke-linecap='round' opacity='.88'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="./styles.css?v=20260821g" />
+    <link rel="stylesheet" href="./styles.css?v=20260822a" />
   </head>
   <body>
     <header class="site-nav">
@@ -64,7 +64,7 @@
             <div><strong>Top-tier</strong><span>English meaning kept intact</span></div>
             <div><strong>$0</strong><span>with no cloud, account, or subscription</span></div>
           </div>
-          <p class="release-note">Free and open source. Signed Apple silicon builds are ready now: English and Hindi + English.</p>
+          <p class="release-note">Free and open source. Download opens the canonical GitHub Releases page. English and Hindi + English are the supported modes.</p>
         </div>
 
         <div class="product-moment" id="product-moment" aria-label="Animated RambleFix dictation example">
@@ -299,12 +299,12 @@
           <a class="button secondary" href="https://github.com/sohamsinha2018/ramblefix/discussions" data-analytics-event="site cta clicked" data-analytics-target="feedback">Share feedback</a>
         </div>
         <div class="language-poll" aria-label="Next bilingual mode poll">
-          <a data-vote="tagalog" href="https://github.com/sohamsinha2018/ramblefix/discussions/11#discussioncomment-18055042" data-analytics-event="language vote clicked" data-analytics-target="tagalog">English + Tagalog</a>
-          <a data-vote="mandarin" href="https://github.com/sohamsinha2018/ramblefix/discussions/11#discussioncomment-18055043" data-analytics-event="language vote clicked" data-analytics-target="mandarin">English + Mandarin</a>
-          <a data-vote="spanish" href="https://github.com/sohamsinha2018/ramblefix/discussions/11#discussioncomment-18055044" data-analytics-event="language vote clicked" data-analytics-target="spanish">English + Spanish</a>
-          <a data-vote="other" href="https://github.com/sohamsinha2018/ramblefix/discussions/11#discussioncomment-18055045" data-analytics-event="language vote clicked" data-analytics-target="other">Another language mix</a>
+          <button type="button" data-vote="tagalog" data-label="English + Tagalog" data-analytics-event="language vote clicked" data-analytics-target="tagalog">English + Tagalog</button>
+          <button type="button" data-vote="mandarin" data-label="English + Mandarin" data-analytics-event="language vote clicked" data-analytics-target="mandarin">English + Mandarin</button>
+          <button type="button" data-vote="spanish" data-label="English + Spanish" data-analytics-event="language vote clicked" data-analytics-target="spanish">English + Spanish</button>
+          <button type="button" data-vote="other" data-label="Another language mix" data-analytics-event="language vote clicked" data-analytics-target="other">Another language mix</button>
         </div>
-        <p class="poll-note">Open your choice and tap 👍. Votes stay public on GitHub.</p>
+        <p class="poll-note" id="poll-note" aria-live="polite">Tap once to vote. Votes are counted anonymously; share details on GitHub if you want.</p>
       </section>
     </main>
 
@@ -570,6 +570,23 @@
           }).observe(hero);
         }
         draw(0);
+      })();
+
+      (function () {
+        var poll = document.querySelector(".language-poll");
+        var note = document.getElementById("poll-note");
+        if (!poll || !note) return;
+        poll.querySelectorAll("[data-vote]").forEach(function (button) {
+          button.addEventListener("click", function () {
+            poll.querySelectorAll("[data-vote]").forEach(function (other) {
+              other.classList.remove("selected");
+              other.removeAttribute("aria-pressed");
+            });
+            button.classList.add("selected");
+            button.setAttribute("aria-pressed", "true");
+            note.textContent = "Vote noted: " + (button.dataset.label || button.textContent.trim()) + ".";
+          });
+        });
       })();
     </script>
   </body>
