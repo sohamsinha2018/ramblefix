@@ -42,11 +42,11 @@ for text in \
   "Use English, or switch on Hindi + English" \
   "Download — English" \
   "Download — English + Hindi" \
-  "RambleFix-Lite-0.1.0.dmg" \
-  "RambleFix-HI-0.1.0.dmg" \
+  "https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" \
+  "https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-HI-0.1.0.dmg" \
   "View source" \
   "Star on GitHub" \
-  "Mac app for M1 or newer, macOS 13+" \
+  "Apple Silicon Mac (M1+), macOS 13+" \
   "DMG install flow" \
   "2.6×" \
   "faster local engine in our tests" \

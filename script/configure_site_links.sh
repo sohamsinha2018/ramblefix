@@ -57,6 +57,10 @@ replacements = {
         lite_url,
     'https://github.com/sohamsinha2018/ramblefix/releases/download/v0.1.0/RambleFix-HI-0.1.0.dmg':
         hi_url,
+    'https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg':
+        lite_url,
+    'https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-HI-0.1.0.dmg':
+        hi_url,
     'href="https://github.com/sohamsinha2018/ramblefix/releases"':
         f'href="{lite_url}"',
 }

@@ -24,14 +24,14 @@ Before publishing, configure the links in `index.html`:
 Command:
 
 ```bash
-RAMBLEFIX_LITE_DOWNLOAD_URL="https://github.com/<owner>/<repo>/releases/download/v0.1.0/RambleFix-Lite-0.1.0.dmg" \
-RAMBLEFIX_HI_DOWNLOAD_URL="https://github.com/<owner>/<repo>/releases/download/v0.1.0/RambleFix-HI-0.1.0.dmg" \
+RAMBLEFIX_LITE_DOWNLOAD_URL="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" \
+RAMBLEFIX_HI_DOWNLOAD_URL="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-HI-0.1.0.dmg" \
 RAMBLEFIX_GITHUB_URL="https://github.com/<owner>/<repo>" \
 RAMBLEFIX_DISCUSSIONS_URL="https://github.com/<owner>/<repo>/discussions" \
 script/configure_site_links.sh
 ```
 
-Do not link the bare `https://github.com/sohamsinha2018/ramblefix/releases` page from the public site. Download CTAs should point to stapled `.dmg` assets. Current public copy should say `Mac app for M1 or newer, macOS 13+`; the underlying release requirement is Apple silicon/arm64, with no Intel build tested or published yet.
+Do not link the bare `https://github.com/sohamsinha2018/ramblefix/releases` page from the public site. Download CTAs should point to stapled `.dmg` assets. Current public copy should say `Apple Silicon Mac (M1+), macOS 13+`; the underlying release requirement is Apple silicon/arm64, with no Intel build tested or published yet.
 
 The page has no signup or third-party browser runtime dependency. It sends only explicit,
 anonymous product events through the first-party `/api/track` endpoint. There is no
