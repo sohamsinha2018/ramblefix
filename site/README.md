@@ -31,7 +31,7 @@ RAMBLEFIX_DISCUSSIONS_URL="https://github.com/<owner>/<repo>/discussions" \
 script/configure_site_links.sh
 ```
 
-Do not link the bare `https://github.com/sohamsinha2018/ramblefix/releases` page from the public site. Download CTAs should point to stapled `.dmg` assets. Current public requirements: Apple Silicon Mac (M-series), macOS 13+, no Intel build.
+Do not link the bare `https://github.com/sohamsinha2018/ramblefix/releases` page from the public site. Download CTAs should point to stapled `.dmg` assets. Current public copy should say `Mac app for M1 or newer, macOS 13+`; the underlying release requirement is Apple silicon/arm64, with no Intel build tested or published yet.
 
 The page has no signup or third-party browser runtime dependency. It sends only explicit,
 anonymous product events through the first-party `/api/track` endpoint. There is no

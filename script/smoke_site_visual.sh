@@ -46,8 +46,7 @@ for text in \
   "RambleFix-HI-0.1.0.dmg" \
   "View source" \
   "Star on GitHub" \
-  "Apple Silicon Mac (M-series), macOS 13+" \
-  "No Intel build" \
+  "Mac app for M1 or newer, macOS 13+" \
   "DMG install flow" \
   "2.6×" \
   "faster local engine in our tests" \
