@@ -82,6 +82,7 @@ a {
 
 .brand,
 .site-nav nav,
+.nav-actions,
 .actions,
 .trust-line,
 .language-poll,
@@ -131,7 +132,8 @@ a {
 }
 
 .nav-action,
-.nav-download {
+.nav-download,
+.nav-source {
   min-height: 36px;
   display: inline-flex;
   align-items: center;
@@ -142,6 +144,18 @@ a {
   color: #fff;
   font-size: 12.5px;
   font-weight: 750;
+}
+
+.nav-actions {
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.nav-source {
+  border: 1px solid rgba(16, 18, 22, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  color: #34404d;
+  backdrop-filter: blur(16px);
 }
 
 .hero {
@@ -1425,6 +1439,17 @@ footer > a:last-child {
 
   .download-note,
   .release-note {
+    font-size: 11.5px;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .nav-source,
+  .nav-action {
+    min-height: 34px;
+    padding-inline: 11px;
     font-size: 11.5px;
   }
 

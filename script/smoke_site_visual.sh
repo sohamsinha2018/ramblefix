@@ -43,7 +43,8 @@ for text in \
   "Ramble. Release." \
   "Text lands." \
   "Hold the key, say what you need, release." \
-  "use Hindi + English when your thoughts mix languages" \
+  "Use Hindi + English when your thoughts mix languages" \
+  "Download RambleFix English version" \
   "Download — English" \
   "Download — English + Hindi" \
   "https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" \
