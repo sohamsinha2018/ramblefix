@@ -18,8 +18,7 @@ Before publishing, configure the links in `index.html`:
 - Download — English: direct stapled DMG asset URL.
 - Download — English + Hindi: direct stapled DMG asset URL.
 - View source code: public repo URL.
-- GitHub Discussions: repo discussions URL.
-- Join Discord: optional invite URL. If omitted, the secondary feedback button points to GitHub Discussions.
+- Language route issues: GitHub issues labelled `language route`.
 
 Command:
 
@@ -32,6 +31,10 @@ script/configure_site_links.sh
 ```
 
 Do not link the bare `https://github.com/sohamsinha2018/ramblefix/releases` page from the public site. Download CTAs should point to stapled `.dmg` assets. Current public copy should say `Apple Silicon Mac (M1+), macOS 13+`; the underlying release requirement is Apple silicon/arm64, with no Intel build tested or published yet.
+
+GitHub release notes should still exist for public credibility, but the v0.1.0 DMGs are larger than GitHub's per-asset limit. Keep the actual public install links on R2 unless the artifacts are reduced below 2 GiB or replaced with a smaller bootstrap installer.
+
+Contribution copy should not say "open a PR" without a reason. The agenda is: pick a language issue, add corpus/model/eval evidence, then PR a route or fix only if it improves the same benchmark without regressing English.
 
 Privacy copy must use this framing: "Your voice and transcribed text never leave your Mac. Optional anonymous usage stats (counts & timings only) are on to help improve the app — turn them off anytime."
 

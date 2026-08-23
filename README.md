@@ -1,5 +1,12 @@
 # RambleFix
 
+[![Release](https://img.shields.io/github/v/release/sohamsinha2018/ramblefix?label=release)](https://github.com/sohamsinha2018/ramblefix/releases/latest)
+[![Stars](https://img.shields.io/github/stars/sohamsinha2018/ramblefix?style=social)](https://github.com/sohamsinha2018/ramblefix/stargazers)
+[![License](https://img.shields.io/github/license/sohamsinha2018/ramblefix)](LICENSE)
+![macOS 13+](https://img.shields.io/badge/macOS-13%2B-black)
+![Apple Silicon](https://img.shields.io/badge/Apple%20Silicon-M1%2B-0f766e)
+![Local first](https://img.shields.io/badge/local--first-no%20cloud-65a30d)
+
 Free, local, open-source dictation for Mac.
 
 RambleFix is a tiny menu-bar app for fast work dictation. Hold the hotkey, speak, release, and the text lands in the focused app. It is built for Indian English, work terms, and light Hinglish without sending your audio to the cloud.
@@ -35,7 +42,13 @@ RambleFix V0 asks only for the permissions needed for dictation:
 
 ## Install
 
-Public installs should use the signed and notarized DMG linked from `https://ramblefix.app/`. If the public download buttons are not live, the one-click installer is not ready.
+Public installs should use the signed and notarized DMG linked from `https://ramblefix.app/`.
+
+- [Download RambleFix Lite — English](https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg)
+- [Download RambleFix HI — English + Hindi](https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-HI-0.1.0.dmg)
+- [View the v0.1.0 release notes](https://github.com/sohamsinha2018/ramblefix/releases/latest)
+
+Requirements: Apple Silicon Mac (M1+), macOS 13+.
 
 Local developer install:
 
@@ -104,7 +117,26 @@ Public submissions and profiles worth studying:
 
 Builder profiles without a live public STT repo link verified in this audit: [Darshan](https://www.builderr.ai/builders/darshan), [Vishal](https://www.builderr.ai/builders/vishal).
 
-If you want to add a new language route, fork RambleFix, open a PR, and add your Builderr profile or public experiment here.
+## Contribute
+
+Star the repo if you want a free local dictation tool to exist. Fork it if you want to improve meaning, add languages, or build your own private workflow on top of it.
+
+Please avoid broad PRs without evidence. Useful contributions add reproducible evidence:
+
+- representative audio clips and gold transcripts for a language mix
+- local model/runtime candidates that can run on-device
+- same-audio benchmark results versus the current RambleFix path
+- a small route or fix that passes the regression gates
+- clear notes on what improved and what did not
+
+Open language tracks:
+
+- [English + Mandarin](https://github.com/sohamsinha2018/ramblefix/issues/12)
+- [English + Tagalog](https://github.com/sohamsinha2018/ramblefix/issues/13)
+- [English + Spanish](https://github.com/sohamsinha2018/ramblefix/issues/14)
+- [Propose another language mix](https://github.com/sohamsinha2018/ramblefix/issues/new?title=Language%20contribution%3A%20English%20%2B%20%5Blanguage%5D&body=Language%20mix%3A%0A%0AWhat%20you%20can%20help%20with%20(model%2C%20corpus%2C%20eval%2C%20runtime)%3A%0A%0ASample%20clips%20or%20public%20corpus%3A)
+
+If your PR ships or materially informs a route, add your Builderr profile or public experiment to the builder table above.
 
 ## License
 

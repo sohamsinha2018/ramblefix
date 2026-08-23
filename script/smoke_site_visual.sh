@@ -46,20 +46,21 @@ for text in \
   "Ramble. Release." \
   "Text lands." \
   "Hold the key, say what you need, release." \
-  "Use Hindi + English when your thoughts mix languages" \
+  "Choose Hindi + English when your thoughts mix languages" \
   "Download RambleFix English version" \
+  "Download English" \
   "Download — English" \
   "Download — English + Hindi" \
   "$LITE_DMG_URL" \
   "$HI_DMG_URL" \
-  "GitHub source" \
+  "View source" \
   "View source code" \
-  "Fork it, build on top, or open a PR for the next language route." \
+  "Fork it, build on top, or pick a language issue to help with the next route." \
   "Apple Silicon Mac (M1+), macOS 13+" \
   "DMG install flow" \
   "2.6×" \
-  "3-4× speed" \
-  "for AI prompts by voice" \
+  "3-4× AI input speed" \
+  "voice can beat typing for prompts" \
   "faster local engine in our tests" \
   "English meaning kept intact" \
   "Use voice to give AI fuller instructions" \
@@ -95,7 +96,7 @@ for text in \
   "Darshan profile ↗" \
   "Vishwas profile ↗" \
   "Profiles and repositories link to GitHub, LinkedIn, and submitted work where shared." \
-  "Builders can fork RambleFix and open PRs for new language routes." \
+  "Builders can fork RambleFix, pick a language issue, and contribute corpus/model/eval evidence before opening a route PR." \
   "View the Builderr challenge and final results" \
   "https://www.builderr.ai/builders/arnav" \
   "https://www.builderr.ai/builders/sankeerth" \
@@ -108,14 +109,17 @@ for text in \
   "https://builderr.ai/speech-to-text" \
   "security-review.html" \
   "What should we make bilingual next?" \
-  "Builders who want to help can fork the repo, add corpus/model/eval support, and open a PR." \
+  "Builders who want to help can pick an issue, add corpus/model/eval evidence, and PR a route only when it improves the benchmark." \
   "English + Tagalog" \
+  "https://github.com/sohamsinha2018/ramblefix/issues/12" \
+  "https://github.com/sohamsinha2018/ramblefix/issues/13" \
+  "https://github.com/sohamsinha2018/ramblefix/issues/14" \
   "Tap once to vote anonymously" \
   "aria-pressed=\"false\"" \
   "Vote noted: <strong>" \
-  "contribute a language route on GitHub" \
-  "fork it or contribute on GitHub" \
-  "Contribute a language" \
+  "add corpus, model, or eval evidence on GitHub" \
+  "pick a language issue on GitHub" \
+  "Pick a language issue" \
   "Download"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-smoke.html; then
     echo "site visual smoke failed: missing text: $text" >&2
@@ -159,7 +163,7 @@ if grep -Fq 'href="https://github.com/sohamsinha2018/ramblefix/releases"' /tmp/r
 fi
 
 for contract in \
-  'styles.css?v=20260823e' \
+  'styles.css?v=20260823f' \
   'class="nav-action nav-source"' \
   'data-analytics-target="nav_source"' \
   'data-analytics-target="nav_lite"' \

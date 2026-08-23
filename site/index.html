@@ -18,7 +18,7 @@
     <link rel="canonical" href="https://ramblefix.app/" />
     <link rel="icon" type="image/png" href="./app-icon.png" />
     <link rel="apple-touch-icon" href="./app-icon.png" />
-    <link rel="stylesheet" href="./styles.css?v=20260823e" />
+    <link rel="stylesheet" href="./styles.css?v=20260823f" />
   </head>
   <body>
     <header class="site-nav">
@@ -34,7 +34,7 @@
       </nav>
       <div class="nav-actions">
         <a class="nav-action nav-source" href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="site cta clicked" data-analytics-target="nav_source">View source</a>
-        <a class="nav-action" href="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" aria-label="Download RambleFix English version" data-analytics-event="download requested" data-analytics-target="nav_lite">Download</a>
+        <a class="nav-action nav-download-lite" href="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" aria-label="Download RambleFix English version" data-analytics-event="download requested" data-analytics-target="nav_lite">Download English</a>
       </div>
     </header>
 
@@ -57,7 +57,7 @@
           <p class="lede">
             Hold the key, say what you need, release. RambleFix types it almost instantly,
             keeps the meaning, and stays on your Mac. Use voice to give AI fuller instructions.
-            Use Hindi + English when your thoughts mix languages.
+            Choose Hindi + English when your thoughts mix languages.
           </p>
           <div class="actions">
             <a class="button primary" href="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" data-analytics-event="download requested" data-analytics-target="hero_lite">Download — English</a>
@@ -65,12 +65,12 @@
           </div>
           <p class="download-note">
             Apple Silicon Mac (M1+), macOS 13+. English is smaller (~2 GB);
-            English + Hindi is ~3.7 GB. <a href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="site cta clicked" data-analytics-target="hero_source">GitHub source</a>.
-            Fork it, build on top, or open a PR for the next language route.
+            English + Hindi is ~3.7 GB. <a href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="site cta clicked" data-analytics-target="hero_source">View source</a>.
+            Fork it, build on top, or pick a language issue to help with the next route.
           </p>
           <div class="hero-proof" aria-label="Headline benchmark results">
             <div><strong>2.6×</strong><span>faster local engine in our tests</span></div>
-            <div><strong>3-4× speed</strong><span>for AI prompts by voice</span></div>
+            <div><strong>3-4× AI input speed</strong><span>voice can beat typing for prompts</span></div>
             <div><strong>Top-tier</strong><span>English meaning kept intact</span></div>
             <div><strong>$0</strong><span>with no cloud, account, or subscription</span></div>
           </div>
@@ -317,7 +317,7 @@
               <a href="https://github.com/vishwasvoc/builderr-speech-to-text" data-analytics-event="builder profile clicked" data-analytics-target="vishwas_submission">Vishwas submission ↗</a>
             </div>
           </article>
-          <p class="builder-profile-note">Profiles and repositories link to GitHub, LinkedIn, and submitted work where shared. Builders can fork RambleFix and open PRs for new language routes.</p>
+          <p class="builder-profile-note">Profiles and repositories link to GitHub, LinkedIn, and submitted work where shared. Builders can fork RambleFix, pick a language issue, and contribute corpus/model/eval evidence before opening a route PR.</p>
         </div>
       </section>
 
@@ -327,21 +327,21 @@
           <h2>What should we make bilingual next?</h2>
           <p>
             English and Hindi + English are ready. Vote for the language mix RambleFix should learn next.
-            Builders who want to help can fork the repo, add corpus/model/eval support, and open a PR.
+            Builders who want to help can pick an issue, add corpus/model/eval evidence, and PR a route only when it improves the benchmark.
           </p>
         </div>
         <div class="final-actions">
           <a class="button primary" href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="site cta clicked" data-analytics-target="footer_source">View source code</a>
-          <a class="button secondary" href="https://github.com/sohamsinha2018/ramblefix/issues/new?title=Language%20contribution%3A%20English%20%2B%20%5Blanguage%5D&body=Language%20mix%3A%0A%0AWhat%20you%20can%20help%20with%20(model%2C%20corpus%2C%20eval%2C%20runtime)%3A%0A%0ASample%20clips%20or%20public%20corpus%3A" data-analytics-event="site cta clicked" data-analytics-target="language_contribution">Contribute a language</a>
+          <a class="button secondary" href="https://github.com/sohamsinha2018/ramblefix/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22language%20route%22" data-analytics-event="site cta clicked" data-analytics-target="language_contribution">Pick a language issue</a>
         </div>
         <div class="language-poll" aria-label="Next bilingual mode poll">
-          <button type="button" data-vote="tagalog" data-label="English + Tagalog" data-analytics-event="language vote clicked" data-analytics-target="tagalog" aria-pressed="false">English + Tagalog</button>
-          <button type="button" data-vote="mandarin" data-label="English + Mandarin" data-analytics-event="language vote clicked" data-analytics-target="mandarin" aria-pressed="false">English + Mandarin</button>
-          <button type="button" data-vote="spanish" data-label="English + Spanish" data-analytics-event="language vote clicked" data-analytics-target="spanish" aria-pressed="false">English + Spanish</button>
-          <button type="button" data-vote="other" data-label="Another language mix" data-analytics-event="language vote clicked" data-analytics-target="other" aria-pressed="false">Another language mix</button>
+          <button type="button" data-vote="tagalog" data-label="English + Tagalog" data-issue="https://github.com/sohamsinha2018/ramblefix/issues/13" data-analytics-event="language vote clicked" data-analytics-target="tagalog" aria-pressed="false">English + Tagalog</button>
+          <button type="button" data-vote="mandarin" data-label="English + Mandarin" data-issue="https://github.com/sohamsinha2018/ramblefix/issues/12" data-analytics-event="language vote clicked" data-analytics-target="mandarin" aria-pressed="false">English + Mandarin</button>
+          <button type="button" data-vote="spanish" data-label="English + Spanish" data-issue="https://github.com/sohamsinha2018/ramblefix/issues/14" data-analytics-event="language vote clicked" data-analytics-target="spanish" aria-pressed="false">English + Spanish</button>
+          <button type="button" data-vote="other" data-label="Another language mix" data-issue="https://github.com/sohamsinha2018/ramblefix/issues/new?title=Language%20contribution%3A%20English%20%2B%20%5Blanguage%5D&body=Language%20mix%3A%0A%0AWhat%20you%20can%20help%20with%20(model%2C%20corpus%2C%20eval%2C%20runtime)%3A%0A%0ASample%20clips%20or%20public%20corpus%3A" data-analytics-event="language vote clicked" data-analytics-target="other" aria-pressed="false">Another language mix</button>
         </div>
         <p class="poll-note" id="poll-note" aria-live="polite">
-          Tap once to vote anonymously. Want to build it? <a href="https://github.com/sohamsinha2018/ramblefix/issues/new?title=Language%20contribution%3A%20English%20%2B%20%5Blanguage%5D&body=Language%20mix%3A%0A%0AWhat%20you%20can%20help%20with%20(model%2C%20corpus%2C%20eval%2C%20runtime)%3A%0A%0ASample%20clips%20or%20public%20corpus%3A" data-analytics-event="site cta clicked" data-analytics-target="poll_language_contribution">fork it or contribute on GitHub</a>.
+          Tap once to vote anonymously. Want to build it? <a href="https://github.com/sohamsinha2018/ramblefix/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22language%20route%22" data-analytics-event="site cta clicked" data-analytics-target="poll_language_contribution">pick a language issue on GitHub</a>.
         </p>
       </section>
     </main>
@@ -661,7 +661,6 @@
       (function () {
         var poll = document.querySelector(".language-poll");
         var note = document.getElementById("poll-note");
-        var contributionUrl = "https://github.com/sohamsinha2018/ramblefix/issues/new?title=Language%20contribution%3A%20English%20%2B%20%5Blanguage%5D&body=Language%20mix%3A%0A%0AWhat%20you%20can%20help%20with%20(model%2C%20corpus%2C%20eval%2C%20runtime)%3A%0A%0ASample%20clips%20or%20public%20corpus%3A";
         if (!poll || !note) return;
         poll.querySelectorAll("[data-vote]").forEach(function (button) {
           button.addEventListener("click", function () {
@@ -672,7 +671,8 @@
             button.classList.add("selected");
             button.setAttribute("aria-pressed", "true");
             var label = button.dataset.label || button.textContent.trim();
-            note.innerHTML = "Vote noted: <strong>" + label + "</strong>. Builders can <a href=\"" + contributionUrl + "\">contribute a language route on GitHub</a>.";
+            var issueUrl = button.dataset.issue || "https://github.com/sohamsinha2018/ramblefix/issues";
+            note.innerHTML = "Vote noted: <strong>" + label + "</strong>. Builders can <a href=\"" + issueUrl + "\">add corpus, model, or eval evidence on GitHub</a>.";
           });
         });
       })();

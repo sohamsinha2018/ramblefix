@@ -1454,6 +1454,22 @@ footer > a:last-child {
     font-size: 11.5px;
   }
 
+  .nav-source,
+  .nav-download-lite {
+    min-width: 90px;
+    font-size: 0;
+  }
+
+  .nav-source::before {
+    content: "Source";
+    font-size: 11.5px;
+  }
+
+  .nav-download-lite::before {
+    content: "Download";
+    font-size: 11.5px;
+  }
+
   .hero-proof {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
