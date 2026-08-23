@@ -52,6 +52,7 @@ for text in \
   "Download — English + Hindi" \
   "$LITE_DMG_URL" \
   "$HI_DMG_URL" \
+  "GitHub source" \
   "View source code" \
   "Fork it, build on top, or open a PR for the next language route." \
   "Apple Silicon Mac (M1+), macOS 13+" \
