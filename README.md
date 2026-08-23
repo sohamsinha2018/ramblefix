@@ -82,6 +82,30 @@ Current release audit: [docs/release_readiness_audit_20260630.md](docs/release_r
 
 Security and release checklist: [docs/org_security_approval_and_mac_release_checklist.md](docs/org_security_approval_and_mac_release_checklist.md)
 
+## Built With Builders
+
+RambleFix was shaped through a public Builderr.ai speech-to-text challenge: keep English fast and accurate while adding useful Hindi + English, all locally.
+
+- Challenge and final results: [builderr.ai/speech-to-text](https://builderr.ai/speech-to-text)
+- Starter/reference challenge repo: [builderr-ai/builderr-speech-to-text](https://github.com/builderr-ai/builderr-speech-to-text)
+- Sponsor: [Amit Kumar](https://in.linkedin.com/in/urbansanyasi)
+
+Public submissions and profiles worth studying:
+
+| Builder | Builderr profile | Public submission |
+| --- | --- | --- |
+| Sankeerth | [builderr.ai/builders/sankeerth](https://www.builderr.ai/builders/sankeerth) | [San245o/builderr-speech-to-text](https://github.com/San245o/builderr-speech-to-text) |
+| Arnav Chauhan | [builderr.ai/builders/arnav](https://www.builderr.ai/builders/arnav) | [arnav-chauhan-kgpian/hindi-english-raaaa](https://github.com/arnav-chauhan-kgpian/hindi-english-raaaa) |
+| Vishwas | [builderr.ai/builders/vishwas](https://www.builderr.ai/builders/vishwas) | [vishwasvoc/builderr-speech-to-text](https://github.com/vishwasvoc/builderr-speech-to-text) |
+| Rishchith | [builderr.ai/builders/rishchith](https://www.builderr.ai/builders/rishchith) | [Rishchith/builderr-speech-to-text](https://github.com/Rishchith/builderr-speech-to-text) |
+| Sham | [builderr.ai/builders/sham](https://www.builderr.ai/builders/sham) | [sham-1912/builderr-speech-to-text](https://github.com/sham-1912/builderr-speech-to-text) |
+| Harsimran | [builderr.ai/builders/harsimran](https://www.builderr.ai/builders/harsimran) | [Harsimran-Dalal/speech-to-text](https://github.com/Harsimran-Dalal/speech-to-text) |
+| Meet | [builderr.ai/builders/meet](https://www.builderr.ai/builders/meet) | [meet252501/speech-rebo](https://github.com/meet252501/speech-rebo) |
+
+Builder profiles without a live public STT repo link verified in this audit: [Darshan](https://www.builderr.ai/builders/darshan), [Vishal](https://www.builderr.ai/builders/vishal).
+
+If you want to add a new language route, fork RambleFix, open a PR, and add your Builderr profile or public experiment here.
+
 ## License
 
 RambleFix source code is MIT licensed. Public release artifacts that embed third-party models or native binaries must include their third-party notices before release.

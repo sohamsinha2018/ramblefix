@@ -90,14 +90,20 @@ for text in \
   "Darshan" \
   "Vishwas" \
   "View Builderr profile ↗" \
+  "GitHub submission ↗" \
+  "Vishwas submission ↗" \
   "Darshan profile ↗" \
   "Vishwas profile ↗" \
-  "Profiles include their GitHub, LinkedIn, and submitted work where shared." \
+  "Profiles and repositories link to GitHub, LinkedIn, and submitted work where shared." \
+  "Builders can fork RambleFix and open PRs for new language routes." \
   "View the Builderr challenge and final results" \
   "https://www.builderr.ai/builders/arnav" \
   "https://www.builderr.ai/builders/sankeerth" \
   "https://www.builderr.ai/builders/darshan" \
   "https://www.builderr.ai/builders/vishwas" \
+  "https://github.com/arnav-chauhan-kgpian/hindi-english-raaaa" \
+  "https://github.com/San245o/builderr-speech-to-text" \
+  "https://github.com/vishwasvoc/builderr-speech-to-text" \
   "https://in.linkedin.com/in/urbansanyasi" \
   "https://builderr.ai/speech-to-text" \
   "security-review.html" \
