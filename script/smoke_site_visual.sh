@@ -58,11 +58,14 @@ for text in \
   "Fork it, build on top, or pick a language issue to help with the next route." \
   "Apple Silicon Mac (M1+), macOS 13+" \
   "DMG install flow" \
-  "2.6×" \
-  "3-4× AI input speed" \
-  "voice can beat typing for prompts" \
-  "faster local engine in our tests" \
+  "2.6× faster" \
+  "3×+ AI efficiency" \
+  "more context, less typing" \
+  "local engine in our tests" \
+  "Top-tier meaning" \
   "English meaning kept intact" \
+  "\$0 local" \
+  "no cloud, account, or subscription" \
   "Use voice to give AI fuller instructions" \
   "Use your voice wherever you would normally type." \
   "Fn" \
@@ -163,7 +166,7 @@ if grep -Fq 'href="https://github.com/sohamsinha2018/ramblefix/releases"' /tmp/r
 fi
 
 for contract in \
-  'styles.css?v=20260823f' \
+  'styles.css?v=20260823g' \
   'class="nav-action nav-source"' \
   'data-analytics-target="nav_source"' \
   'data-analytics-target="nav_lite"' \

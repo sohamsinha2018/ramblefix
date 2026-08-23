@@ -347,7 +347,7 @@ h3 {
 
 .hero-proof strong {
   margin-bottom: 4px;
-  font-size: 22px;
+  font-size: 21px;
   line-height: 1;
 }
 
@@ -1480,7 +1480,8 @@ footer > a:last-child {
   }
 
   .hero-proof strong {
-    font-size: 19px;
+    font-size: 18px;
+    line-height: 1.05;
   }
 
   .hero-proof span {
