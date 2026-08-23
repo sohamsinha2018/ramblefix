@@ -45,12 +45,12 @@ for text in \
   "https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" \
   "https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-HI-0.1.0.dmg" \
   "View source code" \
-  "Fork it, build on top, or help add the next language." \
+  "Fork it, build on top, or open a PR for the next language route." \
   "Apple Silicon Mac (M1+), macOS 13+" \
   "DMG install flow" \
   "2.6×" \
-  "3-4×" \
-  "voice input can beat typing" \
+  "3-4× speed" \
+  "voice input vs typing" \
   "faster local engine in our tests" \
   "English meaning kept intact" \
   "Use voice to give AI fuller instructions" \
@@ -73,27 +73,33 @@ for text in \
   "adding strong Hindi + English" \
   "We crowdsourced routes through" \
   "improved verified outcomes" \
+  "Amit Kumar" \
+  "Sponsored the local Hindi + English challenge" \
+  "Sponsor profile ↗" \
   "Arnav Chauhan" \
   "Sankeerth" \
   "Darshan" \
   "Vishwas" \
-  "Builderr profile ↗" \
+  "View Builderr profile ↗" \
   "Darshan profile ↗" \
   "Vishwas profile ↗" \
+  "Profiles include their GitHub, LinkedIn, and submitted work where shared." \
   "View the Builderr challenge and final results" \
   "https://www.builderr.ai/builders/arnav" \
   "https://www.builderr.ai/builders/sankeerth" \
   "https://www.builderr.ai/builders/darshan" \
   "https://www.builderr.ai/builders/vishwas" \
+  "https://in.linkedin.com/in/urbansanyasi" \
   "https://builderr.ai/speech-to-text" \
   "security-review.html" \
   "What should we make bilingual next?" \
-  "Builders who want to help with a new language route can contribute on GitHub." \
+  "Builders who want to help can fork the repo, add corpus/model/eval support, and open a PR." \
   "English + Tagalog" \
   "Tap once to vote anonymously" \
   "aria-pressed=\"false\"" \
   "Vote noted: <strong>" \
   "contribute a language route on GitHub" \
+  "fork it or contribute on GitHub" \
   "Contribute a language" \
   "Download"; do
   if ! grep -Fq "$text" /tmp/ramblefix-site-smoke.html; then

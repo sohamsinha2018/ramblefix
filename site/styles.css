@@ -1067,15 +1067,19 @@ h3 {
 
 .builder-story-copy > p a,
 .builder-contributors strong a {
-  color: inherit;
-  text-decoration-color: rgba(20, 115, 131, 0.38);
-  text-decoration-thickness: 1px;
+  color: #137383;
+  font-weight: 820;
+  text-decoration: underline;
+  text-decoration-color: rgba(20, 115, 131, 0.58);
+  text-decoration-thickness: 1.4px;
   text-underline-offset: 3px;
 }
 
 .builder-story-copy > p a:hover,
-.builder-contributors strong a:hover {
-  color: #147383;
+.builder-story-copy > p a:focus-visible,
+.builder-contributors strong a:hover,
+.builder-contributors strong a:focus-visible {
+  color: #0f5964;
   text-decoration-color: currentColor;
 }
 
@@ -1127,13 +1131,22 @@ h3 {
   color: #147383;
   font-size: 12px;
   font-weight: 760;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: rgba(20, 115, 131, 0.46);
+  text-underline-offset: 3px;
 }
 
 .builder-profile-links a:hover,
 .builder-profile-links a:focus-visible {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.builder-profile-note {
+  margin: 4px 0 0;
+  color: #66717f;
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 .final-cta {
