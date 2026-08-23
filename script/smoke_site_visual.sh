@@ -211,12 +211,28 @@ done
 for text in \
   '"builderr clicked"' \
   '"builderr challenge clicked"' \
-  '"builder profile clicked"'; do
+  '"builder profile clicked"' \
+  '"sponsor profile clicked"'; do
   if ! grep -Fq "$text" "$ROOT/site/api/track.js"; then
     echo "site visual smoke failed: analytics API does not allow event: $text" >&2
     exit 1
   fi
 done
+
+python3 - <<'PY'
+from pathlib import Path
+import re
+import sys
+
+html = Path("site/index.html").read_text()
+api = Path("site/api/track.js").read_text()
+html_events = set(re.findall(r'data-analytics-event="([^"]+)"', html))
+api_events = set(re.findall(r'"([^"]+)"', api.split("]);", 1)[0]))
+missing = sorted(html_events - api_events)
+if missing:
+    print("site visual smoke failed: analytics events missing from API allowlist: " + ", ".join(missing), file=sys.stderr)
+    sys.exit(1)
+PY
 
 if grep -R -E -q 'phc_[A-Za-z0-9]+' "$ROOT/site" --exclude-dir=.vercel; then
   echo "site visual smoke failed: PostHog project token leaked into public site files" >&2

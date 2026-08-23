@@ -6,7 +6,8 @@ var allowedEvents = new Set([
   "demo switched",
   "builderr clicked",
   "builderr challenge clicked",
-  "builder profile clicked"
+  "builder profile clicked",
+  "sponsor profile clicked"
 ]);
 
 function clean(value, fallback, maxLength) {
