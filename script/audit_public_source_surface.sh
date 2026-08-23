@@ -136,6 +136,8 @@ pattern_allowlist = {
 }
 binary_allowlist = {
     Path("site/og.png"),
+    Path("site/app-icon.png"),
+    Path("native/RambleFixHotkey/Resources/AppIcon.icns"),
     Path("site/vendor/fonts/inter-latin.woff2"),
     Path("site/vendor/fonts/jetbrainsmono-latin.woff2"),
 }
