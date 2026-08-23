@@ -176,14 +176,14 @@ a {
 
 .hero-orb-card {
   position: absolute;
-  top: clamp(104px, 15vh, 168px);
-  right: calc(var(--rail-pad) + 8px);
+  top: clamp(88px, 13vh, 144px);
+  right: calc(var(--rail-pad) - 8px);
   z-index: 1;
-  width: 184px;
-  min-height: 204px;
+  width: 260px;
+  min-height: 286px;
   display: grid;
   place-items: center;
-  gap: 10px;
+  gap: 12px;
   color: #56616e;
   font-family: var(--mono);
   font-size: 9.5px;
@@ -192,12 +192,12 @@ a {
   opacity: 0.9;
 }
 
-.hero-orb {
-  width: 132px;
-  height: 132px;
+.hero-orb-card .hero-orb {
+  width: 220px;
+  height: 220px;
   filter:
-    drop-shadow(0 24px 40px rgba(39, 226, 255, 0.24))
-    drop-shadow(0 34px 54px rgba(16, 18, 22, 0.09));
+    drop-shadow(0 28px 48px rgba(39, 226, 255, 0.26))
+    drop-shadow(0 42px 66px rgba(16, 18, 22, 0.12));
 }
 
 .eyebrow {

@@ -42,8 +42,8 @@
             class="product-orb hero-orb"
             id="hero-orb"
             data-product-orb="native-v2"
-            width="128"
-            height="128"
+            width="220"
+            height="220"
           ></canvas>
           <span>local · ready</span>
         </div>
@@ -384,7 +384,7 @@
         var cycleTimer = null;
         var orbRatio = Math.min(window.devicePixelRatio || 1, 1.5);
         var orbSize = 64;
-        var heroOrbSize = 132;
+        var heroOrbSize = 220;
 
         function resizeProductOrb() {
           [
@@ -415,7 +415,8 @@
           var primaryHue = 187 + sessionShift + (processing ? Math.min(18, t % 5 * 3.6) : 0);
           var secondaryHue = 28 + sessionShift * 0.35;
           var center = size / 2;
-          var baseRadius = size * 0.34;
+          var heroSurface = size > 100;
+          var baseRadius = size * (heroSurface ? 0.38 : 0.34);
           var throb = processing && !reducedMotion
             ? -0.15 + 0.06 * Math.sin(t * 7.5) + 0.02 * Math.sin(t * 13)
             : 0;
@@ -442,7 +443,7 @@
           gradient.addColorStop(1, orbColor(primaryHue + 8, 0.16));
           context.save();
           context.shadowColor = orbColor(primaryHue, 0.25);
-          context.shadowBlur = Math.max(8, size * 0.18);
+          context.shadowBlur = Math.max(8, size * (heroSurface ? 0.24 : 0.18));
           context.shadowOffsetY = size * 0.05;
           context.beginPath();
           context.arc(center, center, radius, 0, Math.PI * 2);
@@ -476,6 +477,25 @@
           context.strokeStyle = orbColor(primaryHue, 0.22);
           context.lineWidth = Math.max(2, size * 0.044);
           context.stroke();
+
+          if (heroSurface) {
+            context.save();
+            var innerGlow = context.createRadialGradient(
+              center + radius * 0.28,
+              center + radius * 0.32,
+              radius * 0.04,
+              center,
+              center,
+              radius * 1.1
+            );
+            innerGlow.addColorStop(0, "rgba(5, 24, 30, 0.12)");
+            innerGlow.addColorStop(0.62, "rgba(5, 24, 30, 0)");
+            context.beginPath();
+            context.arc(center, center, radius * 0.98, 0, Math.PI * 2);
+            context.fillStyle = innerGlow;
+            context.fill();
+            context.restore();
+          }
 
           for (var copy = 0; copy < 2; copy += 1) {
             var direction = copy === 0 ? 1 : -1;
