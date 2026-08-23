@@ -105,17 +105,18 @@ RambleFix was shaped through a public Builderr.ai speech-to-text challenge: keep
 
 Public submissions and profiles worth studying:
 
-| Builder | Builderr profile | Public submission |
-| --- | --- | --- |
-| Sankeerth | [builderr.ai/builders/sankeerth](https://www.builderr.ai/builders/sankeerth) | [San245o/builderr-speech-to-text](https://github.com/San245o/builderr-speech-to-text) |
-| Arnav Chauhan | [builderr.ai/builders/arnav](https://www.builderr.ai/builders/arnav) | [arnav-chauhan-kgpian/hindi-english-raaaa](https://github.com/arnav-chauhan-kgpian/hindi-english-raaaa) |
-| Vishwas | [builderr.ai/builders/vishwas](https://www.builderr.ai/builders/vishwas) | [vishwasvoc/builderr-speech-to-text](https://github.com/vishwasvoc/builderr-speech-to-text) |
-| Rishchith | [builderr.ai/builders/rishchith](https://www.builderr.ai/builders/rishchith) | [Rishchith/builderr-speech-to-text](https://github.com/Rishchith/builderr-speech-to-text) |
-| Sham | [builderr.ai/builders/sham](https://www.builderr.ai/builders/sham) | [sham-1912/builderr-speech-to-text](https://github.com/sham-1912/builderr-speech-to-text) |
-| Harsimran | [builderr.ai/builders/harsimran](https://www.builderr.ai/builders/harsimran) | [Harsimran-Dalal/speech-to-text](https://github.com/Harsimran-Dalal/speech-to-text) |
-| Meet | [builderr.ai/builders/meet](https://www.builderr.ai/builders/meet) | [meet252501/speech-rebo](https://github.com/meet252501/speech-rebo) |
+| Builder | Status in RambleFix | What was used or learned | Builderr profile | Public submission |
+| --- | --- | --- | --- | --- |
+| Arnav Chauhan | Shipped | Product and technical term handling for Hindi + English mode. | [builderr.ai/builders/arnav](https://www.builderr.ai/builders/arnav) | [arnav-chauhan-kgpian/hindi-english-raaaa](https://github.com/arnav-chauhan-kgpian/hindi-english-raaaa) |
+| Sankeerth | Informed | Dictionary-as-context and important-word memory ideas shaped term learning. | [builderr.ai/builders/sankeerth](https://www.builderr.ai/builders/sankeerth) | [San245o/builderr-speech-to-text](https://github.com/San245o/builderr-speech-to-text) |
+| Darshan | Explored | Specialist routing and Hinglish finalizer ideas shaped benchmark strategy and roadmap. | [builderr.ai/builders/darshan](https://www.builderr.ai/builders/darshan) | No live public STT repo link verified yet. |
+| Vishwas | Explored | Faster follow-up and routing ideas helped pressure-test alternate paths. | [builderr.ai/builders/vishwas](https://www.builderr.ai/builders/vishwas) | [vishwasvoc/builderr-speech-to-text](https://github.com/vishwasvoc/builderr-speech-to-text) |
+| Rishchith | Reference | Useful fast-partial architecture; final path needs GPU/local runtime work before it can be used. | [builderr.ai/builders/rishchith](https://www.builderr.ai/builders/rishchith) | [Rishchith/builderr-speech-to-text](https://github.com/Rishchith/builderr-speech-to-text) |
+| Sham | Reference | Submission remains useful for comparison and regression ideas, but is not in the shipped route. | [builderr.ai/builders/sham](https://www.builderr.ai/builders/sham) | [sham-1912/builderr-speech-to-text](https://github.com/sham-1912/builderr-speech-to-text) |
+| Harsimran | Reference | Public implementation kept as a local STT comparison/reference path. | [builderr.ai/builders/harsimran](https://www.builderr.ai/builders/harsimran) | [Harsimran-Dalal/speech-to-text](https://github.com/Harsimran-Dalal/speech-to-text) |
+| Meet | Reference | Public implementation kept as a local STT comparison/reference path. | [builderr.ai/builders/meet](https://www.builderr.ai/builders/meet) | [meet252501/speech-rebo](https://github.com/meet252501/speech-rebo) |
 
-Builder profiles without a live public STT repo link verified in this audit: [Darshan](https://www.builderr.ai/builders/darshan), [Vishal](https://www.builderr.ai/builders/vishal).
+Builder profile without a live public STT repo link verified in this audit: [Vishal](https://www.builderr.ai/builders/vishal).
 
 ## Contribute
 

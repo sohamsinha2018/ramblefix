@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-PORT="${RAMBLEFIX_SITE_SMOKE_PORT:-8765}"
+PORT="${RAMBLEFIX_SITE_SMOKE_PORT:-$((18000 + RANDOM % 20000))}"
 OUT_DIR="${RAMBLEFIX_SITE_SMOKE_OUT:-$ROOT/output/playwright}"
 URL="http://127.0.0.1:$PORT"
 SERVER_PID=""
@@ -93,6 +93,12 @@ for text in \
   "Sankeerth" \
   "Darshan" \
   "Vishwas" \
+  "Also studied" \
+  "Rishchith" \
+  "Sham" \
+  "Harsimran" \
+  "Meet" \
+  "for fast-partial, comparison, and future route ideas." \
   "View Builderr profile ↗" \
   "GitHub submission ↗" \
   "Vishwas submission ↗" \
@@ -105,6 +111,10 @@ for text in \
   "https://www.builderr.ai/builders/sankeerth" \
   "https://www.builderr.ai/builders/darshan" \
   "https://www.builderr.ai/builders/vishwas" \
+  "https://www.builderr.ai/builders/rishchith" \
+  "https://www.builderr.ai/builders/sham" \
+  "https://www.builderr.ai/builders/harsimran" \
+  "https://www.builderr.ai/builders/meet" \
   "https://github.com/arnav-chauhan-kgpian/hindi-english-raaaa" \
   "https://github.com/San245o/builderr-speech-to-text" \
   "https://github.com/vishwasvoc/builderr-speech-to-text" \
@@ -166,7 +176,7 @@ if grep -Fq 'href="https://github.com/sohamsinha2018/ramblefix/releases"' /tmp/r
 fi
 
 for contract in \
-  'styles.css?v=20260823g' \
+  'styles.css?v=20260823h' \
   'class="nav-action nav-source"' \
   'data-analytics-target="nav_source"' \
   'data-analytics-target="nav_lite"' \

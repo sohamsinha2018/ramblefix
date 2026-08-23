@@ -1156,6 +1156,38 @@ h3 {
   text-underline-offset: 3px;
 }
 
+.builder-reference-list {
+  padding: 14px 18px;
+  border: 1px dashed rgba(16, 18, 22, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.46);
+}
+
+.builder-reference-list span {
+  display: block;
+  margin-bottom: 6px;
+  color: #147383;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 720;
+  text-transform: uppercase;
+}
+
+.builder-reference-list p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.builder-reference-list a {
+  color: #137383;
+  font-weight: 780;
+  text-decoration: underline;
+  text-decoration-color: rgba(20, 115, 131, 0.5);
+  text-underline-offset: 3px;
+}
+
 .builder-profile-note {
   margin: 4px 0 0;
   color: #66717f;
