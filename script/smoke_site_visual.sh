@@ -33,6 +33,8 @@ curl -fsS "$URL" >/tmp/ramblefix-site-smoke.html
 curl -fsS "$URL/styles.css" >/dev/null
 curl -fsS "$URL/app-icon.png" >/dev/null
 curl -fsS "$URL/analytics.js" >/tmp/ramblefix-site-analytics-smoke.js
+curl -fsS "$URL/benchmark-method.html" >/tmp/ramblefix-site-benchmark-smoke.html
+curl -fsS "$URL/security-review.html" >/tmp/ramblefix-site-security-smoke.html
 
 LITE_DOWNLOAD_URL="https://ramblefix-dl.ramblefix.workers.dev/dl/lite"
 HI_DOWNLOAD_URL="https://ramblefix-dl.ramblefix.workers.dev/dl/hi"
@@ -63,8 +65,8 @@ for text in \
   "Apple Silicon Mac (M1+), macOS 13+" \
   "DMG install flow" \
   "2.6× faster" \
-  "3×+ AI efficiency" \
-  "more context, less typing" \
+  "3-4× speed" \
+  "for AI prompts by voice" \
   "local engine in our tests" \
   "Top-tier meaning" \
   "English meaning kept intact" \
@@ -181,6 +183,22 @@ fi
 
 if grep -Fq 'pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-' /tmp/ramblefix-site-smoke.html; then
   echo "site visual smoke failed: public site should route download buttons through the Worker, not raw R2 DMG URLs" >&2
+  exit 1
+fi
+
+for page in /tmp/ramblefix-site-benchmark-smoke.html /tmp/ramblefix-site-security-smoke.html; do
+  if ! grep -Fq "$LITE_DOWNLOAD_URL" "$page"; then
+    echo "site visual smoke failed: secondary page download should route through Worker: $page" >&2
+    exit 1
+  fi
+  if grep -Fq 'pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-' "$page"; then
+    echo "site visual smoke failed: secondary page links raw R2 DMG URL: $page" >&2
+    exit 1
+  fi
+done
+
+if ! grep -Fq "connect-src 'self' https://ramblefix-dl.ramblefix.workers.dev" "$ROOT/site/vercel.json"; then
+  echo "site visual smoke failed: CSP must allow Worker count fetch and keep other connections blocked" >&2
   exit 1
 fi
 
