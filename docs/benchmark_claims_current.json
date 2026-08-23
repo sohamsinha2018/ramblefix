@@ -33,10 +33,22 @@
       "source_section": "english_handy_parity",
       "selector": {},
       "metrics": {
-        "n": {"source_key": "n", "expected": 676},
-        "ramblefix_meaning": {"source_key": "ramblefix_meaning", "expected": 0.8689},
-        "handy_meaning": {"source_key": "handy_meaning", "expected": 0.8744},
-        "delta": {"source_key": "delta", "expected": -0.0055}
+        "n": {
+          "source_key": "n",
+          "expected": 676
+        },
+        "ramblefix_meaning": {
+          "source_key": "ramblefix_meaning",
+          "expected": 0.8689
+        },
+        "handy_meaning": {
+          "source_key": "handy_meaning",
+          "expected": 0.8744
+        },
+        "delta": {
+          "source_key": "delta",
+          "expected": -0.0055
+        }
       },
       "site_must_contain": [
         "Statistically tied with Handy on English meaning across 676 clips",
@@ -49,10 +61,22 @@
       "source_section": "english_handy_speed",
       "selector": {},
       "metrics": {
-        "n": {"source_key": "n", "expected": 226},
-        "ramblefix_p50_ms": {"source_key": "ramblefix_p50_ms", "expected": 153.02},
-        "handy_p50_ms": {"source_key": "handy_p50_ms", "expected": 410.5},
-        "public_multiple": {"source_key": "public_multiple", "expected": 2.6}
+        "n": {
+          "source_key": "n",
+          "expected": 226
+        },
+        "ramblefix_p50_ms": {
+          "source_key": "ramblefix_p50_ms",
+          "expected": 153.02
+        },
+        "handy_p50_ms": {
+          "source_key": "handy_p50_ms",
+          "expected": 410.5
+        },
+        "public_multiple": {
+          "source_key": "public_multiple",
+          "expected": 2.6
+        }
       },
       "site_must_contain": [
         "2.6× faster median engine decode across 226 paired recordings",
@@ -65,10 +89,22 @@
       "source_section": "english_whisper_small",
       "selector": {},
       "metrics": {
-        "n": {"source_key": "n", "expected": 40},
-        "ramblefix_p50_ms": {"source_key": "ramblefix_p50_ms", "expected": 153},
-        "whisper_p50_ms": {"source_key": "whisper_p50_ms", "expected": 1105},
-        "ratio": {"source_key": "ratio", "expected": 7.2}
+        "n": {
+          "source_key": "n",
+          "expected": 40
+        },
+        "ramblefix_p50_ms": {
+          "source_key": "ramblefix_p50_ms",
+          "expected": 153
+        },
+        "whisper_p50_ms": {
+          "source_key": "whisper_p50_ms",
+          "expected": 1105
+        },
+        "ratio": {
+          "source_key": "ratio",
+          "expected": 7.2
+        }
       },
       "site_must_contain": [
         "7.2× faster in a same-audio engine test",
@@ -81,9 +117,18 @@
       "source_section": "router_hinglish_first_paste",
       "selector": {},
       "metrics": {
-        "n": {"source_key": "n", "expected": 13},
-        "meaning": {"source_key": "meaning", "expected": 0.885},
-        "terms": {"source_key": "terms", "expected": 0.701}
+        "n": {
+          "source_key": "n",
+          "expected": 13
+        },
+        "meaning": {
+          "source_key": "meaning",
+          "expected": 0.885
+        },
+        "terms": {
+          "source_key": "terms",
+          "expected": 0.701
+        }
       },
       "site_must_contain": [
         "~89% <small>meaning kept</small>",
@@ -107,8 +152,8 @@
       "Download — English",
       "Download — English + Hindi",
       "Apple Silicon Mac (M1+), macOS 13+.",
-      "https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg",
-      "https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-HI-0.1.0.dmg",
+      "https://ramblefix-dl.ramblefix.workers.dev/dl/lite",
+      "https://ramblefix-dl.ramblefix.workers.dev/dl/hi",
       "Same-WAV local benchmark",
       "Wispr Flow comparisons remain directional"
     ],
