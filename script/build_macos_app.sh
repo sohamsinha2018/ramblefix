@@ -32,6 +32,7 @@ resolve_codesign_identity() {
 swift build --package-path "$PACKAGE_DIR" --configuration "$CONFIGURATION"
 BIN_DIR="$(swift build --package-path "$PACKAGE_DIR" --configuration "$CONFIGURATION" --show-bin-path)"
 BINARY="$BIN_DIR/RambleFixHotkey"
+ICON_SOURCE="$PACKAGE_DIR/Resources/AppIcon.icns"
 
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
@@ -41,6 +42,10 @@ cp "$PACKAGE_DIR/Info.plist" "$APP/Contents/Info.plist"
 /usr/bin/plutil -replace CFBundleExecutable -string "$EXECUTABLE_NAME" "$APP/Contents/Info.plist"
 /usr/bin/plutil -replace CFBundleShortVersionString -string "$VERSION" "$APP/Contents/Info.plist"
 /usr/bin/plutil -replace CFBundleVersion -string "$BUILD_NUMBER" "$APP/Contents/Info.plist"
+if [[ -f "$ICON_SOURCE" ]]; then
+  cp "$ICON_SOURCE" "$APP/Contents/Resources/AppIcon.icns"
+  /usr/bin/plutil -replace CFBundleIconFile -string "AppIcon" "$APP/Contents/Info.plist"
+fi
 /usr/bin/plutil -replace NSAppleEventsUsageDescription -string "$APP_NAME pastes dictated text into the app you are using." "$APP/Contents/Info.plist"
 /usr/bin/plutil -replace NSMicrophoneUsageDescription -string "$APP_NAME records your voice for local dictation." "$APP/Contents/Info.plist"
 /usr/bin/plutil -replace NSInputMonitoringUsageDescription -string "$APP_NAME listens for Fn or Control to start local dictation." "$APP/Contents/Info.plist"

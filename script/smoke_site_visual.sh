@@ -31,7 +31,11 @@ done
 
 curl -fsS "$URL" >/tmp/ramblefix-site-smoke.html
 curl -fsS "$URL/styles.css" >/dev/null
+curl -fsS "$URL/app-icon.png" >/dev/null
 curl -fsS "$URL/analytics.js" >/tmp/ramblefix-site-analytics-smoke.js
+
+grep -q './app-icon.png' /tmp/ramblefix-site-smoke.html
+curl -fsS "$URL/styles.css" | grep -q './app-icon.png'
 
 for text in \
   "RambleFix" \

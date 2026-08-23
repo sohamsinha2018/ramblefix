@@ -98,27 +98,24 @@ a {
 
 .brand-mark {
   width: 32px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  border-radius: 7px;
-  background: var(--dark);
-  box-shadow: 0 8px 22px rgba(16, 18, 22, 0.18);
+  height: 32px;
+  display: block;
+  flex: 0 0 auto;
+  border-radius: 9px;
+  background: var(--dark) url("./app-icon.png") center / 122% 122% no-repeat;
+  box-shadow: 0 10px 24px rgba(16, 18, 22, 0.18);
+  overflow: hidden;
 }
 
 .brand-mark i {
-  width: 2px;
-  border-radius: 2px;
-  background: var(--cyan);
+  display: none;
 }
 
 .brand-mark i:nth-child(1),
-.brand-mark i:nth-child(5) { height: 6px; }
+.brand-mark i:nth-child(5),
 .brand-mark i:nth-child(2),
-.brand-mark i:nth-child(4) { height: 12px; background: var(--lime); }
-.brand-mark i:nth-child(3) { height: 17px; }
+.brand-mark i:nth-child(4),
+.brand-mark i:nth-child(3) { height: 0; }
 
 .site-nav nav {
   justify-content: center;
@@ -1274,12 +1271,7 @@ footer > a:last-child {
 }
 
 .brand-mark:empty::before {
-  content: "";
-  width: 18px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--cyan);
-  box-shadow: 0 -5px 0 var(--lime), 0 5px 0 var(--orange);
+  content: none;
 }
 
 .method-page {
