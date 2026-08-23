@@ -34,6 +34,9 @@ curl -fsS "$URL/styles.css" >/dev/null
 curl -fsS "$URL/app-icon.png" >/dev/null
 curl -fsS "$URL/analytics.js" >/tmp/ramblefix-site-analytics-smoke.js
 
+LITE_DMG_URL="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg"
+HI_DMG_URL="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-HI-0.1.0.dmg"
+
 grep -q './app-icon.png' /tmp/ramblefix-site-smoke.html
 curl -fsS "$URL/styles.css" | grep -q './app-icon.png'
 
@@ -47,8 +50,8 @@ for text in \
   "Download RambleFix English version" \
   "Download — English" \
   "Download — English + Hindi" \
-  "https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" \
-  "https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-HI-0.1.0.dmg" \
+  "$LITE_DMG_URL" \
+  "$HI_DMG_URL" \
   "View source code" \
   "Fork it, build on top, or open a PR for the next language route." \
   "Apple Silicon Mac (M1+), macOS 13+" \
@@ -147,6 +150,23 @@ if grep -Fq 'href="https://github.com/sohamsinha2018/ramblefix/releases"' /tmp/r
   echo "site visual smoke failed: bare GitHub releases page linked from public site" >&2
   exit 1
 fi
+
+for contract in \
+  'styles.css?v=20260823e' \
+  'class="nav-action nav-source"' \
+  'data-analytics-target="nav_source"' \
+  'data-analytics-target="nav_lite"' \
+  'aria-label="Download RambleFix English version"'; do
+  if ! grep -Fq "$contract" /tmp/ramblefix-site-smoke.html; then
+    echo "site visual smoke failed: missing header/download contract: $contract" >&2
+    exit 1
+  fi
+done
+
+curl -fsSIL --max-time 15 "$LITE_DMG_URL" >/tmp/ramblefix-lite-dmg-headers
+curl -fsSIL --max-time 15 "$HI_DMG_URL" >/tmp/ramblefix-hi-dmg-headers
+grep -q "200" /tmp/ramblefix-lite-dmg-headers
+grep -q "200" /tmp/ramblefix-hi-dmg-headers
 
 for text in \
   'data-analytics-event="download requested"' \
