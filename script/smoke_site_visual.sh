@@ -50,7 +50,7 @@ for text in \
   "DMG install flow" \
   "2.6×" \
   "3-4× speed" \
-  "voice input vs typing" \
+  "for AI prompts by voice" \
   "faster local engine in our tests" \
   "English meaning kept intact" \
   "Use voice to give AI fuller instructions" \

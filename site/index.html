@@ -42,8 +42,8 @@
             class="product-orb hero-orb"
             id="hero-orb"
             data-product-orb="native-v2"
-            width="96"
-            height="96"
+            width="128"
+            height="128"
           ></canvas>
           <span>local · ready</span>
         </div>
@@ -66,7 +66,7 @@
           </p>
           <div class="hero-proof" aria-label="Headline benchmark results">
             <div><strong>2.6×</strong><span>faster local engine in our tests</span></div>
-            <div><strong>3-4× speed</strong><span>voice input vs typing</span></div>
+            <div><strong>3-4× speed</strong><span>for AI prompts by voice</span></div>
             <div><strong>Top-tier</strong><span>English meaning kept intact</span></div>
             <div><strong>$0</strong><span>with no cloud, account, or subscription</span></div>
           </div>
@@ -246,7 +246,7 @@
             <p><strong>English meaning (n=676, updated 2026-08-18).</strong> RambleFix's shipped Apple Neural Engine path and Handy are statistically tied on the same saved WAVs and gold transcripts.</p>
             <p><strong>Engine speed (n=226).</strong> Warm median decode was 153ms for RambleFix vs 411ms for Handy: 2.68× measured, reported conservatively as 2.6×. Both models were warm and model loading was excluded.</p>
             <p><strong>Whisper comparison (n=40).</strong> Warm median decode was 153ms for RambleFix vs 1,105ms for whisper.cpp small.en: 7.2× faster. RambleFix meaning was 0.927 vs 0.908. whisper.cpp is an engine proxy for Whisper-based apps, not an app-level OpenWhispr result.</p>
-            <p><strong>Voice input context.</strong> Public dictation tools commonly frame voice as a 3-4× input-speed advantage over typing: Wispr Flow cites 45 wpm keyboard vs 220 wpm Flow, and Willow cites 150 wpm speech vs 40 wpm typing. We treat this as market context, not a RambleFix-specific productivity guarantee.</p>
+            <p><strong>Voice input context.</strong> Public dictation tools commonly frame voice as a 3-4× input-speed advantage over typing: Wispr Flow cites 45 wpm keyboard vs 220 wpm Flow, and Willow cites 150 wpm speech vs 40 wpm typing. We treat this as market context for AI prompts, not a RambleFix-specific productivity guarantee.</p>
             <p><strong>What “faster” means.</strong> These are transcription-engine decode tests, not symmetric release-to-paste app tests. Handy is the paired source of the 2.6× figure. End-to-end time also includes capture, routing, pasting, and optional structure.</p>
             <p><strong>Claim boundary.</strong> The evidence supports English meaning parity plus faster local engine decode. It does not support “faster than every app end-to-end” or a superiority claim over paid cloud tools.</p>
             <p><strong>Hindi+English n=13.</strong> RambleFix 88.5% vs 66.1-70.2% meaning kept for tested local general engines; terms 70.1%.</p>
@@ -384,16 +384,17 @@
         var cycleTimer = null;
         var orbRatio = Math.min(window.devicePixelRatio || 1, 1.5);
         var orbSize = 64;
+        var heroOrbSize = 132;
 
         function resizeProductOrb() {
           [
-            [heroOrbCanvas, heroOrbCtx],
-            [orbCanvas, orbCtx],
-            [orbExampleCanvas, orbExampleCtx]
+            [heroOrbCanvas, heroOrbCtx, heroOrbSize],
+            [orbCanvas, orbCtx, orbSize],
+            [orbExampleCanvas, orbExampleCtx, orbSize]
           ].forEach(function (surface) {
             if (!surface[0] || !surface[1]) return;
-            surface[0].width = Math.round(orbSize * orbRatio);
-            surface[0].height = Math.round(orbSize * orbRatio);
+            surface[0].width = Math.round(surface[2] * orbRatio);
+            surface[0].height = Math.round(surface[2] * orbRatio);
             surface[1].setTransform(orbRatio, 0, 0, orbRatio, 0, 0);
           });
         }
@@ -402,8 +403,9 @@
           return "hsla(" + hue + ", 86%, 58%, " + alpha + ")";
         }
 
-        function drawOrbSurface(context, now, orbPhase, dual, sessionShift) {
+        function drawOrbSurface(context, now, orbPhase, dual, sessionShift, surfaceSize) {
           if (!context) return;
+          var size = surfaceSize || orbSize;
           var t = now / 1000;
           var listening = orbPhase === "listening";
           var processing = orbPhase === "processing";
@@ -412,8 +414,8 @@
             : 0;
           var primaryHue = 187 + sessionShift + (processing ? Math.min(18, t % 5 * 3.6) : 0);
           var secondaryHue = 28 + sessionShift * 0.35;
-          var center = orbSize / 2;
-          var baseRadius = orbSize * 0.34;
+          var center = size / 2;
+          var baseRadius = size * 0.34;
           var throb = processing && !reducedMotion
             ? -0.15 + 0.06 * Math.sin(t * 7.5) + 0.02 * Math.sin(t * 13)
             : 0;
@@ -425,7 +427,7 @@
           var inflation = listening && !reducedMotion ? 1 + 0.12 * level : 1;
           var radius = baseRadius * inflation * (1 + 0.02 * Math.sin(t * 0.8) + throb);
 
-          context.clearRect(0, 0, orbSize, orbSize);
+          context.clearRect(0, 0, size, size);
 
           var gradient = context.createRadialGradient(
             center - radius * 0.2,
@@ -438,15 +440,41 @@
           gradient.addColorStop(0, "rgba(230, 255, 255, " + (0.64 + 0.14 * level) + ")");
           gradient.addColorStop(0.46, orbColor(primaryHue, 0.46));
           gradient.addColorStop(1, orbColor(primaryHue + 8, 0.16));
+          context.save();
+          context.shadowColor = orbColor(primaryHue, 0.25);
+          context.shadowBlur = Math.max(8, size * 0.18);
+          context.shadowOffsetY = size * 0.05;
           context.beginPath();
           context.arc(center, center, radius, 0, Math.PI * 2);
           context.fillStyle = gradient;
           context.fill();
+          context.restore();
+
+          context.save();
+          context.beginPath();
+          context.arc(center, center, radius * 0.98, 0, Math.PI * 2);
+          context.clip();
+          var highlight = context.createRadialGradient(
+            center - radius * 0.25,
+            center - radius * 0.32,
+            1,
+            center - radius * 0.2,
+            center - radius * 0.26,
+            radius * 0.55
+          );
+          highlight.addColorStop(0, "rgba(255, 255, 255, 0.44)");
+          highlight.addColorStop(0.48, "rgba(255, 255, 255, 0.14)");
+          highlight.addColorStop(1, "rgba(255, 255, 255, 0)");
+          context.beginPath();
+          context.ellipse(center - radius * 0.2, center - radius * 0.28, radius * 0.34, radius * 0.2, -0.36, 0, Math.PI * 2);
+          context.fillStyle = highlight;
+          context.fill();
+          context.restore();
 
           context.beginPath();
-          context.arc(center, center, radius + 1.5, 0, Math.PI * 2);
+          context.arc(center, center, radius + size * 0.025, 0, Math.PI * 2);
           context.strokeStyle = orbColor(primaryHue, 0.22);
-          context.lineWidth = 3;
+          context.lineWidth = Math.max(2, size * 0.044);
           context.stroke();
 
           for (var copy = 0; copy < 2; copy += 1) {
@@ -465,13 +493,13 @@
             context.strokeStyle = dual && processing
               ? orbColor(copy === 0 ? primaryHue : secondaryHue, 0.92)
               : orbColor(primaryHue, copy === 0 ? 0.95 : 0.55);
-            context.lineWidth = 1.6;
+            context.lineWidth = Math.max(1.6, size * 0.024);
             context.stroke();
           }
         }
 
         function drawProductOrb(now) {
-          drawOrbSurface(heroOrbCtx, now, "listening", false, -4);
+          drawOrbSurface(heroOrbCtx, now, "listening", false, -4, heroOrbSize);
           drawOrbSurface(orbCtx, now, phase, moment.classList.contains("dual"), [-8, 0, 16][current] || 0);
           drawOrbSurface(orbExampleCtx, now, "listening", false, 0);
         }
