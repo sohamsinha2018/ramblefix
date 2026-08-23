@@ -34,8 +34,8 @@ curl -fsS "$URL/styles.css" >/dev/null
 curl -fsS "$URL/app-icon.png" >/dev/null
 curl -fsS "$URL/analytics.js" >/tmp/ramblefix-site-analytics-smoke.js
 
-LITE_DMG_URL="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg"
-HI_DMG_URL="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-HI-0.1.0.dmg"
+LITE_DOWNLOAD_URL="https://ramblefix-dl.ramblefix.workers.dev/dl/lite"
+HI_DOWNLOAD_URL="https://ramblefix-dl.ramblefix.workers.dev/dl/hi"
 
 grep -q './app-icon.png' /tmp/ramblefix-site-smoke.html
 curl -fsS "$URL/styles.css" | grep -q './app-icon.png'
@@ -51,8 +51,12 @@ for text in \
   "Download English" \
   "Download — English" \
   "Download — English + Hindi" \
-  "$LITE_DMG_URL" \
-  "$HI_DMG_URL" \
+  "$LITE_DOWNLOAD_URL" \
+  "$HI_DOWNLOAD_URL" \
+  '<span id="dl-count" hidden></span>' \
+  'fetch("https://ramblefix-dl.ramblefix.workers.dev/count")' \
+  'if (data.visible)' \
+  'data.downloads.toLocaleString() + " downloads"' \
   "View source" \
   "View source code" \
   "Fork it, build on top, or pick a language issue to help with the next route." \
@@ -175,8 +179,13 @@ if grep -Fq 'href="https://github.com/sohamsinha2018/ramblefix/releases"' /tmp/r
   exit 1
 fi
 
+if grep -Fq 'pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-' /tmp/ramblefix-site-smoke.html; then
+  echo "site visual smoke failed: public site should route download buttons through the Worker, not raw R2 DMG URLs" >&2
+  exit 1
+fi
+
 for contract in \
-  'styles.css?v=20260823h' \
+  'styles.css?v=20260823i' \
   'class="nav-action nav-source"' \
   'data-analytics-target="nav_source"' \
   'data-analytics-target="nav_lite"' \
@@ -187,10 +196,12 @@ for contract in \
   fi
 done
 
-curl -fsSIL --max-time 15 "$LITE_DMG_URL" >/tmp/ramblefix-lite-dmg-headers
-curl -fsSIL --max-time 15 "$HI_DMG_URL" >/tmp/ramblefix-hi-dmg-headers
-grep -q "200" /tmp/ramblefix-lite-dmg-headers
-grep -q "200" /tmp/ramblefix-hi-dmg-headers
+for route in "$LITE_DOWNLOAD_URL" "$HI_DOWNLOAD_URL"; do
+  if ! grep -Fq "$route" /tmp/ramblefix-site-smoke.html; then
+    echo "site visual smoke failed: missing Worker download route: $route" >&2
+    exit 1
+  fi
+done
 
 for text in \
   'data-analytics-event="download requested"' \

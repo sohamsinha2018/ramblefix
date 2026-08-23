@@ -316,6 +316,23 @@ h3 {
   font-weight: 760;
 }
 
+#dl-count {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: 1px solid rgba(20, 115, 131, 0.18);
+  border-radius: 999px;
+  color: #176f7f;
+  background: rgba(255, 255, 255, 0.58);
+  font-size: 12px;
+  font-weight: 760;
+}
+
+#dl-count[hidden] {
+  display: none;
+}
+
 .release-note {
   margin-top: 6px;
 }

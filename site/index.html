@@ -18,7 +18,7 @@
     <link rel="canonical" href="https://ramblefix.app/" />
     <link rel="icon" type="image/png" href="./app-icon.png" />
     <link rel="apple-touch-icon" href="./app-icon.png" />
-    <link rel="stylesheet" href="./styles.css?v=20260823h" />
+    <link rel="stylesheet" href="./styles.css?v=20260823i" />
   </head>
   <body>
     <header class="site-nav">
@@ -34,7 +34,7 @@
       </nav>
       <div class="nav-actions">
         <a class="nav-action nav-source" href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="site cta clicked" data-analytics-target="nav_source">View source</a>
-        <a class="nav-action nav-download-lite" href="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" aria-label="Download RambleFix English version" data-analytics-event="download requested" data-analytics-target="nav_lite">Download English</a>
+        <a class="nav-action nav-download-lite" href="https://ramblefix-dl.ramblefix.workers.dev/dl/lite" aria-label="Download RambleFix English version" data-analytics-event="download requested" data-analytics-target="nav_lite">Download English</a>
       </div>
     </header>
 
@@ -60,9 +60,10 @@
             Choose Hindi + English when your thoughts mix languages.
           </p>
           <div class="actions">
-            <a class="button primary" href="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-Lite-0.1.0.dmg" data-analytics-event="download requested" data-analytics-target="hero_lite">Download — English</a>
-            <a class="button secondary" href="https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-HI-0.1.0.dmg" data-analytics-event="download requested" data-analytics-target="hero_hi">Download — English + Hindi</a>
+            <a class="button primary" href="https://ramblefix-dl.ramblefix.workers.dev/dl/lite" data-analytics-event="download requested" data-analytics-target="hero_lite">Download — English</a>
+            <a class="button secondary" href="https://ramblefix-dl.ramblefix.workers.dev/dl/hi" data-analytics-event="download requested" data-analytics-target="hero_hi">Download — English + Hindi</a>
           </div>
+          <span id="dl-count" hidden></span>
           <p class="download-note">
             Apple Silicon Mac (M1+), macOS 13+. English is smaller (~2 GB);
             English + Hindi is ~3.7 GB. <a href="https://github.com/sohamsinha2018/ramblefix" data-analytics-event="site cta clicked" data-analytics-target="hero_source">View source</a>.
@@ -363,6 +364,18 @@
     </footer>
 
     <script src="./analytics.js?v=20260819a" defer></script>
+    <script>
+      fetch("https://ramblefix-dl.ramblefix.workers.dev/count")
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+          if (data.visible) {
+            var el = document.getElementById("dl-count");
+            el.textContent = data.downloads.toLocaleString() + " downloads";
+            el.hidden = false;
+          }
+        })
+        .catch(function () {});
+    </script>
     <script>
       (function () {
         var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
