@@ -1,6 +1,6 @@
 streamlit>=1.36
 mlx-whisper>=0.4.2
-sounddevice>=0.4.7
+sounddevice>=0.5.5
 soundfile>=0.12.1
 numpy>=1.26
 requests>=2.31
