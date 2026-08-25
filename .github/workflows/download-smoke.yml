@@ -1,0 +1,33 @@
+name: download-smoke
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+  push:
+    branches: [main]
+    paths:
+      - "download-counter/**"
+      - "site/**"
+      - ".github/workflows/download-smoke.yml"
+      - ".github/workflows/pages.yml"
+  workflow_run:
+    workflows: ["Deploy site"]
+    types: [completed]
+
+concurrency:
+  group: download-smoke
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify production download routes
+        run: node download-counter/scripts/smoke-downloads.mjs

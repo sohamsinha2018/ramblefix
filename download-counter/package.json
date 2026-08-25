@@ -1,0 +1,11 @@
+{
+  "name": "ramblefix-download-counter",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "smoke:downloads": "node scripts/smoke-downloads.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.125.0"
+  }
+}

@@ -1,0 +1,6 @@
+name = "ramblefix-dl"
+main = "worker.js"
+compatibility_date = "2026-08-01"
+# after `wrangler kv namespace create COUNTS`, paste the printed id below:
+kv_namespaces = [{ binding = "COUNTS", id = "e83369eec46743d89d403d51041c2fa0" }]
+r2_buckets = [{ binding = "DOWNLOADS", bucket_name = "ramblefix-downloads" }]
