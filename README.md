@@ -48,7 +48,7 @@ Public installs should use the signed and notarized DMG linked from `https://ram
 - [Download RambleFix HI — English + Hindi](https://pub-98d9f6faa545400b9f2dd67be1585b33.r2.dev/RambleFix-HI-0.1.0.dmg)
 - [View the v0.1.0 release notes](https://github.com/sohamsinha2018/ramblefix/releases/latest)
 
-Requirements: Apple Silicon Mac (M1+), macOS 13+.
+Requirements: modern Mac running macOS 13+. Current v0 DMGs support Apple silicon Macs (M1 or newer); Intel Macs are not supported yet.
 
 Local developer install:
 

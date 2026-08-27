@@ -62,7 +62,9 @@ for text in \
   "View source" \
   "View source code" \
   "Fork it, build on top, or pick a language issue to help with the next route." \
-  "Apple Silicon Mac (M1+), macOS 13+" \
+  "Modern Mac, macOS 13+" \
+  "Install details" \
+  "Current V0 builds support Apple silicon Macs: M1 or newer. Intel Macs are not supported yet." \
   "DMG install flow" \
   "2.6× faster" \
   "3-4× speed" \

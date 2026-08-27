@@ -30,7 +30,7 @@ RAMBLEFIX_DISCUSSIONS_URL="https://github.com/<owner>/<repo>/discussions" \
 script/configure_site_links.sh
 ```
 
-Do not link the bare `https://github.com/sohamsinha2018/ramblefix/releases` page from the public site. Download CTAs should point to stapled `.dmg` assets. Current public copy should say `Apple Silicon Mac (M1+), macOS 13+`; the underlying release requirement is Apple silicon/arm64, with no Intel build tested or published yet.
+Do not link the bare `https://github.com/sohamsinha2018/ramblefix/releases` page from the public site. Download CTAs should point to stapled `.dmg` assets. Current first-fold public copy should say `Modern Mac, macOS 13+`; the exact install disclosure should say the V0 builds support Apple silicon Macs (M1 or newer), with no Intel build tested or published yet.
 
 GitHub release notes should still exist for public credibility, but the v0.1.0 DMGs are larger than GitHub's per-asset limit. Keep the actual public install links on R2 unless the artifacts are reduced below 2 GiB or replaced with a smaller bootstrap installer.
 

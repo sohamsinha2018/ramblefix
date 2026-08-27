@@ -316,6 +316,25 @@ h3 {
   font-weight: 760;
 }
 
+.install-detail {
+  max-width: 650px;
+  margin-top: 4px;
+  color: #7a8491;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.install-detail summary {
+  display: inline-flex;
+  cursor: pointer;
+  color: #176f7f;
+  font-weight: 760;
+}
+
+.install-detail p {
+  margin: 5px 0 0;
+}
+
 #dl-count {
   display: inline-flex;
   align-items: center;
