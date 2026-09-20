@@ -8,9 +8,7 @@
       name="description"
       content="Security review notes for RambleFix: local audio, standard permissions, open-source code, and signed release requirements."
     />
-    <link rel="icon" type="image/png" href="./app-icon.png" />
-    <link rel="apple-touch-icon" href="./app-icon.png" />
-    <link rel="stylesheet" href="./styles.css?v=20260823e" />
+    <link rel="stylesheet" href="./styles.css?v=20260718e" />
   </head>
   <body>
     <header class="site-nav">
@@ -21,13 +19,10 @@
       <nav aria-label="Main navigation">
         <a href="./#how">How it works</a>
         <a href="./#privacy">Privacy</a>
-        <a href="./#proof">Proof</a>
+        <a href="./#proof">Benchmarks</a>
         <a href="./#feedback">Feedback</a>
       </nav>
-      <div class="nav-actions">
-        <a class="nav-action nav-source" href="https://github.com/sohamsinha2018/ramblefix">View source</a>
-        <a class="nav-action" href="https://ramblefix-dl.ramblefix.workers.dev/dl/lite" aria-label="Download RambleFix English version">Download</a>
-      </div>
+      <a class="nav-download" href="https://github.com/sohamsinha2018/ramblefix">View source</a>
     </header>
 
     <main class="method-page">
@@ -35,8 +30,8 @@
         <p class="eyebrow">Security review notes</p>
         <h1>Built to be easy to review before work use.</h1>
         <p class="lede">
-          Your voice and transcribed text never leave your Mac. Optional anonymous usage stats (counts & timings only)
-          are on to help improve the app — turn them off anytime.
+          RambleFix is designed as a local dictation app: voice capture, transcription, logs, and light structure stay
+          on the Mac unless the user explicitly exports diagnostics.
         </p>
 
         <div class="method-grid">
@@ -45,20 +40,28 @@
             <p>Microphone for voice. Accessibility/Input Monitoring for hotkey and paste. No Screen Recording in V0.</p>
           </article>
           <article>
-            <h3>Network model</h3>
-            <p>No cloud transcription in the shipped product path. Local servers bind to loopback only.</p>
+            <h3>On-device only</h3>
+            <p>All transcription runs locally on the Mac. Local helper servers bind to loopback (127.0.0.1) only. There is no cloud transcription, no account, and no login.</p>
           </article>
           <article>
-            <h3>Diagnostics</h3>
-            <p>Raw audio and transcripts stay local unless the user explicitly exports them for support.</p>
+            <h3>Your voice &amp; text never leave</h3>
+            <p>Audio and everything you dictate stay on the Mac and are never uploaded. Audio is deleted right after transcription; a clip from a failed run is held locally up to 48h so you can recover it, then auto-deleted.</p>
+          </article>
+          <article>
+            <h3>No model training on your data</h3>
+            <p>Your audio and transcripts are never used to train or improve any model. The speech models are fixed and bundled in the app — nothing you say is sent anywhere for training.</p>
+          </article>
+          <article>
+            <h3>Optional anonymous usage stats</h3>
+            <p>Off with one click, and disable-able entirely for a managed pilot. When on, it sends counts and timings only — app version, which engine ran, how long it took, success/no-speech — <strong>never any audio or text</strong>.</p>
+          </article>
+          <article>
+            <h3>Out of scope</h3>
+            <p>No meeting recording, no file uploads, no SaaS connectors, no browser extension, no shared or team accounts, no autonomous actions. Manual dictation of the user's own voice, reviewed by the user before use.</p>
           </article>
           <article>
             <h3>Release integrity</h3>
             <p>Public builds must be Developer ID signed, notarized, stapled, and published with SHA-256 checksums.</p>
-          </article>
-          <article>
-            <h3>Website analytics</h3>
-            <p>The marketing site records anonymous page and CTA events only. No cookies, person profiles, autocapture, or session replay.</p>
           </article>
         </div>
 
